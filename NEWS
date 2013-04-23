@@ -1,0 +1,24 @@
+    **************************************************
+    *                                                *
+    *           0.9 SERIES NEWS                      *
+    *                                                *
+    **************************************************
+
+
+
+                CHANGES IN VGAM VERSION 0.9-1
+
+NEW FEATURES
+
+    o   Several large data sets from the VGAM package
+        have been put here (making the VGAM package a lot smaller).
+        Probably the version number of VGAMdata will run parallel
+        to the VGAM package.
+    o   New data set: students.tw, bb.de.
+
+
+BUG FIXES and CHANGES
+
+    o   None yet!
+
+
