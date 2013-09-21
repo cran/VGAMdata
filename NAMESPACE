@@ -1,10 +1,18 @@
-# Last modified: 20130306, 20130420,
+# These functions are
+# Copyright (C) 1998-2013 T.W. Yee, University of Auckland.
+# All rights reserved.
 
 
-# useDynLib(VGAM)
 
 
 
-# export(lambertW)
+
+
+
+export(DeLury,
+       wffc.P1, wffc.P1star, wffc.P2, wffc.P2star, wffc.P3, wffc.P3star
+)
+
+
 
 

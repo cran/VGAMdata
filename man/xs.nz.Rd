@@ -9,6 +9,7 @@
   A cross-sectional data set of a workforce company, plus
   another health survey, in New Zealand during the 1990s,
 
+
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
 \usage{data(xs.nz)}
@@ -396,9 +397,12 @@ conceivable that some participants had poor reading skills!
 
 }
 \section{Warning }{
-  More variables may be added in the future and these
-  may be placed in any column position. Therefore
-  references such as \code{xs.nz[, 12]} are dangerous.
+  More variables may be added in the future and these may
+  be placed in any column position. Therefore references
+  such as \code{xs.nz[, 12]} are dangerous.
+  Also, variable names may change in the future as well as
+  their format or internal structure,
+  e.g., \code{factor} versus \code{numeric}.
 
 
 }
