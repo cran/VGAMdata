@@ -413,10 +413,10 @@ data(xs.nz)
 summary(xs.nz)
 
 # Handling of factors requires care
-is.factor(xs.nz$babies) # TRUE
-summary(xs.nz$babies) # Note the "-"s
+is.factor(xs.nz$babies)  # TRUE
+summary(xs.nz$babies)  # Note the "-"s
 charbabies <- as.character(xs.nz$babies)
-summary(as.numeric(charbabies)) # "-"s converted to NAs + warning
-table(as.numeric(charbabies)) # Ditto
+summary(as.numeric(charbabies))  # "-"s converted to NAs + warning
+table(as.numeric(charbabies))  # Ditto
 }
 \keyword{datasets}

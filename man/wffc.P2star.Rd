@@ -14,10 +14,12 @@
 }
 \usage{
 wffc.P1(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
-wffc.P2(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
+wffc.P2(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
+        c.quad = 100)
 wffc.P3(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 wffc.P1star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
-wffc.P2star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
+wffc.P2star(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
+            c.quad = 10000)
 wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -27,6 +29,18 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   \item{min.eligible}{ The 2008 WFFC regulations stipulated that the
   smallest eligible fish was 0.180 m, which is 180 mm. }
   \item{ppm}{ Points per meter of length of the fish. }
+
+  \item{c.quad}{
+  Constants for the quadratic terms.
+  Choosing the (approximate) values 110 and 12700 for
+  \code{wffc.P2()} and \code{wffc.P2star()} respectively
+  means that a fish twice the minimum legal size will award 50 percent
+  more points compared to \code{wffc.P1()} and \code{wffc.P1star()}. 
+  See below for examples.
+
+
+
+  }
 
 }
 \details{
@@ -50,6 +64,7 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   it adds \code{ppm} to each multiple of \code{min.eligible} of length.
   One adds one lot of \code{c1} to each eligible fish.
   \code{wffc.P3star()} is a `continuous' version of \code{wffc.P3()}.
+
 
 }
 \value{
@@ -79,6 +94,7 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   as well as possibly
   \code{wffc.P3} and \code{wffc.P3star}.
 
+
 }
 \seealso{ \code{\link[VGAMdata]{wffc}}. }
 \examples{
@@ -96,6 +112,10 @@ abline(h = (1:9) * wffc.P1star(0.18), lty = "dotted") }
 # Successive slopes:
 (wffc.P1star((2:8)*0.18) - wffc.P1star((1:7)*0.18)) / (0.18 * 2000)
 (wffc.P3star((2:8)*0.18) - wffc.P3star((1:7)*0.18)) / (0.18 * 2000)
+
+# About 50 percent more points:
+wffc.P2    (2 * 0.18, c.quad = 110  ) / wffc.P1    (2 * 0.18)
+wffc.P2star(2 * 0.18, c.quad = 12700) / wffc.P1star(2 * 0.18)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

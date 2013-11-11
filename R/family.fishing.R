@@ -71,14 +71,18 @@ wffc.P1star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 
 
-wffc.P2     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
+
+wffc.P2     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
+                        c.quad = 100)
   wffc.P1(length, c1 = c1, min.eligible = min.eligible, ppm = ppm) +
   ifelse(length >= min.eligible,
-           ceiling(100*(length-min.eligible))^2, 0)
+           ceiling(c.quad * (length - min.eligible))^2, 0)
 
-wffc.P2star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
+
+wffc.P2star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
+                        c.quad = 10000)
   wffc.P1star(length, c1 = c1, min.eligible = min.eligible, ppm = ppm) +
-  ifelse(length >= min.eligible, 10000 * (length-min.eligible)^2, 0)
+  ifelse(length >= min.eligible, c.quad * (length - min.eligible)^2, 0)
 
 
 
@@ -86,9 +90,9 @@ wffc.P2star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 wffc.P3     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
 
-  temp1 <- floor((ceiling(100*length)/100) / min.eligible) # zz not sure
+  temp1 <- floor((ceiling(100*length)/100) / min.eligible)  # zz not sure
   temp1 <- floor(length / min.eligible)
-  ans <- ifelse(temp1 >= 1, c1, length * 0) # Handles NAs
+  ans <- ifelse(temp1 >= 1, c1, length * 0)  # Handles NAs
   ans <- ans + ifelse(temp1 >= 1, ppm * (ceiling(100*length)/100), 0)
   maxtemp1 <- max(temp1, na.rm = TRUE)
   if (maxtemp1 > 1)
@@ -105,7 +109,7 @@ wffc.P3     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
 
 wffc.P3star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
   temp1 <- floor(length / min.eligible)
-  ans <- ifelse(temp1 >= 1, c1, length * 0) # Handles NAs
+  ans <- ifelse(temp1 >= 1, c1, length * 0)  # Handles NAs
   ans <- ans + ifelse(temp1 >= 1, length * ppm, 0)
   maxtemp1 <- max(temp1, na.rm = TRUE)
   if (maxtemp1 > 1)
@@ -116,8 +120,6 @@ wffc.P3star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
     }
   ans
 }
-
-
 
 
 
