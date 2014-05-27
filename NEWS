@@ -6,6 +6,22 @@
 
 
 
+                CHANGES IN VGAM VERSION 0.9-4
+
+NEW FEATURES
+
+    o   New data sets: belcap, crashf.au, profs.nz, trapO.
+    o   wffc.P4() and wffc.P4star() are new.
+
+
+BUG FIXES and CHANGES
+
+    o   wffc.P2() and wffc.P2star() were buggy,
+        wffc.P3() and wffc.P3star() are now more simple.
+
+
+
+
                 CHANGES IN VGAM VERSION 0.9-3
 
 NEW FEATURES

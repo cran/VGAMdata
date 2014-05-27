@@ -47,7 +47,8 @@
 }
 
 \seealso{
-\code{\link[VGAMdata]{DeLury}}.
+  \code{\link[VGAMdata]{DeLury}},
+  \code{\link[VGAM]{lakeO}}.
 
 }
 

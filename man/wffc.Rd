@@ -133,7 +133,9 @@ is rather poor and furthermore they were not recorded electronically.
   \code{\link[VGAMdata]{wffc.indiv}},
   \code{\link[VGAMdata]{wffc.teams}},
   \code{\link[VGAMdata]{wffc.nc}},
-  \code{\link[VGAMdata]{wffc.P1}}.
+  \code{\link[VGAMdata]{wffc.P1}},
+  \code{\link[VGAM]{lakeO}}.
+
 
 }
 \source{
@@ -160,9 +162,9 @@ is rather poor and furthermore they were not recorded electronically.
   \bold{101}, 116--126.
 
 
-  Yee, T. W. (2013)
-  On strategies and issues raised by an analysis of
-  the 2008 World Fly Fishing Championships data.
+  Yee, T. W. (2014)
+  Scoring rules, rest periods, and the role of chance:
+  analysis of the 2008 World Fly Fishing Championships.
   \emph{In preparation}.
   
 

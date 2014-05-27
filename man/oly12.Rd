@@ -13,19 +13,27 @@
 \format{
   A data frame with 10384 observations on the following 14 variables.
   \describe{
-    \item{\code{Name}}{The individual competitor's name.}
-    \item{\code{Country}}{Country.}
-    \item{\code{Age}}{a numeric vector, age in years. }
-    \item{\code{Height}}{a numeric vector, height in m. }
-    \item{\code{Weight}}{a numeric vector, weight in kg. }
-    \item{\code{Sex}}{a factor with levels \code{F} and \code{M}}
-    \item{\code{DOB}}{a Date, date of birth. }
+    \item{\code{Name}}{The individual competitor's name. }
+    \item{\code{Country}}{Country. }
+    \item{\code{Age}}{A numeric vector, age in years. }
+    \item{\code{Height}}{A numeric vector, height in m. }
+    \item{\code{Weight}}{A numeric vector, weight in kg. }
+    \item{\code{Sex}}{A factor with levels \code{F} and \code{M}. }
+    \item{\code{DOB}}{A Date, date of birth. }
     \item{\code{PlaceOB}}{Place of birth. }
-    \item{\code{Gold, Silver, Bronze}}{numeric vectors, number of such
-      medals won. }
-    \item{\code{Total}}{a numeric vector, total number of medals. }
-    \item{\code{Sport}}{a factor with levels \code{Archery},
-    \code{Athletics}, \code{Athletics, Triathlon}, \code{Badminton}, etc.
+
+    \item{\code{Gold}}{Numeric vector,
+          number of such medals won. }
+    \item{\code{Silver}}{ Similar to \code{Gold}. }
+    \item{\code{Bronze}}{ Similar to \code{Gold}. }
+
+    \item{\code{Total}}{A numeric vector, total number of medals. }
+    \item{\code{Sport}}{A factor with levels
+    \code{Archery},
+    \code{Athletics},
+    \code{Athletics},
+    \code{Triathlon},
+    \code{Badminton}, etc.
     }
 
     \item{\code{Event}}{The sporting event. }

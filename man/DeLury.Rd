@@ -104,8 +104,15 @@ The other assumptions are as follows.
 
   }
   \item{CPUE}{Catch Per Unit Effort \eqn{=C(t)}. }
-  \item{K, E}{\eqn{K(t)}, \eqn{E(t)}. Only one is computed
-  depending on \code{type}. }
+
+  \item{K, E}{
+  \eqn{K(t)}{K(t)} and \eqn{E(t)}{E(t)}.
+  Only one is computed depending on \code{type}.
+
+
+  }
+
+
   \item{lmfit}{
   the \code{\link[stats:lm]{lm}} object from the
   fit of \code{log(CPUE)} on \code{K} (when \code{type = "Leslie"}).
@@ -154,7 +161,11 @@ strictly catch-and-release.
 
 
 }
-\seealso{ \code{\link{wffc.nc}}. }
+\seealso{
+  \code{\link{wffc.nc}}.
+
+
+}
 \examples{
 pounds <- c(  147, 2796, 6888, 7723, 5330, 8839, 6324, 3569, 8120, 8084,
             8252, 8411, 6757, 1152, 1500, 11945, 6995, 5851, 3221, 6345,

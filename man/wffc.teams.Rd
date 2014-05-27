@@ -23,7 +23,8 @@
 }
 \details{
   This data frame gives the team results of the competition.
-  See also \code{\link[VGAMdata]{wffc}} and \code{\link[VGAMdata]{wffc.indiv}} for more
+  See also \code{\link[VGAMdata]{wffc}}
+  and \code{\link[VGAMdata]{wffc.indiv}} for more
   details and links.
 
 
