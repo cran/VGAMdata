@@ -22,6 +22,40 @@
   A data frame with 22 observations on the following 7 variables.
   \describe{
 
+  \item{\code{pubtotal}}{a numeric vector,
+   the total number of publications.
+
+
+  }
+  \item{\code{cites}}{a numeric vector, the number of citations.
+
+
+  }
+
+  \item{\code{initials}}{character,
+   first and middle and surname initials.
+
+  }
+  \item{\code{Surname}}{character, the surname.
+
+  }
+
+
+  \item{\code{firstyear}}{a numeric vector,
+  the earliest indexed publication.
+
+
+  }
+  \item{\code{ID}}{a numeric vector, the unique MR Author ID for each
+      professor.
+
+  }
+  \item{\code{ARPtotal}}{a numeric vector, the total number of 
+  author/related publications.
+
+  }
+
+
 
   \item{\code{institution}}{character,
    with values \code{"MU"}, \code{"UA"}, 
@@ -38,40 +72,6 @@
 
   }
 
-  \item{\code{initials}}{character,
-   first and middle and surname initials.
-
-  }
-
-  \item{\code{firstyear}}{a numeric vector,
-  the earliest indexed publication.
-
-
-  }
-
-  \item{\code{Surname}}{character, the surname.
-
-  }
-
-
-  \item{\code{pubtotal}}{a numeric vector,
-   the total number of publications.
-
-
-  }
-  \item{\code{ARPtotal}}{a numeric vector, the total number of 
-  author/related publications.
-
-  }
-  \item{\code{cites}}{a numeric vector, the number of citations.
-
-
-  }
-
-  \item{\code{ID}}{a numeric vector, the unique MR Author ID for each
-      professor.
-
-  }
 
   }
 }

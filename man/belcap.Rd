@@ -36,8 +36,8 @@
   data is collected from children in Belo Horizonte (Brazil) aged seven years at 
   the start of the study. In in order to determine which method(s) were best for 
   preventing tooth decay, six treatments were randomized to six separate schools.
-  The measure used is the decayed, missing and filled teeth (DMFT) index - a well
-  known and important measure of a persons dental health. Only the eight deciduous
+  The measure used is the decayed, missing and filled teeth (DMFT) index---a well
+  known and important measure of a person's dental health. Only the eight deciduous
   molars are considered, so the lowest value is 0, and the highest is 8. 
  
 %%  ~~ If necessary, more details than the __description__ above ~~

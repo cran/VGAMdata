@@ -6,6 +6,23 @@
 
 
 
+                CHANGES IN VGAM VERSION 0.9-5
+
+NEW FEATURES
+
+    o   New data sets: vtinpat.
+
+
+BUG FIXES and CHANGES
+
+    o Many extra error checks and variable name changes
+      have been made to xs.nz. Many inconsistencies have
+      been replaced by NAs.
+      Some variable have been renamed (slightly).
+
+
+
+
                 CHANGES IN VGAM VERSION 0.9-4
 
 NEW FEATURES

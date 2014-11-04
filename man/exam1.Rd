@@ -16,8 +16,8 @@
   A data frame with 35 observations on the following 18 variables.
   \describe{
 %   \item{name}{Name of the student }
-    \item{q1, q2, q3, q4, q5, q6}{binary response}
-    \item{q7, q8, q9, q10, q11, q12}{binary response}
+    \item{q01, q02, q03, q04, q05, q06}{binary response}
+    \item{q07, q08, q09, q10, q11, q12}{binary response}
     \item{q13, q14, q15, q16, q17, q18}{binary response}
   }
 }

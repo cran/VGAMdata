@@ -29,7 +29,7 @@
       and the rows are sorted by their new registration number.
 
     }
-    \item{\code{Study1}}{a logical vector, Study 1 (workforce) or Study 2?
+    \item{\code{study1}}{a logical vector, Study 1 (workforce) or Study 2?
 
     }
     \item{\code{age}}{a numeric vector, age in years.
@@ -57,30 +57,33 @@
     \item{\code{weight}}{a numeric vector, in kg.
 
     }
-    \item{\code{famheart}}{a factor with levels \code{0}, \code{1},
+    \item{\code{fh.heartdisease}}{a factor with levels \code{0}, \code{1},
       \code{D}.
       Has a family history of heart disease (heart attack, angina, or
       had a heart bypass operation) within the immediate
       family (brother, sister, father or mother, blood relatives only)?
+      Note that \code{D} means: do not know.
 
       
     }
-    \item{\code{famage}}{a factor, following from \code{famheart},
+    \item{\code{fh.age}}{a factor, following from \code{fh.heartdisease},
       if yes, how old was the family member when it happened (if
       more than one family member, give the age of the
       youngest person)?
 
       
     }
-    \item{\code{famcan}}{a factor with levels \code{0}, \code{1},
+    \item{\code{fh.cancer}}{a factor with levels \code{0}, \code{1},
       \code{D}.
       Has a family history of cancer within the immediate
       family (blood relatives only)?
+      Note that \code{D} means: do not know.
 
 
     }
-    \item{\code{heart}}{a factor, have you ever been told by
+    \item{\code{heartattack}}{a numeric vector, have you ever been told by
       a doctor that you have had a heart attack ("coronary")?
+
 
     }
     \item{\code{stroke}}{a numeric vector, have you ever been told by
@@ -92,13 +95,15 @@
 
 
     }
-    \item{\code{hyper}}{a numeric vector, have you ever been told by
+    \item{\code{hypertension}}{a numeric vector, have you ever been told by
       a doctor that you have had high blood pressure (hypertension)?
 
     }
-    \item{\code{hichol}}{a numeric vector, have you ever been told by
-      a doctor that you have had high cholesterol?
+    \item{\code{highchol}}{a numeric vector, have you ever been
+      told by a doctor that you have had high cholesterol?
       
+% 20140709
+
 
     }
     \item{\code{asthma}}{a numeric vector, have you ever been told by
@@ -135,18 +140,25 @@
 
 
     }
-    \item{\code{smokehowmany}}{a numeric vector,
+    \item{\code{smokeyears}}{a numeric vector,
       if yes to \code{smokeever}, for how many years altogether
       have you smoked tailor-made or roll-you-own cigarettes?
+
+
+% smokehowmany
       
 
     }
-    \item{\code{alcmonth}}{a numeric vector,
+    \item{\code{drinkmonth}}{a numeric vector,
       do you drink alcohol once a month or more?
+
+
+% 20140709 was alcmonth
+
 
     }
     \item{\code{drinkfreqweek}}{a numeric vector,
-      if yes to \code{alcmonth}, about how often do you
+      if yes to \code{drinkmonth}, about how often do you
       drink alcohol (days per week)?
       Note: 0.25 is once a month,
       0.5 is once every two weeks,
@@ -154,6 +166,7 @@
       2.5 is 2-3 days a week,
       4.5 is 4-5 days a week,
       6.5 is 6-7 days a week.
+
 
       Further note:
       1 can, small bottle or handle of beer or home brew = 1 drink,
@@ -178,6 +191,7 @@
     \item{\code{drinkmaxday}}{a numeric vector,
       in the last three months, what is the largest number of
       drinks that you had on any one day?
+      Warning: some values are considered unrealistically excessive.
       
 
     }
@@ -196,17 +210,17 @@
 
       
     }
-    \item{\code{babies}}{a factor,
+    \item{\code{babies}}{numeric,
       how many babies have you given birth to?
 
 
     }
-    \item{\code{mood}}{a numeric vector,
+    \item{\code{moody}}{a numeric vector,
       does your mood often go up or down?
       
 
     }
-    \item{\code{miserab}}{a numeric vector,
+    \item{\code{miserable}}{a numeric vector,
       do you ever feel 'just miserable' for no reason?
 
 
@@ -235,7 +249,7 @@
       would you call yourself tense or 'highly strung'?
 
     }
-    \item{\code{embarrass}}{a numeric vector,
+    \item{\code{embarrassed}}{a numeric vector,
       do you worry too long after an embarrassing
       experience?
 
@@ -244,12 +258,19 @@
       do you suffer from 'nerves'?
 
     }
-    \item{\code{friend}}{a numeric vector,
+    \item{\code{nofriend}}{a numeric vector,
       do you have a friend or family member that you
       can talk to about problems or worries that you may have?
+      The value 1 effectively means \code{"no"},
+      i.e., s/he has no friend or friends.
+
+
+% 20140709
+
+
 
     }
-    \item{\code{depress}}{a numeric vector,
+    \item{\code{depressed}}{a numeric vector,
       in your lifetime, have you ever had two weeks or more
       when nearly every day you felt sad or depressed?
 
@@ -270,20 +291,30 @@
       
       
     }
-    \item{\code{hourfeet}}{a numeric vector,
+    \item{\code{feethour}}{a numeric vector,
       on an average work day, how long would you spend on your
       feet, either standing or moving about?
+
+
+% 20140709
       
 
     }
-    \item{\code{ethnic}}{a factor with 4 levels,
+    \item{\code{ethnicity}}{a factor with 4 levels,
       what ethnic group do you belong to?
-      0 = European (NZ European or British or other European),
-      1 = Maori,
-      2 = Pacific Island Polynesian,
-      3 = Other (Chinese, Indian, Other).
+      \code{European} = European (NZ European or British or other European),
+      \code{Maori} = Maori,
+      \code{Polynesian} = Pacific Island Polynesian,
+      \code{Other} = Other (Chinese, Indian, Other).
 
-      
+
+% 20140709
+%     0 = European (NZ European or British or other European),
+%     1 = Maori,
+%     2 = Pacific Island Polynesian,
+%     3 = Other (Chinese, Indian, Other).
+
+
     }
     \item{\code{sleep}}{a numeric vector,
       how many hours do you usually sleep each night?
@@ -293,47 +324,73 @@
     \item{\code{snore}}{a factor with levels \code{0}, \code{1},
       \code{D}.
       Do you usually snore?
+      Note that \code{D} means: do not know.
       
 
     }
     \item{\code{cat}}{a numeric vector,
-      do you have a household pet? If yes, is it a cat?
+      do you have a household pet cat?
+
 
     }
     \item{\code{dog}}{a numeric vector,
-      do you have a household pet? If yes, is it a dog?
+      do you have a household pet dog?
 
 
     }
     \item{\code{hand}}{a factor with levels
-      \code{0} = right,
-      \code{1} = left,
-      \code{2} = either.
-      Are you right-handed, left-handed, or no preference for left
-      or right?
+      \code{right} = right,
+      \code{left} = left,
+      \code{both} = either.
+      Are you right-handed,
+      left-handed,
+      or no preference for left or right?
+
+
+%     \code{0} = right,
+%     \code{1} = left,
+%     \code{2} = either.
+
 
 
     }
-    \item{\code{nhouse}}{an ordered factor with 4 levels,
+    \item{\code{numhouse}}{an ordered factor with 4 levels:
+      \code{1} = 1,
+      \code{2} = 2,
+      \code{3} = 3,
+      \code{4+} = four or more.
       how many people (including yourself) usually live in your house?
-      1 = 1, 2 = 2, 3 = 3, 4 = four or more.
 
 
     }
     \item{\code{marital}}{a factor with 4 levels:
-         \code{1} = single,
-         \code{2} = married or living with a partner,
-         \code{3} = separated or divorced,
-         \code{4} = widowed.
+         \code{single} = single,
+         \code{married} = married or living with a partner,
+         \code{separated} = separated or divorced,
+         \code{widowed} = widowed.
+
+
+
+%        \code{1} = single,
+%        \code{2} = married or living with a partner,
+%        \code{3} = separated or divorced,
+%        \code{4} = widowed.
 
 
   }
-  \item{\code{educ}}{an ordered factor with 4 levels.
+  \item{\code{educ}}{an ordered factor with 4 levels:
+          \code{primary} = Primary school,
+          \code{secondary} = High school/secondary school,
+          \code{polytechnic} = Polytechnic or similar,
+          \code{university} = University.
     What was the highest level of education you received?
-          Primary school = \code{1},
-          High school/secondary school = \code{2},
-          Polytechnic or similar = \code{3},
-          University =  \code{4}.
+
+
+%         Primary school = \code{1},
+%         High school/secondary school = \code{2},
+%         Polytechnic or similar = \code{3},
+%         University =  \code{4}.
+
 
   }
   }
@@ -365,6 +422,10 @@ conceivable that some participants had poor reading skills!
   Originally,
   Clinical Trials Research Unit, University of Auckland, New Zealand,
   \url{http://www.ctru.auckland.ac.nz}.
+  Originally much of the error checking and formatting was
+  performed by Stephen Vander Hoorn.
+  Lately (2014), more changes and error checks were made to the
+  data by James T. Gray.
 
 
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
@@ -408,15 +469,33 @@ conceivable that some participants had poor reading skills!
 }
 
 
+\note{
+  More error checking are needed for the
+  pregnancy
+  and
+  smoking variables.
+
+
+
+}
+
+
 \examples{
 data(xs.nz)
 summary(xs.nz)
-
-# Handling of factors requires care
-is.factor(xs.nz$babies)  # TRUE
-summary(xs.nz$babies)  # Note the "-"s
-charbabies <- as.character(xs.nz$babies)
-summary(as.numeric(charbabies))  # "-"s converted to NAs + warning
-table(as.numeric(charbabies))  # Ditto
 }
 \keyword{datasets}
+
+
+%     Warning: some values are considered unrealistically excessive.
+
+
+%# Handling of factors requires care
+%is.factor(xs.nz$babies)  # TRUE
+%summary(xs.nz$babies)  # Note the "-"s
+%charbabies <- as.character(xs.nz$babies)
+%summary(as.numeric(charbabies))  # "-"s converted to NAs + warning
+%table(as.numeric(charbabies))  # Ditto
+
+
+

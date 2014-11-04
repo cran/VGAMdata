@@ -56,7 +56,7 @@ Wales (WAL).
 
 }
 \details{
-  Details may be obtained at Yee (2010) and Yee (2013).
+  Details may be obtained at Yee (2010) and Yee (2014).
   Here is a brief summary.
   The three competition days were 28--30 March.
   Each session was fixed at 9.00am--12.00pm and 2.30--5.30pm daily.
@@ -163,7 +163,7 @@ is rather poor and furthermore they were not recorded electronically.
 
 
   Yee, T. W. (2014)
-  Scoring rules, rest periods, and the role of chance:
+  Scoring rules, and the role of chance:
   analysis of the 2008 World Fly Fishing Championships.
   \emph{In preparation}.
   
