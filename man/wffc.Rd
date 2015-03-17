@@ -165,8 +165,9 @@ is rather poor and furthermore they were not recorded electronically.
   Yee, T. W. (2014)
   Scoring rules, and the role of chance:
   analysis of the 2008 World Fly Fishing Championships.
-  \emph{In preparation}.
-  
+  \emph{Journal of Quantitative Analysis in Sports}.
+  \bold{10}, 397--409.
+
 
 }
 \examples{

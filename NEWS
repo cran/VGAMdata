@@ -6,6 +6,20 @@
 
 
 
+                CHANGES IN VGAM VERSION 0.9-7
+
+NEW FEATURES
+
+    o   New data sets: tube10.
+    o   Tested okay on R 3.1.3.
+
+
+BUG FIXES and CHANGES
+
+    o Title fixed in the DESCRIPTION file.
+
+
+
                 CHANGES IN VGAM VERSION 0.9-5
 
 NEW FEATURES

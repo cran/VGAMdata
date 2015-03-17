@@ -50,6 +50,11 @@
       professor.
 
   }
+  \item{\code{pub1stAuthor}}{a numeric vector, the total number of 
+  publications which are first authored by the person.
+
+
+  }
   \item{\code{ARPtotal}}{a numeric vector, the total number of 
   author/related publications.
 
@@ -84,7 +89,8 @@
   In the future the following names may be added:
   C. F. Ansley,
   P. C. B. Phillips,
-  B. S. Weir.
+  B. S. Weir,
+  C. S. Withers.
 
 
 
@@ -112,6 +118,15 @@
 \examples{
 profs.nz
 profs.nz[order(with(profs.nz, pubtotal), decreasing = TRUE), ]
+\dontrun{
+plot(pub1stAuthor / pubtotal ~ pubtotal,
+     main = "Professors of Statistics in NZ",
+     xlab = "Number of publications in MathSciNet",
+     ylab = "Proportion of first-authored papers",
+     data = profs.nz, col = "blue", las = 1, type = "n")
+with(profs.nz, text(pubtotal, y = pub1stAuthor / pubtotal,
+     labels = initials, col = "blue", las = 1))
+}
 }
 \keyword{datasets}
 

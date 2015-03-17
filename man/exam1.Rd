@@ -49,7 +49,8 @@ exam1.1 <- exam1.1[rowMeans(exam1.1) < 1, ]
 Y.matrix <- rdata <- exam1.1
 
 \dontrun{ # The following needs: library(VGAM)
-rfit <- rcim(Y.matrix, family = binomialff(mv = TRUE), trace = TRUE)
+rfit <- rcim(Y.matrix, family = binomialff(multiple.responses = TRUE),
+             trace = TRUE)
 
 coef(rfit)  # Row and column effects
 constraints(rfit, matrix = TRUE)  # Constraint matrices side-by-side
