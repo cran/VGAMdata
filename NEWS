@@ -6,6 +6,24 @@
 
 
 
+                CHANGES IN VGAM VERSION 1.0-0
+
+NEW FEATURES
+
+    o   Official version that goes with the just-released book
+        "Vector Generalized Linear and Additive Models:
+        With an Implementation in R" by T. W. Yee (2015),
+        Springer: New York, USA.
+    o   New data sets: bd.us.
+    o   Tested okay on R 3.2.2.
+
+
+BUG FIXES and CHANGES
+
+    o None yet!
+
+
+
                 CHANGES IN VGAM VERSION 0.9-7
 
 NEW FEATURES

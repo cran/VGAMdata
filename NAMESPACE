@@ -7,12 +7,18 @@
 
 
 
+importFrom("stats", "coef", "lm")
+
+
+
+
 
 
 export(DeLury,
        wffc.P1, wffc.P1star, wffc.P2, wffc.P2star, wffc.P3, wffc.P3star,
        wffc.P4, wffc.P4star
 )
+
 
 
 

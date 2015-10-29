@@ -72,7 +72,6 @@ wffc.P1star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 
 
-
 wffc.P2star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
                         c.quad = 12700)
   wffc.P1star(length, c1 = c1, min.eligible = min.eligible, ppm = ppm) +
@@ -96,50 +95,12 @@ wffc.P2     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000,
 
 
 
-if (FALSE)
-wffc.P3     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
-
-
-  temp1 <- floor((ceiling(100*length)/100) / min.eligible)  # zz not sure
-  temp1 <- floor(length / min.eligible)
-  ans <- ifelse(temp1 >= 1, c1, length * 0)  # Handles NAs
-  ans <- ans + ifelse(temp1 >= 1, ppm * (ceiling(100*length)/100), 0)
-  maxtemp1 <- max(temp1, na.rm = TRUE)
-  if (maxtemp1 > 1)
-    for (ii in 2:maxtemp1) {
-      ans <- ans +
-            ifelse(ii <  temp1,         min.eligible  * (ii-1) * ppm, 0) +
-            ifelse(ii == temp1, (ceiling(100*length)/100 -
-                   ii*min.eligible) * (ii-1) * ppm, 0)
-    }
-  ans
-}
 
 
 
 
-if (FALSE)
-wffc.P3star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
-
-
-  temp1 <- floor(length / min.eligible)
-  ans <- ifelse(temp1 >= 1, c1, length * 0)  # Handles NAs
-  ans <- ans + ifelse(temp1 >= 1, length * ppm, 0)
-  maxtemp1 <- max(temp1, na.rm = TRUE)
-  if (maxtemp1 > 1)
-    for (ii in 2:maxtemp1) {
-      ans <- ans + ifelse(ii <  temp1,  min.eligible  * (ii-1) * ppm, 0) +
-                   ifelse(ii == temp1, (length - ii*min.eligible) *
-                                       (ii-1) * ppm, 0)
-    }
-  ans
-}
-
-
-
-
-
-wffc.P3star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
+wffc.P3star <-
+  function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
   kay <- floor(length / min.eligible)
   ans <- ifelse(kay >= 1, c1, length * 0)  # Handles NAs
 
@@ -154,7 +115,7 @@ wffc.P3star <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
 
 
 
-wffc.P3     <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
+wffc.P3 <- function(length, c1 = 100, min.eligible = 0.18, ppm = 2000) {
 
 
   wffc.P3star(ifelse(length > min.eligible,
@@ -179,9 +140,9 @@ wffc.P4star <-
   ans <- ifelse(length >= min.eligible, c1, length * 0)  # Handles NAs
 
   ans <- ans +
-         ifelse(km1 >= 1, ppm * min.eligible, 0) +
-         ifelse(km1 >= 1, ppm * (min.eligible/2) * km1*(km1-1)/2, 0) +
-         ifelse(km1 >= 1, ppm * (length - (km1+1) * min.eligible/2) * km1, 0)
+       ifelse(km1 >= 1, ppm * min.eligible, 0) +
+       ifelse(km1 >= 1, ppm * (min.eligible/2) * km1*(km1-1)/2, 0) +
+       ifelse(km1 >= 1, ppm * (length - (km1+1) * min.eligible/2) * km1, 0)
 }
 
 
