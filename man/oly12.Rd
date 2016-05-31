@@ -62,9 +62,10 @@
 \source{
 
   Downloaded from
-  \url{http://www.guardian.co.uk/sport/series/london-2012-olympics-data}
-  in 2013-03.
-  
+  \code{http://www.guardian.co.uk/sport/series/london-2012-olympics-data}
+  in 2013-03; more recently it has changed to 
+  \url{https://www.theguardian.com/sport/series/london-2012-olympics-data}.
+
 
 
   

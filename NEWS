@@ -1,8 +1,21 @@
     **************************************************
     *                                                *
-    *           0.9 SERIES NEWS                      *
+    *           1.0 SERIES NEWS                      *
     *                                                *
     **************************************************
+
+
+
+                CHANGES IN VGAM VERSION 1.0-1
+
+NEW FEATURES
+
+    o   New data sets: pirates1, pirates2, ecb06.it, ecb14.it.
+
+
+BUG FIXES and CHANGES
+
+    o   Tested okay on R 3.3.0.
 
 
 
@@ -21,6 +34,14 @@ NEW FEATURES
 BUG FIXES and CHANGES
 
     o None yet!
+
+
+
+    **************************************************
+    *                                                *
+    *           0.9 SERIES NEWS                      *
+    *                                                *
+    **************************************************
 
 
 
