@@ -58,7 +58,7 @@
   state and the populations of those states, from 1977 to 2010.
   The number of prisoners are taken from December 31st, while
   the populations are estimates taken from July 1st based on the
-  previous Census, except for pop.1980, which uses exact census 
+  previous Census, except for pop.1980, which uses exact census
   data from 1980/04/01.
 %%  ~~ If necessary, more details than the __description__ above ~~
 
@@ -78,8 +78,9 @@ Downloaded in September 2013 and formatted into R by J. T. Gray,
 
 The population data was compiled from:
 United States Census Bureau,
-\url{http://www.census.gov/popest/data}.
+\code{http://www.census.gov/popest/data}.
 Downloaded in September 2013 by J. T. Gray.
+This site may have become stale.
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
 
 

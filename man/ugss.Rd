@@ -9,7 +9,7 @@
 \description{
   About 800 students studying undergraduate statistics
   were asked many lifestyle questions.
-  
+
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
 }
 \usage{data(ugss)}
@@ -35,7 +35,7 @@
   Number of movies seen at a cinema during the last 3 months,
                          a numeric vector
   }
-    \item{\code{movies3m}}{Seen movies in last 3 months? 
+    \item{\code{movies3m}}{Seen movies in last 3 months?
                            a factor, (Yes or No)}
     \item{\code{sport}}{Favourite sport, a factor,
                         about 19 of them }

@@ -98,7 +98,7 @@ for small fish.
 
 
 Although species and gender data were supposed to have been
-collected at the time of capture the quality of these variables 
+collected at the time of capture the quality of these variables
 is rather poor and furthermore they were not recorded electronically.
 
 
@@ -140,7 +140,7 @@ is rather poor and furthermore they were not recorded electronically.
 }
 \source{
   This data frame was adapted from the WFFC's spreadsheet.
-  Special thanks goes to 
+  Special thanks goes to
   Paul Dewar,
   Jill Mandeno,
   Ilkka Pirinen,

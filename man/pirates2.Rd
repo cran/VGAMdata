@@ -35,7 +35,7 @@
   and this ship was one of two pirate ships under Captain Edward Low. 
   Their personal data (name, age, place of birth) and verdicts
   are recorded in Johnson (1955).
-  This data was was constructed from pp.295--296 of that book
+  This data was constructed from pp.295--296 of that book
   and includes those who were not found guilty (and therefore
   were not executed).
   The execution of the 25 men were performed on 19 July

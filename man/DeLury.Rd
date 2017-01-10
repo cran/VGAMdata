@@ -9,7 +9,7 @@
 }
 \usage{
 DeLury(catch, effort, type = c("DeLury","Leslie"), ricker = FALSE)
-       
+
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -39,7 +39,7 @@ DeLury(catch, effort, type = c("DeLury","Leslie"), ricker = FALSE)
   \eqn{C(t) = c(t)/e(t)}.
   Let \eqn{d(t)} represent the proportion of the population
   captured during the time interval \eqn{t}.
-  Then \eqn{d(t) = k(t) e(t)} so that \eqn{k(t)} is the 
+  Then \eqn{d(t) = k(t) e(t)} so that \eqn{k(t)} is the
   proportion of the population captured during interval \eqn{t} by one unit
   of effort. Then \eqn{k(t)} is called the \emph{catchability},
   and the \emph{intensity} of effort is \eqn{e(t)}.

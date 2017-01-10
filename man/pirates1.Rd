@@ -56,8 +56,8 @@ A total of 272 men were captured, and
 of these, 65 were
 black, and they were sold into slavery. The remainder were taken to Cape
 Coast Castle, apart from those who died on the voyage back.
-The trial was held in April, 1722.
-54 were condemned to death, of whom 52 were hanged and two reprieved.
+The trial was held in April, 1722, and
+54 were condemned to death, of whom 52 were hanged and two were reprieved.
 Of those executed, their personal data (name, age, habitation)
 were recorded.
 

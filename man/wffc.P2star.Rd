@@ -39,7 +39,7 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   The defaults
   mean that a fish twice the minimum legal size will award
   about 50 percent
-  more points compared to \code{wffc.P1()} and \code{wffc.P1star()}. 
+  more points compared to \code{wffc.P1()} and \code{wffc.P1star()}.
   See below for examples.
 
 
@@ -111,7 +111,7 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   Scoring rules, and the role of chance:
   analysis of the 2008 World Fly Fishing Championships.
   \emph{Journal of Quantitative Analysis in Sports}.
-  \bold{10}, 397--409. 
+  \bold{10}, 397--409.
 
 
 

@@ -21,7 +21,7 @@
   and \code{"-"} means not applicable.
   The pregnancy questions were administered to women only.
 
-  
+
   \describe{
     \item{\code{regnum}}{a numeric vector,
       a unique registration number.
@@ -64,14 +64,14 @@
       family (brother, sister, father or mother, blood relatives only)?
       Note that \code{D} means: do not know.
 
-      
+
     }
     \item{\code{fh.age}}{a factor, following from \code{fh.heartdisease},
       if yes, how old was the family member when it happened (if
       more than one family member, give the age of the
       youngest person)?
 
-      
+
     }
     \item{\code{fh.cancer}}{a factor with levels \code{0}, \code{1},
       \code{D}.
@@ -101,14 +101,14 @@
     }
     \item{\code{highchol}}{a numeric vector, have you ever been
       told by a doctor that you have had high cholesterol?
-      
+
 % 20140709
 
 
     }
     \item{\code{asthma}}{a numeric vector, have you ever been told by
       a doctor that you have had asthma?
-      
+
 
     }
     \item{\code{cancer}}{a numeric vector, have you ever been told by
@@ -127,7 +127,7 @@
     \item{\code{smokeever}}{a numeric vector, have you ever
       smoked tailor-made or roll-you-own cigarettes once a
       week or more?
-      
+
 
     }
     \item{\code{smokenow}}{a numeric vector,
@@ -146,7 +146,7 @@
 
 
 % smokehowmany
-      
+
 
     }
     \item{\code{drinkmonth}}{a numeric vector,
@@ -177,22 +177,22 @@
       1 bottle of wine = 6 drinks,
       1 double nip of spirits = 1 drink.
 
-      
+
     }
     \item{\code{drinkweek}}{a numeric vector,
       how many drinks per week, on average.
       This is the average daily amount of drinks multiplied
       by the frequency of drinking per week.
       See \code{drinkfreqweek} on what constitutes a 'drink'.
-      
-      
+
+
 
     }
     \item{\code{drinkmaxday}}{a numeric vector,
       in the last three months, what is the largest number of
       drinks that you had on any one day?
       Warning: some values are considered unrealistically excessive.
-      
+
 
     }
     \item{\code{pregnant}}{a factor,
@@ -208,7 +208,7 @@
     \item{\code{preglast}}{a factor, how old were you when your last
       baby was born (or you had a miscarriage after 5 months)?
 
-      
+
     }
     \item{\code{babies}}{numeric,
       how many babies have you given birth to?
@@ -217,7 +217,7 @@
     }
     \item{\code{moody}}{a numeric vector,
       does your mood often go up or down?
-      
+
 
     }
     \item{\code{miserable}}{a numeric vector,
@@ -280,7 +280,7 @@
       activity or exercise either at work or away from
       work that makes you breathe hard and sweat?
       Values here ought be be less than 168.
-      
+
 
     }
     \item{\code{exermod}}{a numeric vector,
@@ -288,8 +288,8 @@
       activity or exercise such as brisk walking, cycling or
       mowing the lawn?
       Values here ought be be less than 168.
-      
-      
+
+
     }
     \item{\code{feethour}}{a numeric vector,
       on an average work day, how long would you spend on your
@@ -297,7 +297,7 @@
 
 
 % 20140709
-      
+
 
     }
     \item{\code{ethnicity}}{a factor with 4 levels,
@@ -318,14 +318,14 @@
     }
     \item{\code{sleep}}{a numeric vector,
       how many hours do you usually sleep each night?
-      
+
 
     }
     \item{\code{snore}}{a factor with levels \code{0}, \code{1},
       \code{D}.
       Do you usually snore?
       Note that \code{D} means: do not know.
-      
+
 
     }
     \item{\code{cat}}{a numeric vector,
@@ -358,7 +358,7 @@
       \code{1} = 1,
       \code{2} = 2,
       \code{3} = 3,
-      \code{4+} = four or more.
+      \code{4+} = four or more;
       how many people (including yourself) usually live in your house?
 
 
@@ -454,7 +454,7 @@ conceivable that some participants had poor reading skills!
 \seealso{
   \code{\link[VGAM]{chest.nz}}.
 
-  
+
 
 }
 \section{Warning }{
