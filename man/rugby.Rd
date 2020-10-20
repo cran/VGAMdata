@@ -34,13 +34,21 @@ data(rugby.ties)
 }
 \source{
 The match statistics are compiled from
-\url{http://www.rugbydata.com/}
+\code{http://www.rugbydata.com/}
 on 2013-10-07 by J. T. Gray,
 \code{jamsgry@gmail.com}.
 
 
+
+
+
 The top ten teams are determined by the International Rugby Board
-world rankings, \url{http://www.irb.com}.
+world rankings, \url{https://www.world.rugby/}.
+
+% world rankings, \url{http://www.irb.com}.
+
+
+
 
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
 

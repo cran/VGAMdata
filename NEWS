@@ -6,6 +6,23 @@
 
 
 
+                CHANGES IN VGAM VERSION 1.0-4
+
+NEW FEATURES
+
+    o   New data sets: covid19.nz.
+    o   Functions moved from VGAM 1.1-4: oalog, oilog, otlog,
+        oapospois, oipospois, otpospois, oazeta, oizeta, otzeta,
+        oizipf, oiposbinomial(dpqr), [dpqr]posbinom, [dpqr]pospois,
+        [dpqr]posnegbin.
+
+
+BUG FIXES and CHANGES
+
+    o   Tested okay on R 4.0.1.
+
+
+
                 CHANGES IN VGAM VERSION 1.0-3
 
 NEW FEATURES

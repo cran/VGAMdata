@@ -60,8 +60,8 @@ Crime totals and rates, cross-classified by US state, during 2009.
 %%  ~~ If necessary, more details than the __description__ above ~~
 }
 \source{
-  \url{http://www.ucrdatatool.gov},
-  \url{http://www.ucrdatatool.gov/Search/Crime/State/RunCrimeOneYearofData.cfm}
+  \code{http://www.ucrdatatool.gov},
+  \code{http://www.ucrdatatool.gov/Search/Crime/State/RunCrimeOneYearofData.cfm}
 
 
 }

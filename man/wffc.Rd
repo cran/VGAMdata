@@ -156,13 +156,13 @@ is rather poor and furthermore they were not recorded electronically.
 %  is the official website.
 
 
-  Yee, T. W. (2010)
+  Yee, T. W. (2010).
   VGLMs and VGAMs: an overview for applications in fisheries research.
   \emph{Fisheries Research},
   \bold{101}, 116--126.
 
 
-  Yee, T. W. (2014)
+  Yee, T. W. (2014).
   Scoring rules, and the role of chance:
   analysis of the 2008 World Fly Fishing Championships.
   \emph{Journal of Quantitative Analysis in Sports}.

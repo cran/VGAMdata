@@ -421,7 +421,7 @@ conceivable that some participants had poor reading skills!
 
   Originally,
   Clinical Trials Research Unit, University of Auckland, New Zealand,
-  \url{http://www.ctru.auckland.ac.nz}.
+  \code{http://www.ctru.auckland.ac.nz}.
   Originally much of the error checking and formatting was
   performed by Stephen Vander Hoorn.
   Lately (2014), more changes and error checks were made to the
@@ -443,7 +443,7 @@ conceivable that some participants had poor reading skills!
 \references{
 
   MacMahon, S., Norton, R., Jackson, R., Mackie, M. J.,
-  Cheng, A., Vander Hoorn, S., Milne, A., McCulloch, A. (1995)
+  Cheng, A., Vander Hoorn, S., Milne, A., McCulloch, A. (1995).
   Fletcher Challenge-University of Auckland Heart &
   Health Study: design and baseline findings.
   \emph{New Zealand Medical Journal},

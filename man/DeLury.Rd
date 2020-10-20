@@ -125,13 +125,13 @@ The other assumptions are as follows.
 \references{
 
 
-DeLury, D. B. (1947)
+DeLury, D. B. (1947).
 On the estimation of biological populations.
 \emph{Biometrics},
 \bold{3}, 145--167.
 
 
-Ricker, W. E. (1975)
+Ricker, W. E. (1975).
 Computation and interpretation of biological
 statistics of fish populations.
 \emph{Bull. Fish. Res. Bd. Can.},

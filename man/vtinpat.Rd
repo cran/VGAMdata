@@ -46,8 +46,13 @@ Information on inpatients discharged from hospitals in Vermont, USA, 2012.
 
 \source{
   Vermont department of Health,
-  \url{http://healthvermont.gov/research/hospital-utilization/RECENT_PU_FILES.aspx}
+  \url{https://www.healthvermont.gov/stats/systems}
   formatted into R by J. T. Gray in mid-2014.
+
+
+% the URL \code{http://healthvermont.gov/research/hospital-utilization/RECENT_PU_FILES.aspx}
+
+
 
 
 }

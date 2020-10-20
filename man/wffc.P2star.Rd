@@ -107,7 +107,7 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 
 
-  Yee, T. W. (2014)
+  Yee, T. W. (2014).
   Scoring rules, and the role of chance:
   analysis of the 2008 World Fly Fishing Championships.
   \emph{Journal of Quantitative Analysis in Sports}.

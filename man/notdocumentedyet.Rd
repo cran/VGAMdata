@@ -3,6 +3,18 @@
 %
 %
 %
+% 20200825
+\alias{prob.munb.size.VGAM}
+%
+%
+%
+% 20200622
+\alias{deflat.limit.oipospois}
+\alias{deflat.limit.oizeta}
+%
+%
+%
+%
 %
 %
 \alias{rainfall}

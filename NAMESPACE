@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2016 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2020 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -8,6 +8,47 @@
 
 
 importFrom("stats", "coef", "lm")
+
+
+
+
+
+importFrom("methods", "new")
+importFrom("stats", "ppoints", "runif")
+importFrom("VGAM", "dlog",
+           "is.Numeric", "link2list", "namesof", "plog",
+           "dzeta", "dzipf",
+           "pzeta", "pzipf", "qlog", 
+           "qzeta", "qzipf", "s")
+
+export("dposbinom", "pposbinom", "qposbinom", "rposbinom",
+       "dposnegbin", "pposnegbin", "qposnegbin", "rposnegbin",
+       "prob.munb.size.VGAM")
+importFrom("stats", "dbinom", "dnbinom", "dpois", "pbinom", "pnbinom",
+           "ppois", "qbinom", "qnbinom", "qpois")
+export(oiposbinomial, doiposbinom, poiposbinom, qoiposbinom, roiposbinom)
+export("dpospois", "ppospois", "qpospois", "rpospois")
+
+
+
+
+
+
+export(doilog, poilog, qoilog, roilog, oilog)
+export(dotlog, potlog, qotlog, rotlog, otlog)
+export(dotpospois, potpospois, qotpospois, rotpospois, otpospoisson)
+export(doalog, poalog, qoalog, roalog, oalog)
+export(doapospois, poapospois, qoapospois, roapospois, oapospoisson)
+export(doazeta, poazeta, qoazeta, roazeta, oazeta)
+export(doizeta, poizeta, qoizeta, roizeta, oizeta)
+export(doizipf, poizipf, qoizipf, roizipf, oizipf)
+export(dotzeta, potzeta, qotzeta, rotzeta, otzeta)
+
+export(doipospois, poipospois, qoipospois, roipospois, oipospoisson)
+export(deflat.limit.oipospois)
+export(deflat.limit.oizeta)
+
+
 
 
 

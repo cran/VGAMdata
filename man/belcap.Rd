@@ -46,10 +46,14 @@
 }
 \source{
 
-\url{http://onlinelibrary.wiley.com} contains the data file
+\url{https://onlinelibrary.wiley.com/} contains the data file
 (a supplement of the JRSSA article).
 Downloaded in January 2014 and formatted into R by J. T. Gray,
 \code{jamsgry@gmail.com}.
+
+
+
+% \url{http://onlinelibrary.wiley.com} contains the data file
 
 
 
