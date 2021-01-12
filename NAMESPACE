@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2020 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2021 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -8,6 +8,15 @@
 
 
 importFrom("stats", "coef", "lm")
+
+
+
+export("genpoisson", "dgenpois")
+export("yip88")
+export("dbell", "rbell", "bellff")
+importFrom("VGAM", "bell", "rgaitpois")
+export("tikuv", "dtikuv", "ptikuv", "qtikuv", "rtikuv")
+importFrom("stats", "dnorm", "pgamma", "rpois", "uniroot")
 
 
 

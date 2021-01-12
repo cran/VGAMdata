@@ -3,6 +3,8 @@
 %
 %
 %
+% 202011
+\alias{dgenpois}
 % 20200825
 \alias{prob.munb.size.VGAM}
 %

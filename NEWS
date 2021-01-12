@@ -6,6 +6,23 @@
 
 
 
+                CHANGES IN VGAM VERSION 1.1-5
+
+NEW FEATURES
+
+    o   Functions moved from VGAM 1.1-5: yip88, bellff, tikuv(dpqr).
+    o   New data sets: airbnb.ac, flamingo.
+
+
+BUG FIXES and CHANGES
+
+    o   genpoisson() and dgenpois() moved into this package.
+        These were the 'original' from VGAM for a long time,
+        and might be able to handle underdispersion in some cases.
+    o   Tested okay on R 4.0.3.
+
+
+
                 CHANGES IN VGAM VERSION 1.0-4
 
 NEW FEATURES
