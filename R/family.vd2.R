@@ -260,6 +260,7 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   infos = eval(substitute(function(...) {
     list(M1 = 2,
          Q1 = 1,
+#        dpqrfun = "zz",
          expected = TRUE,
          multipleResponses = FALSE,
          parameters.names = c("mean", "sigma"),

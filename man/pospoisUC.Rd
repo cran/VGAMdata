@@ -70,7 +70,7 @@ rpospois(n, lambda)
 \author{ T. W. Yee }
 \note{
   These functions are or are likely to be deprecated.
-  Use \code{\link[VGAM]{Gaitpois}} instead.
+  Use \code{\link[VGAM]{Gaitdpois}} instead.
 
 
 % 20120405; no longer true to a superior method:
@@ -88,7 +88,7 @@ rpospois(n, lambda)
 }
 
 \seealso{
-  \code{\link[VGAM]{Gaitpois}},
+  \code{\link[VGAM]{Gaitdpois}},
   \code{\link[VGAM]{pospoisson}},
   \code{\link[VGAM]{zapoisson}},
   \code{\link[VGAM]{zipoisson}},

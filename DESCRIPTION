@@ -1,6 +1,6 @@
 Package: VGAMdata
-Version: 1.1-5
-Date: 2021-01-13
+Version: 1.1-6
+Date: 2022-02-02
 Title: Data Supporting the 'VGAM' Package
 Authors@R: c(person("Thomas", "Yee", role = c("aut", "cre", "cph"),
                     email = "t.yee@auckland.ac.nz"),
@@ -26,5 +26,5 @@ Repository: CRAN
 LazyLoad: yes
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2021-01-12 22:04:44 UTC; tyee001
-Date/Publication: 2021-01-12 23:10:02 UTC
+Packaged: 2022-02-02 02:50:25 UTC; tyee001
+Date/Publication: 2022-02-14 13:50:09 UTC

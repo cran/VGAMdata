@@ -8,7 +8,7 @@
 %%   ~~ data name/kind ... ~~
 }
 \description{
-  Rainbow and brown trout trout trapped at the
+  Rainbow and brown trout trapped at the
   Te Whaiau Trap at
   Lake Otamangakau in the central North Island of New Zealand.
   The data were collected by the Department of Conservation.

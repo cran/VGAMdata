@@ -75,7 +75,7 @@ Maximum number of guests.
 
 }
 \seealso{
-  \code{\link[VGAM]{gaitzeta}},
+  \code{\link[VGAM]{gaitdzeta}},
   \code{\link[VGAMdata]{flamingo}}.
 
 

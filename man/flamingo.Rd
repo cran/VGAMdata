@@ -77,7 +77,7 @@ The \code{flamingo} data frame has 4871 rows and 12 columns.
 
 }
 \seealso{
-  \code{\link[VGAM]{gaitzeta}},
+  \code{\link[VGAM]{gaitdzeta}},
   \code{\link[VGAMdata]{airbnb.ac}}.
 
 
@@ -94,14 +94,13 @@ The \code{flamingo} data frame has 4871 rows and 12 columns.
 
 %}
 \examples{
-\dontrun{
-mytab <- with(flamingo, table(LOS))
-plot(prop.table(mytab), col = "blue", ylab = "Proportion")
-}}
+\dontrun{ with(flamingo, spikeplot(LOS, col = "blue", ylab = "Proportion")) }}
 \keyword{datasets}
 
 
 
 % zz kids311 has values 0 1 2 3
+% mytab <- with(flamingo, table(LOS))
+% plot(prop.table(mytab), col = "blue", ylab = "Proportion")
 
 

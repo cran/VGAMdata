@@ -81,7 +81,7 @@ roilog(n, shape, pstr1 = 0)
 }
 
 \seealso{
-  \code{\link{Gaitlog}},
+  \code{\link{Gaitdlog}},
     \code{\link{oilog}},
     \code{\link{rlog}},
     \code{\link{logff}},

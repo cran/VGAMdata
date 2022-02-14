@@ -13,24 +13,34 @@
   A data frame with 4267 observations on the following 8 variables.
   Each row is a recorded capture.
   \describe{
-    \item{\code{length}}{a numeric vector; length of fish in mm.}
-    \item{\code{water}}{a factor with levels \code{Waihou},
-    \code{Waimakariri}, \code{Whanganui}, \code{Otamangakau}, \code{Rotoaira}.
+  \item{\code{length}}{a numeric vector; length of fish in mm.}
+  \item{\code{water}}{a factor with levels
+  \code{Waihou}, \code{Waimakariri}, \code{Whanganui},
+  \code{Otamangakau}, \code{Rotoaira}.
     These are known as Sectors IV, V, I, II, III respectively, and
     are also represented by the variable \code{sector}.
-    }
-    \item{\code{session}}{a numeric vector; a value from the set 1,2,\ldots,6.
-    These are time ordered, and there were two sessions per competition day.}
-    \item{\code{sector}}{a numeric vector; a value from the set 1,2,\ldots,5.}
-    \item{\code{beatboat}}{a numeric vector; beat or boat number,
-    a value from the set 1,2,\ldots,19.}
-    \item{\code{comid}}{a numeric vector; the competitor's ID number.
-    Uniquely identifies each competitor.
-    These ID numbers actually correspond to their rankings
-    in the individual level. }
-    \item{\code{iname}}{a character vector; the individual competitor's name. }
-    \item{\code{country}}{a character vector;
-    what country the competitors represented.
+  }
+  \item{\code{session}}{a numeric vector; a value from the set 1,2,\ldots,6.
+  These are time ordered, and there were two sessions per competition day.}
+  \item{\code{sector}}{a numeric vector; a value from the set 1,2,\ldots,5.
+  Ideally these should be converted to a factor.
+
+
+  }
+  \item{\code{beatboat}}{a numeric vector; beat or boat number,
+  a value from the set 1,2,\ldots,19.
+  Ideally these should be converted to a factor.
+  For a river though, they are contiguous whereas on a lake it is less so.
+
+
+  }
+  \item{\code{comid}}{a numeric vector; the competitor's ID number.
+  Uniquely identifies each competitor.
+  These ID numbers actually correspond to their rankings
+  in the individual level. }
+  \item{\code{iname}}{a character vector; the individual competitor's name. }
+  \item{\code{country}}{a character vector;
+  what country the competitors represented.
 The countries represented were
 Australia (AUS),
 Canada (CAN),

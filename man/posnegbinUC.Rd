@@ -103,7 +103,7 @@ for counts with extra zeros.
 \author{ T. W. Yee }
 \note{
   These functions are or are likely to be deprecated.
-  Use \code{\link{Gaitnbinom}} instead.
+  Use \code{\link{Gaitdnbinom}} instead.
 
 
 
@@ -116,7 +116,7 @@ for counts with extra zeros.
 }
 
 \seealso{
-  \code{\link{Gaitnbinom}},
+  \code{\link{Gaitdnbinom}},
   \code{\link[VGAM]{posnegbinomial}},
   \code{\link[VGAM]{zanegbinomial}},
   \code{\link[VGAM]{zinegbinomial}},

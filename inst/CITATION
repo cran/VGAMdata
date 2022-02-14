@@ -65,7 +65,7 @@ citEntry(entry = "Article",
   author       = personList(as.person("Thomas W. Yee")),
   journal      = "Computational Statistics and Data Analysis",
   year         = "2013",
-  url          = "https://ees.elsevier.com/csda",
+  url          = "https://service.elsevier.com/app/answers/detail/a_id/31734/supporthub/publishing/",
 
   textVersion  =
   paste("Thomas W. Yee (2013).",

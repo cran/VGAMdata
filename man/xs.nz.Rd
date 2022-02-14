@@ -14,7 +14,7 @@
 }
 \usage{data(xs.nz)}
 \format{
-  A data frame with 10529 observations on the following 58 variables.
+  A data frame with 10529 observations on the following 59 variables.
   For binary variables, a \code{"1"} or \code{TRUE} means \code{yes},
   and \code{"0"} or \code{FALSE} means \code{no}.
   Also, \code{"D"} means don't know,
@@ -124,19 +124,35 @@
       received treatment from a doctor for sunburn?
 
     }
+    \item{\code{smokepassive}}{a numeric vector, on average,
+      how many hours each week (at work and at home) would you
+      spend near someone who is smoking?
+      (put \code{"0"} if none)
+
+
+% 20220202
+
+
+    }
     \item{\code{smokeever}}{a numeric vector, have you ever
       smoked tailor-made or roll-you-own cigarettes once a
       week or more?
+      A 1 means yes and 0 means no.
 
 
     }
     \item{\code{smokenow}}{a numeric vector,
       do you smoke tailor-made or roll-you-own cigarettes now?
+      A 1 means yes and 0 means no.
+
 
     }
     \item{\code{smokeagequit}}{a factor,
       if no to \code{smokenow}, how old were you when
       you stopped smoking?
+      Using \code{as.numeric(as.character(smokeagequit))}
+      will work for those values which are not
+      \code{as.character(smokeagequit) == "-"}.
 
 
     }
@@ -145,8 +161,32 @@
       have you smoked tailor-made or roll-you-own cigarettes?
 
 
-% smokehowmany
+    }
+    \item{\code{smoketailormade}}{a numeric vector,
+      how many tailor-made cigarettes do you smoke each day?
 
+
+
+% 20211218
+
+
+
+    }
+    \item{\code{smokeweekpack}}{a numeric vector, how many
+      packets of \emph{roll-your-own} tobacco do you use
+      each week?
+      (put \code{"0"} if none)
+
+% 20220202
+
+    }
+    \item{\code{smokepacketsize}}{a numeric vector,
+      what size packets of \emph{roll-your-own} tobacco do you
+      usually buy?
+      (\code{"0"} means don't smoke \emph{roll-your-owns},
+      else 25g or 30g or 35g or 50g)
+
+% 20220202
 
     }
     \item{\code{drinkmonth}}{a numeric vector,
@@ -192,6 +232,18 @@
       in the last three months, what is the largest number of
       drinks that you had on any one day?
       Warning: some values are considered unrealistically excessive.
+
+
+    }
+    \item{\code{eggs}}{a numeric vector,
+      how many eggs do you eat a week
+      (raw, boiled, scrambled, poached, or in quiche)?
+
+
+    }
+    \item{\code{chocbiscuits}}{a numeric vector,
+      how many chocolate biscuits
+      do you usually eat in a week?
 
 
     }
@@ -410,13 +462,26 @@ The psychological variables were headed
 "Questions about your feelings".
 
 
+
 Although some data cleaning was performed and logic checks
 conducted, anomalies remain. Some variables, of course,
 are subject to a lot of measurement error and bias.  It is
 conceivable that some participants had poor reading skills!
+In particular, the smoking variables contain a small
+percentage of conflicting values, and when \code{NA}s are taken
+into account then there would be several different ways
+the data might be cleaned.
+If \code{smokeever == 0} then strictly speaking, only
+\code{smokepassive} is the other variable---the other
+smoking variables should either be \code{NA} or \code{0}.
+
+
 
 
 }
+
+
+
 \source{
 
   Originally,

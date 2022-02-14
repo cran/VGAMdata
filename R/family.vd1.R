@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2021 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2022 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -4758,8 +4758,7 @@ rbell <- function(n, shape = 1) {
     maxN <- max(N[Nok])
     for (kk in seq(maxN)) {
       sum.ok <- Nok & kk <= N  # [Nok]
-      ans[sum.ok] <- ans[sum.ok] +
-                     rgaitpois(sum(sum.ok), shape[sum.ok], truncate = 0)
+      ans[sum.ok] <- ans[sum.ok] + rpospois(sum(sum.ok), shape[sum.ok])
     }
   }
   ans[shape <= 0] <- NaN

@@ -6,6 +6,15 @@
 
 
 
+                CHANGES IN VGAM VERSION 1.1-6
+
+NEW FEATURES
+
+    o   Data frame xs.nz has more smoking data (variables).
+    o   Tested okay on R 4.1.2.
+
+
+
                 CHANGES IN VGAM VERSION 1.1-5
 
 NEW FEATURES

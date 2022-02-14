@@ -313,7 +313,7 @@
 }
 \source{
   The data came from the UK Government Transport for London website
-  \url{http://www.tfl.gov.uk}.
+  \url{https://www.tfl.gov.uk}.
   Downloaded in December 2013 and formatted into R by J. T. Gray
   (and slightly edited by T. W. Yee).
 
