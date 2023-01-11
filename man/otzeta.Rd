@@ -7,7 +7,8 @@
 
 }
 \usage{
-otzeta(lshape = "loglink", ishape = NULL, gshape = exp((-4:3)/4), zero = NULL)
+otzeta(lshape = "loglink", ishape = NULL,
+       gshape = exp((-4:3)/4), zero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,10 +20,10 @@ otzeta(lshape = "loglink", ishape = NULL, gshape = exp((-4:3)/4), zero = NULL)
 }
 \details{
   The 1-truncated zeta distribution is the ordinary zeta
-  distribution but with the probability of one being 0.  Thus the
-  other probabilities are scaled up (i.e., divided by \eqn{1-P[Y=1]}).
-  The mean is returned by default as the fitted values.
-  More details can be found at \code{\link{zetaff}}.
+  distribution but with the probability of one being 0.
+  Thus the other probabilities are scaled up (i.e., divided by
+  \eqn{1-P[Y=1]}).  The mean is returned by default as the fitted
+  values.  More details can be found at \code{\link{zetaff}}.
   Multiple responses are handled.
 
 
@@ -30,8 +31,10 @@ otzeta(lshape = "loglink", ishape = NULL, gshape = exp((-4:3)/4), zero = NULL)
 }
 
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   and \code{\link{vgam}}.
 
 
@@ -42,8 +45,8 @@ otzeta(lshape = "loglink", ishape = NULL, gshape = exp((-4:3)/4), zero = NULL)
 %}
 \author{ T. W. Yee }
 %\note{
-%  The \code{\link{zeta}} function may be used to compute values
-%  of the zeta function.
+%  The \code{\link{zeta}} function may be used to
+%  compute values of the zeta function.
 %
 %
 %}

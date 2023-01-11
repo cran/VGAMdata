@@ -3,17 +3,19 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Short-tailed Symmetric Distribution Family Function }
 \description{
-  Fits the short-tailed symmetric distribution of Tiku and Vaughan (1999).
+  Fits the short-tailed symmetric distribution of
+  Tiku and Vaughan (1999).
 
 }
 \usage{
-tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
-      zero = "sigma")
+tikuv(d, lmean = "identitylink", lsigma = "loglink",
+      isigma = NULL, zero = "sigma")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{d}{
-  The \eqn{d} parameter. It must be a single numeric value less than 2.
+    The \eqn{d} parameter. It must be a single
+    numeric value less than 2.
   Then \eqn{h = 2-d>0} is another parameter.
 
 
@@ -31,8 +33,9 @@ tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
 
 %  \item{emean, esigma}{
 %  List. Extra argument for each of the links.
-%  See \code{earg} in \code{\link[VGAM]{Links}} for general information.
-%emean = list(), esigma = list(),
+%  See \code{earg} in \code{\link[VGAM]{Links}}
+%  for general information.
+%  emean = list(), esigma = list(),
 %
 %  }
 
@@ -48,7 +51,8 @@ tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
   linear/additive predictors are modelled as intercept-only.
   The values can be from the set \{1,2\}, corresponding
   respectively to \eqn{\mu}{mu}, \eqn{\sigma}{sigma}.
-  If \code{zero = NULL} then all linear/additive predictors are modelled as
+  If \code{zero = NULL} then all linear/additive predictors
+  are modelled as
   a linear combination of the explanatory variables.
   For many data sets having \code{zero = 2} is a good idea.
   See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
@@ -73,13 +77,16 @@ tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
   \eqn{-\infty < y < \infty}{-Inf < y < Inf},
   \eqn{\sigma > 0}{sigma > 0}.
   The mean of \eqn{Y} is
-  \eqn{E(Y) = \mu}{E(Y) = mu} and this is returned as the fitted values.
+  \eqn{E(Y) = \mu}{E(Y) = mu} and this is returned
+  as the fitted values.
 
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link[VGAM]{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link[VGAM]{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link[VGAM]{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link[VGAM]{vglm}},
   and \code{\link[VGAM]{vgam}}.
 
 
@@ -102,10 +109,13 @@ tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
   The density function is the product of a univariate normal
   density and a polynomial in the response \eqn{y}.
   The distribution is bimodal if \eqn{d>0}, else is unimodal.
-  A normal distribution arises as the limit as \eqn{d} approaches
-  \eqn{-\infty}{-Inf}, i.e., as \eqn{h} approaches \eqn{\infty}{Inf}.
+  A normal distribution arises as the limit
+  as \eqn{d} approaches
+  \eqn{-\infty}{-Inf}, i.e., as \eqn{h}
+  approaches \eqn{\infty}{Inf}.
   Fisher scoring is implemented.
-  After fitting the value of \code{d} is stored in \code{@misc} with
+  After fitting the value of \code{d} is
+  stored in \code{@misc} with
   component name \code{d}.
 
 
@@ -126,14 +136,15 @@ tikuv(d, lmean = "identitylink", lsigma = "loglink", isigma = NULL,
 
 \examples{
 m <- 1.0; sigma <- exp(0.5)
-tdata <- data.frame(y = rtikuv(n = 1000, d = 1, m = m, s = sigma))
+tdata <- data.frame(y = rtikuv(1000, d = 1, m = m, s = sigma))
 tdata <- transform(tdata, sy = sort(y))
 fit <- vglm(y ~ 1, tikuv(d = 1), data = tdata, trace = TRUE)
 coef(fit, matrix = TRUE)
 (Cfit <- Coef(fit))
 with(tdata, mean(y))
 \dontrun{ with(tdata, hist(y, prob = TRUE))
-lines(dtikuv(sy, d = 1, m = Cfit[1], s = Cfit[2]) ~ sy, data = tdata, col = "orange") }
+lines(dtikuv(sy, d = 1, m = Cfit[1], s = Cfit[2]) ~ sy,
+      data = tdata, col = "orange") }
 }
 \keyword{models}
 \keyword{regression}

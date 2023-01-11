@@ -35,8 +35,8 @@ rotpospois(n, lambda)
   }
 }
 \details{
-  The one-truncated positive-Poisson is a Poisson distribution but with
-  the probability of a one and a zero being 0.
+  The one-truncated positive-Poisson is a Poisson distribution
+  but with the probability of a one and a zero being 0.
   That is, its support is 2, 3, \ldots.
   The other probabilities are scaled to add to unity.
   Some more details are given in \code{\link{pospoisson}}.
@@ -58,7 +58,8 @@ rotpospois(n, lambda)
 \author{ T. W. Yee }
 \note{
   Given some response data, the \pkg{VGAM} family function
-  \code{\link{otpospoisson}} estimates the parameter \code{lambda}.
+  \code{\link{otpospoisson}} estimates the
+  parameter \code{lambda}.
 
 
 
@@ -78,8 +79,8 @@ rotpospois(20, 0.5)
 \dontrun{ lambda <- 4; x <- 1:10
 plot(x, dotpospois(x, lambda = lambda), type = "h", ylim = 0:1,
      sub = "lambda=4", las = 1, col = "blue", ylab = "Probability",
-     main = "1-truncated positive-Poisson distribution: blue=PMF; orange=CDF")
-lines(x + 0.1, potpospois(x, lambda = lambda), col = "orange", lty = 3, type = "h") }
+     main = "1-truncated positive-Poisson distn: blue=PMF; orange=CDF")
+lines(x+0.1, potpospois(x, lambda), col = "orange", lty=3, type = "h") }
 }
 \keyword{distribution}
 

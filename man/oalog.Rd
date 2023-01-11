@@ -17,7 +17,8 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lpobs1}{
-    Link function for the parameter \eqn{p_1}{pobs1} or \eqn{\phi}{phi},
+    Link function for the parameter \eqn{p_1}{pobs1} or
+    \eqn{\phi}{phi},
     called \code{pobs1} or \code{phi} here.
     See \code{\link{Links}} for more choices.
 
@@ -53,7 +54,8 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 \details{
   The response \eqn{Y} is one with probability \eqn{p_1}{pobs1},
   or \eqn{Y} has a 1-truncated logarithmic distribution with
-  probability \eqn{1-p_1}{1-pobs1}.  Thus \eqn{0 < p_1 < 1}{0 < pobs1 < 1},
+  probability \eqn{1-p_1}{1-pobs1}. 
+  Thus \eqn{0 < p_1 < 1}{0 < pobs1 < 1},
   which is modelled as a function of the covariates.  The one-altered
   logarithmic distribution differs from the one-inflated
   logarithmic distribution in that the former has ones coming from one
@@ -71,20 +73,23 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   and \code{\link{vgam}}.
 
 
 
   The \code{fitted.values} slot of the fitted object,
-  which should be extracted by the generic function \code{fitted}, returns
-  the mean \eqn{\mu}{mu} (default) which is given by
+  which should be extracted by the generic function \code{fitted},
+  returns the mean \eqn{\mu}{mu} (default) which is given by
   \deqn{\mu = \phi + (1-\phi) A}{%
          mu = phi + (1- phi) A}
   where \eqn{A} is the mean of the one-truncated
   logarithmic distribution.
-  If \code{type.fitted = "pobs1"} then \eqn{p_1}{pobs1} is returned.
+  If \code{type.fitted = "pobs1"} then \eqn{p_1}{pobs1} is
+  returned.
 
 
 
@@ -122,10 +127,10 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 
 \examples{
 \dontrun{odata <- data.frame(x2 = runif(nn <- 1000))
-odata <- transform(odata, pobs1 = logitlink(-1 + 2*x2, inverse = TRUE),
-                          shape  = logitlink(-2 + 3*x2, inverse = TRUE))
-odata <- transform(odata, y1 = roalog(nn, shape = shape, pobs1 = pobs1),
-                          y2 = roalog(nn, shape = shape, pobs1 = pobs1))
+odata <- transform(odata, pobs1  = logitlink(-1 + 2*x2, inv = TRUE),
+                          shape  = logitlink(-2 + 3*x2, inv = TRUE))
+odata <- transform(odata, y1 = roalog(nn, shape, pobs1 = pobs1),
+                          y2 = roalog(nn, shape, pobs1 = pobs1))
 with(odata, table(y1))
 
 ofit <- vglm(cbind(y1, y2) ~ x2, oalog, data = odata, trace = TRUE)

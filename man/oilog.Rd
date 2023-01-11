@@ -9,8 +9,9 @@
 }
 \usage{
 oilog(lpstr1 = "logitlink", lshape = "logitlink",
-      type.fitted = c("mean", "shape", "pobs1", "pstr1", "onempstr1"),
-      ishape = NULL, gpstr1 = ppoints(8), gshape = ppoints(8), zero = NULL)
+      type.fitted = c("mean", "shape", "pobs1", "pstr1",
+      "onempstr1"), ishape = NULL, gpstr1 = ppoints(8), gshape =
+      ppoints(8), zero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -60,8 +61,10 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
 %}
 
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   \code{\link{rrvglm}} and \code{\link{vgam}}.
 
 
@@ -82,10 +85,11 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
 }
 \examples{
 \dontrun{ odata <- data.frame(x2 = runif(nn <- 1000))  # Artificial data
-odata <- transform(odata, pstr1 = logitlink(-1 + x2, inverse = TRUE), shape = 0.5)
+odata <- transform(odata, pstr1 = logitlink(-1 + x2, inv = TRUE),
+                          shape = 0.5)
 odata <- transform(odata, y1 = roilog(nn, shape, pstr1 = pstr1))
 with(odata, table(y1))
-fit1 <- vglm(y1 ~ x2, oilog(zero = "shape"), data = odata, trace = TRUE)
+fit1 <- vglm(y1 ~ x2, oilog(zero = "shape"), odata, trace = TRUE)
 coef(fit1, matrix = TRUE)
 }}
 \keyword{models}

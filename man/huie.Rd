@@ -42,9 +42,9 @@ See the URL below for more technical details supporting the data.
 
 
 
-% \url{http://www.provost.harvard.edu/institutional_research/factbook.php}
+%\url{www.provost.harvard.edu/institutional_research/factbook.php}
 
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+%%reference to a publication or URL from which the data were obtained
 }
 \seealso{
     \code{\link{hued}},

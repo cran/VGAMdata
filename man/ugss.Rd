@@ -20,7 +20,8 @@
     \item{\code{age}}{age in years, a numeric vector}
     \item{\code{eyes}}{eye colour, a factor,
                        (blue, brown, green, hazel or other)}
-    \item{\code{piercings}}{Number of body piercings, a numeric vector}
+    \item{\code{piercings}}{Number of body piercings,
+       a numeric vector}
     \item{\code{pierced}}{Any body piercings? a factor, (Yes or No)}
     \item{\code{tattoos}}{Number of tattoos, a numeric vector}
     \item{\code{tattooed}}{Any tattoos? a factor, (Yes or No) }
@@ -45,7 +46,8 @@
                         about 13 of them }
     \item{\code{income}}{Average income during semester per week,
                          a numeric vector }
-    \item{\code{rent}}{Amount spent on rent or room and board per week,
+     \item{\code{rent}}{Amount spent on rent or room and
+ board per week,
                          a numeric vector  }
     \item{\code{clothes}}{Average amount spent on clothes per month,
                          a numeric vector }
@@ -56,11 +58,13 @@
     \item{\code{smokes}}{Smokes? a factor, (Yes or No) }
     \item{\code{alcohol}}{Average amount spent on alcohol per week,
                           a numeric vector }
-    \item{\code{buy.alcohol}}{Buys (purchases) alcohol? a factor, (Yes or No) }
+    \item{\code{buy.alcohol}}{Buys (purchases) alcohol?
+     a factor, (Yes or No) }
     \item{\code{sendtxt}}{Average number text messages sent per day,
                           a numeric vector.}
-    \item{\code{receivetxt}}{Average number text messages received per day,
-                          a numeric vector.}
+\item{\code{receivetxt}}{Average number
+  text messages received per day,
+         a numeric vector.}
     \item{\code{txts}}{Uses text messaging? a factor, (Yes or No) }
     \item{\code{country}}{Country of birth,  a factor,
                           about 54 of them  }
@@ -74,13 +78,15 @@
 %%}
 \details{
   This data was collected online and anonymously in 2010.
-  The respondents were students studying an undergraduate statistics
+  The respondents were students studying an
+  undergraduate statistics
   course at a New Zealand university.
   Possibly there are duplicate students (due to failing and
   re-enrolling).
   All monies are in NZD.
   Note the data has had minimal checking.
-  Most numerical variables tend to have measurement error, and all of
+  Most numerical variables tend to have measurement error,
+  and all of
   them happen to be all integer-valued.
 
 
@@ -89,7 +95,7 @@
 
 
 %%\source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+%%reference to a publn or URL from which the data were obtained ~~
 %%}
 %%\references{
 %%  ~~ possibly secondary sources and usages ~~

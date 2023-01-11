@@ -7,8 +7,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Positive-Poisson Distribution }
 \description{
-  Density, distribution function, quantile function and random generation
-  for the positive-Poisson distribution.
+  Density, distribution function, quantile function and random
+  generation for the positive-Poisson distribution.
 
 }
 \usage{

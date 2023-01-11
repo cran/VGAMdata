@@ -43,15 +43,18 @@ bellff(lshape = "loglink", zero = NULL, gshape = expm1(1.6 * ppoints(7)))
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   and \code{\link{vgam}}.
 
 
 }
 \references{
   Castellares, F. and Ferrari, S. L. P. and Lemonte, A. J. (2018).
-  On the Bell distribution and its associated regression model for count data.
+  On the Bell distribution and its associated regression model
+  for count data.
   \emph{Applied Mathematical Modelling},
   \bold{56}, 172--185.
 
@@ -79,8 +82,8 @@ bellff(lshape = "loglink", zero = NULL, gshape = expm1(1.6 * ppoints(7)))
 
 }
 \examples{
-bdata <- data.frame(y = rbell(1000, shape = loglink(0.5, inverse = TRUE)))
-bfit <- vglm(y ~ 1, bellff, data = bdata, trace = TRUE, crit = "coef")
+bdata <- data.frame(y = rbell(1000, loglink(0.5, inverse = TRUE)))
+bfit <- vglm(y ~ 1, bellff, bdata, trace = TRUE, crit = "coef")
 coef(bfit, matrix = TRUE)
 Coef(bfit)
 }

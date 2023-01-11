@@ -28,7 +28,8 @@ rbell(n, shape)
   \item{shape}{the (shape) parameter, which is positive.}
   \item{log}{
   Logical.
-  If \code{log = TRUE} then the logarithm of the density is returned.
+  If \code{log = TRUE} then the logarithm of the density is
+  returned.
 
   }
 % \item{lower.tail, log.p}{
@@ -58,9 +59,9 @@ rbell(n, shape)
 
 % \author{ T. W. Yee }
 \details{
-  See \code{\link[VGAMdata]{bellff}}, the \pkg{VGAM} family function for
-  estimating the parameter \eqn{s} by maximum likelihood
-  estimation.
+  See \code{\link[VGAMdata]{bellff}}, the \pkg{VGAM} family
+  function for estimating the parameter \eqn{s} by maximum
+  likelihood estimation.
 
 
 

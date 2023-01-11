@@ -31,7 +31,7 @@
 \source{
 
 Taken from William Revelle's \emph{Short Guide to R},
-\url{http://www.unt.edu/rss/rasch_models.htm},
+\code{http://www.unt.edu/rss/rasch_models.htm},
 \url{http://www.personality-project.org/r/}.
 Downloaded in October 2013.
 

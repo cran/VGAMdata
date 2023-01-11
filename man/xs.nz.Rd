@@ -11,11 +11,18 @@
 
 
 %%  ~~ A concise (1-5 lines) description of the dataset. ~~
+%%  zz on the following 64zz  variables.... adjust according to
+%   the true number of columns.
+
+
+
 }
 \usage{data(xs.nz)}
 \format{
-  A data frame with 10529 observations on the following 59 variables.
-  For binary variables, a \code{"1"} or \code{TRUE} means \code{yes},
+  A data frame with 10529 observations on the
+  following 64 variables.
+  For binary variables, a \code{"1"} or \code{TRUE}
+  means \code{yes},
   and \code{"0"} or \code{FALSE} means \code{no}.
   Also, \code{"D"} means don't know,
   and \code{"-"} means not applicable.
@@ -29,7 +36,8 @@
       and the rows are sorted by their new registration number.
 
     }
-    \item{\code{study1}}{a logical vector, Study 1 (workforce) or Study 2?
+    \item{\code{study1}}{a logical vector,
+      Study 1 (workforce) or Study 2?
 
     }
     \item{\code{age}}{a numeric vector, age in years.
@@ -41,10 +49,12 @@
     \item{\code{pulse}}{a numeric vector, beats per minute.
 
     }
-    \item{\code{sbp}}{a numeric vector, systolic blood pressure (mm Hg).
+    \item{\code{sbp}}{a numeric vector,
+      systolic blood pressure (mm Hg).
 
     }
-    \item{\code{dbp}}{a numeric vector, diastolic blood pressure
+    \item{\code{dbp}}{a numeric vector,
+      diastolic blood pressure
       (mm Hg).
 
     }
@@ -57,17 +67,22 @@
     \item{\code{weight}}{a numeric vector, in kg.
 
     }
-    \item{\code{fh.heartdisease}}{a factor with levels \code{0}, \code{1},
+    \item{\code{fh.heartdisease}}{a factor
+      with levels \code{0}, \code{1},
       \code{D}.
-      Has a family history of heart disease (heart attack, angina, or
+      Has a family history of heart disease
+      (heart attack, angina, or
       had a heart bypass operation) within the immediate
-      family (brother, sister, father or mother, blood relatives only)?
+      family (brother, sister, father or mother,
+      blood relatives only)?
       Note that \code{D} means: do not know.
 
 
     }
-    \item{\code{fh.age}}{a factor, following from \code{fh.heartdisease},
-      if yes, how old was the family member when it happened (if
+    \item{\code{fh.age}}{a factor, following
+      from \code{fh.heartdisease},
+      if yes, how old was the family member when
+      it happened (if
       more than one family member, give the age of the
       youngest person)?
 
@@ -81,7 +96,8 @@
 
 
     }
-    \item{\code{heartattack}}{a numeric vector, have you ever been told by
+    \item{\code{heartattack}}{a numeric vector,
+      have you ever been told by
       a doctor that you have had a heart attack ("coronary")?
 
 
@@ -90,13 +106,16 @@
       a doctor that you have had a stroke?
 
     }
-    \item{\code{diabetes}}{a numeric vector, have you ever been told by
+    \item{\code{diabetes}}{a numeric vector,
+      have you ever been told by
       a doctor that you have had diabetes?
 
 
     }
-    \item{\code{hypertension}}{a numeric vector, have you ever been told by
-      a doctor that you have had high blood pressure (hypertension)?
+    \item{\code{hypertension}}{a numeric vector,
+      have you ever been told by
+      a doctor that you have had high blood pressure
+      (hypertension)?
 
     }
     \item{\code{highchol}}{a numeric vector, have you ever been
@@ -106,12 +125,14 @@
 
 
     }
-    \item{\code{asthma}}{a numeric vector, have you ever been told by
+    \item{\code{asthma}}{a numeric vector,
+      have you ever been told by
       a doctor that you have had asthma?
 
 
     }
-    \item{\code{cancer}}{a numeric vector, have you ever been told by
+    \item{\code{cancer}}{a numeric vector,
+      have you ever been told by
       a doctor that you have had cancer?
 
     }
@@ -209,7 +230,8 @@
 
 
       Further note:
-      1 can, small bottle or handle of beer or home brew = 1 drink,
+      1 can, small bottle or
+      handle of beer or home brew = 1 drink,
       1 quart bottle of beer = 2 drinks,
       1 jug of beer = 3 drinks,
       1 flagon/peter of beer = 6 drinks,
@@ -231,7 +253,8 @@
     \item{\code{drinkmaxday}}{a numeric vector,
       in the last three months, what is the largest number of
       drinks that you had on any one day?
-      Warning: some values are considered unrealistically excessive.
+      Warning: some values are considered
+      unrealistically excessive.
 
 
     }
@@ -257,7 +280,8 @@
       baby was born (or you had a miscarriage after 5 months)?
 
     }
-    \item{\code{preglast}}{a factor, how old were you when your last
+    \item{\code{preglast}}{a factor, how old
+      were you when your last
       baby was born (or you had a miscarriage after 5 months)?
 
 
@@ -354,7 +378,8 @@
     }
     \item{\code{ethnicity}}{a factor with 4 levels,
       what ethnic group do you belong to?
-      \code{European} = European (NZ European or British or other European),
+      \code{European} = European (NZ European or
+      British or other European),
       \code{Maori} = Maori,
       \code{Polynesian} = Pacific Island Polynesian,
       \code{Other} = Other (Chinese, Indian, Other).
@@ -411,7 +436,8 @@
       \code{2} = 2,
       \code{3} = 3,
       \code{4+} = four or more;
-      how many people (including yourself) usually live in your house?
+      how many people (including yourself)
+      usually live in your house?
 
 
     }
@@ -485,7 +511,8 @@ smoking variables should either be \code{NA} or \code{0}.
 \source{
 
   Originally,
-  Clinical Trials Research Unit, University of Auckland, New Zealand,
+  Clinical Trials Research Unit,
+  University of Auckland, New Zealand,
   \code{http://www.ctru.auckland.ac.nz}.
   Originally much of the error checking and formatting was
   performed by Stephen Vander Hoorn.
@@ -493,7 +520,8 @@ smoking variables should either be \code{NA} or \code{0}.
   data by James T. Gray.
 
 
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+  %%  ~~ reference to a publication or URL from
+  %% which the data were obtained ~~
 
 %  MacMahon, S., Norton, R., Jackson, R., Mackie, M. J.,
 %  Cheng, A., Vander Hoorn, S., Milne, A., McCulloch, A. (1995)
@@ -552,14 +580,14 @@ summary(xs.nz)
 \keyword{datasets}
 
 
-%     Warning: some values are considered unrealistically excessive.
+% Warning: some values are considered unrealistically excessive.
 
 
 %# Handling of factors requires care
 %is.factor(xs.nz$babies)  # TRUE
 %summary(xs.nz$babies)  # Note the "-"s
 %charbabies <- as.character(xs.nz$babies)
-%summary(as.numeric(charbabies))  # "-"s converted to NAs + warning
+%summary(as.numeric(charbabies))  # "-"s converted to NAs+warning
 %table(as.numeric(charbabies))  # Ditto
 
 

@@ -1,7 +1,7 @@
 \name{yip88}
 \alias{yip88}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Zero-Inflated Poisson Distribution (Yip (1988) algorithm) }
+\title{Zero-Inflated Poisson Distribution (Yip (1988) algorithm)}
 \description{
   Fits a zero-inflated Poisson distribution based on Yip (1988).
 
@@ -17,8 +17,10 @@ yip88(link = "loglink", n.arg = NULL, imethod = 1)
 
   }
   \item{n.arg}{
-   The total number of observations in the data set. Needed when the
-   response variable has all the zeros deleted from it, so that the
+    The total number of observations in the data set.
+    Needed when the
+    response variable has all the zeros deleted from it,
+    so that the
    number of zeros can be determined.
 
   }
@@ -29,32 +31,41 @@ yip88(link = "loglink", n.arg = NULL, imethod = 1)
   }
 }
 \details{
-  The method implemented here, Yip (1988), maximizes a \emph{conditional}
-  likelihood. Consequently, the methodology used here deletes the
-  zeros from the data set, and is thus related to the positive Poisson
+  The method implemented here, Yip (1988), maximizes
+  a \emph{conditional}
+  likelihood. Consequently, the methodology used here
+  deletes the
+  zeros from the data set, and is thus related to the
+  positive Poisson
   distribution (where \eqn{P(Y=0) = 0}).
 
 
   The probability function of \eqn{Y} is 0 with probability
   \eqn{\phi}{phi}, and
-  Poisson(\eqn{\lambda}{lambda}) with probability \eqn{1-\phi}{1-phi}.
+  Poisson(\eqn{\lambda}{lambda}) with
+  probability \eqn{1-\phi}{1-phi}.
   Thus
   \deqn{P(Y=0) =\phi + (1-\phi) P(W=0)}{%
         P(Y=0) = phi + (1-phi) * P(W=0)}
   where \eqn{W} is Poisson(\eqn{\lambda}{lambda}).
-  The mean, \eqn{(1-\phi) \lambda}{(1-phi) * lambda}, can be obtained
+  The mean, \eqn{(1-\phi) \lambda}{(1-phi) * lambda},
+  can be obtained
   by the extractor function \code{fitted} applied to the object.
 
 
-  This family function treats \eqn{\phi}{phi} as a scalar.  If you want
-  to model both \eqn{\phi}{phi} and \eqn{\lambda}{lambda} as a function
+  This family function treats \eqn{\phi}{phi} as a scalar.
+  If you want
+  to model both \eqn{\phi}{phi} and \eqn{\lambda}{lambda}
+  as a function
   of covariates, try \code{\link[VGAM]{zipoisson}}.
 
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link[VGAM]{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link[VGAM]{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link[VGAM]{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link[VGAM]{vglm}},
   \code{\link[VGAM]{rrvglm}} and \code{\link[VGAM]{vgam}}.
 
 
@@ -80,30 +91,43 @@ model.
 }
 \author{ Thomas W. Yee }
 \note{
-  The data may be inputted in two ways.  The first is when the response is
-  a vector of positive values, with the argument \code{n} in \code{yip88}
-  specifying the total number of observations.  The second is simply
-  include all the data in the response.  In this case, the zeros are
-  trimmed off during the computation, and the \code{x} and \code{y}
+  The data may be inputted in two ways.
+  The first is when the response is
+  a vector of positive values, with the
+  argument \code{n} in \code{yip88}
+  specifying the total number of observations.
+  The second is simply
+  include all the data in the response.
+  In this case, the zeros are
+  trimmed off during the computation, and
+  the \code{x} and \code{y}
   slots of the object, if assigned, will reflect this.
 
 
-  The estimate of \eqn{\phi}{phi} is placed in the \code{misc} slot as
-  \code{@misc$pstr0}. However, this estimate is computed only for intercept
+  The estimate of \eqn{\phi}{phi} is placed in
+  the \code{misc} slot as
+  \code{@misc$pstr0}. However, this estimate is
+  computed only for intercept
   models, i.e., the formula is of the form \code{y ~ 1}.
 
 
 }
 \section{Warning }{
-  Under- or over-flow may occur if the data is ill-conditioned.
-  Yip (1988) only considered \eqn{\phi}{phi} being a scalar and not
-  modelled as a function of covariates.  To get around this limitation,
+  Under- or over-flow may occur if the data is
+  ill-conditioned.
+  Yip (1988) only considered \eqn{\phi}{phi}
+  being a scalar and not
+  modelled as a function of covariates.  To get
+  around this limitation,
   try \code{\link[VGAM]{zipoisson}}.
 
 
-  Inference obtained from \code{summary.vglm} and \code{summary.vgam}
-  may or may not be correct.  In particular, the p-values, standard
-  errors and degrees of freedom may need adjustment. Use simulation on
+  Inference obtained from \code{summary.vglm}
+  and \code{summary.vgam}
+  may or may not be correct.  In particular,
+  the p-values, standard
+  errors and degrees of freedom may need adjustment.
+  Use simulation on
   artificial data to check that these are reasonable.
 
 
@@ -145,7 +169,7 @@ abdata <- subset(abdata, w > 0)
 
 yy <- with(abdata, rep(y, w))
 fit3 <- vglm(yy ~ 1, yip88(n = length(yy)), subset = yy > 0)
-fit3@misc$pstr0  # Estimate of phi (they get 0.5154 with SE 0.0707)
+fit3@misc$pstr0  # phi estimate (they get 0.5154 with SE 0.0707)
 coef(fit3, matrix = TRUE)
 Coef(fit3)  # Estimate of lambda (they get 0.6997 with SE 0.1520)
 head(fitted(fit3))

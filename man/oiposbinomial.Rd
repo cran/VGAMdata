@@ -4,15 +4,15 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ One-Inflated Positive Binomial Distribution Family Function }
 \description{
-  Fits a one-inflated positive binomial distribution by maximum likelihood
-  estimation.
+  Fits a one-inflated positive binomial distribution by maximum
+  likelihood estimation.
 
 }
 \usage{
 oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
-              type.fitted = c("mean", "prob", "pobs1", "pstr1", "onempstr1"),
-              iprob = NULL, gpstr1 = ppoints(9), gprob  = ppoints(9),
-              multiple.responses = FALSE, zero = NULL)
+    type.fitted = c("mean", "prob", "pobs1", "pstr1", "onempstr1"),
+    iprob = NULL, gpstr1 = ppoints(9), gprob  = ppoints(9),
+    multiple.responses = FALSE, zero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,7 +32,8 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 % }
 
   \item{type.fitted}{
-  See \code{\link{CommonVGAMffArguments}} and \code{\link{fittedvlm}}.
+  See \code{\link{CommonVGAMffArguments}} and
+  \code{\link{fittedvlm}}.
 
 
   }
@@ -84,10 +85,12 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 \details{
   These functions are based on
   \deqn{P(Y=y) =  \phi + (1-\phi) N \mu (1-\mu)^N / (1-(1-\mu)^N),}{%
-        P(Y=y) =   phi + (1- phi) * N * prob * (1-prob)^N / (1-(1-prob)^N),}
+P(Y=y) =   phi + (1- phi) * N * prob * (1-prob)^N / (1-(1-prob)^N),}
   for \eqn{y=1/N}, and
-  \deqn{P(Y=y) = (1-\phi) {N \choose Ny} \mu^{Ny} (1-\mu)^{N(1-y)} / (1-(1-\mu)^N).}{%
-        P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) * (1-prob)^(N*(1-y)) / (1-(1-prob)^N).}
+  \deqn{P(Y=y) = (1-\phi) {N \choose Ny} \mu^{Ny}
+        (1-\mu)^{N(1-y)} / (1-(1-\mu)^N).}{%
+P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) *
+(1-prob)^(N*(1-y)) / (1-(1-prob)^N).}
   for \eqn{y=2/N,\ldots,1}. That is, the response is a sample
   proportion out of \eqn{N} trials, and the argument \code{size} in
   \code{\link{roiposbinom}} is \eqn{N} here.
@@ -95,7 +98,8 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
   The parameter \eqn{\phi}{phi} is the probability of a structural one,
   and it satisfies \eqn{0 < \phi < 1}{0 < phi < 1} (usually).
   The mean of \eqn{Y} is
-  \eqn{E(Y)=\phi + (1-\phi) \mu / (1-(1-\mu)^N)}{E(Y) = phi + (1-phi) * prob / (1-(1-prob)^N)}
+  \eqn{E(Y)=\phi + (1-\phi) \mu / (1-(1-\mu)^N)}{
+       E(Y) = phi + (1-phi) * prob / (1-(1-prob)^N)}
   and these are returned as the default fitted values.
   By default, the two linear/additive predictors
   for \code{oiposbinomial()}
@@ -112,8 +116,8 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 %       the probability of a structural zero, i.e.,
 %       the probability of the parent (binomial) component,
 %       i.e., \code{onempstr1} is \code{1-pstr1};
-% (iii) argument \code{zero} has a new default so that the \code{onempstr1}
-%       is intercept-only by default.
+% (iii) argument \code{zero} has a new default so that
+%       the \code{onempstr1} is intercept-only by default.
 % Now \code{oiposbinomialff()} is generally recommended over
 % \code{oiposbinomial()}.
 % Both functions implement Fisher scoring.
@@ -122,8 +126,10 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}}
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}}
   and \code{\link{vgam}}.
 
 
@@ -136,17 +142,16 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 \author{ T. W. Yee }
 \note{
   The response variable should have one of the formats described by
-  \code{\link{binomialff}}, e.g., a factor or two column matrix or a
-  vector of sample proportions with the \code{weights} argument
-  specifying the values of \eqn{N}.
+  \code{\link{binomialff}}, e.g., a factor or two column matrix
+  or a vector of sample proportions with the \code{weights}
+  argument specifying the values of \eqn{N}.
 
 
 
-  To work well, one ideally needs large values of \eqn{N}
-  and \eqn{\mu}{prob} much greater than 0, i.e.,
-  the larger \eqn{N} and \eqn{\mu}{prob} are, the better.
-  If \eqn{N = 1} then the model is unidentifiable since
-  the number of parameters is excessive.
+  To work well, one ideally needs large values of \eqn{N} and
+  \eqn{\mu}{prob} much greater than 0, i.e., the larger \eqn{N} and
+  \eqn{\mu}{prob} are, the better.  If \eqn{N = 1} then the model
+  is unidentifiable since the number of parameters is excessive.
 
 
 
@@ -178,15 +183,15 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 \examples{
 size <- 10  # Number of trials; N in the notation above
 nn <- 200
-odata <- data.frame(pstr1  = logitlink( 0, inverse = TRUE),  # 0.50
-                    mubin1 = logitlink(-1, inverse = TRUE),  # Mean of usual binomial
-                    svec   = rep(size, length = nn),
-                    x2     = runif(nn))
+odata <- data.frame(pstr1  = logitlink( 0, inv = TRUE),  # 0.50
+              mubin1 = logitlink(-1, inv = TRUE),  # Binomial mean
+              svec   = rep(size, length = nn),
+              x2     = runif(nn))
 odata <- transform(odata,
-                   mubin2 = logitlink(-1 + x2, inverse = TRUE))
+                   mubin2 = logitlink(-1 + x2, inv = TRUE))
 odata <- transform(odata,
-                   y1 = roiposbinom(nn, svec, pr = mubin1, pstr1 = pstr1),
-                   y2 = roiposbinom(nn, svec, pr = mubin2, pstr1 = pstr1))
+              y1 = roiposbinom(nn, svec, pr = mubin1, pstr1 = pstr1),
+              y2 = roiposbinom(nn, svec, pr = mubin2, pstr1 = pstr1))
 with(odata, table(y1))
 fit1 <- vglm(y1 / svec ~  1, oiposbinomial, data = odata,
              weights = svec, trace = TRUE, crit = "coef")

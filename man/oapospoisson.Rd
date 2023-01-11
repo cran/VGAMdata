@@ -11,14 +11,14 @@
 }
 \usage{
 oapospoisson(lpobs1 = "logitlink", llambda = "loglink",
-             type.fitted = c("mean", "lambda", "pobs1", "onempobs1"),
-             ipobs1 = NULL, zero = NULL)
+    type.fitted = c("mean", "lambda", "pobs1", "onempobs1"),
+    ipobs1 = NULL, zero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lpobs1}{
-    Link function for the parameter \eqn{p_1}{pobs1} or \eqn{\phi}{phi},
-    called \code{pobs1} or \code{phi} here.
+    Link function for the parameter \eqn{p_1}{pobs1} or
+    \eqn{\phi}{phi}, called \code{pobs1} or \code{phi} here.
     See \code{\link{Links}} for more choices.
 
   }
@@ -47,38 +47,44 @@ oapospoisson(lpobs1 = "logitlink", llambda = "loglink",
 \details{
   The response \eqn{Y} is one with probability \eqn{p_1}{pobs1},
   or \eqn{Y} has a 1-truncated positive-Poisson distribution with
-  probability \eqn{1-p_1}{1-pobs1}.  Thus \eqn{0 < p_1 < 1}{0 < pobs1 < 1},
-  which is modelled as a function of the covariates.  The one-altered
-  positive-Poisson distribution differs from the one-inflated
-  positive-Poisson distribution in that the former has ones coming from one
-  source, whereas the latter has ones coming from the positive-Poisson
-  distribution too. The one-inflated positive-Poisson distribution
-  is implemented in the \pkg{VGAM} package.  Some people
-  call the one-altered positive-Poisson a \emph{hurdle} model.
+  probability \eqn{1-p_1}{1-pobs1}.  Thus \eqn{0 < p_1 < 1}{0 <
+  pobs1 < 1}, which is modelled as a function of the covariates.
+  The one-altered positive-Poisson distribution differs from the
+  one-inflated positive-Poisson distribution in that the former has
+  ones coming from one source, whereas the latter has ones coming
+  from the positive-Poisson distribution too. The one-inflated
+  positive-Poisson distribution is implemented in the \pkg{VGAM}
+  package.  Some people call the one-altered positive-Poisson a
+  \emph{hurdle} model.
 
 
   The input can be a matrix (multiple responses).
   By default, the two linear/additive predictors
   of \code{oapospoisson}
-  are \eqn{(logit(\phi), log(\lambda))^T}{(logit(phi), log(lambda))^T}.
+  are \eqn{(logit(\phi), log(\lambda))^T}{
+  (logit(phi), log(lambda))^T}.
 
 
 }
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   and \code{\link{vgam}}.
 
 
 
   The \code{fitted.values} slot of the fitted object,
-  which should be extracted by the generic function \code{fitted}, returns
+  which should be extracted by the generic function \code{fitted},
+  returns
   the mean \eqn{\mu}{mu} (default) which is given by
   \deqn{\mu = \phi + (1-\phi) A}{%
          mu = phi + (1- phi) A}
   where \eqn{A} is the mean of the one-truncated
   positive-Poisson distribution.
-  If \code{type.fitted = "pobs1"} then \eqn{p_1}{pobs1} is returned.
+  If \code{type.fitted = "pobs1"} then \eqn{p_1}{pobs1} is
+  returned.
 
 
 
@@ -114,13 +120,13 @@ oapospoisson(lpobs1 = "logitlink", llambda = "loglink",
 
 \examples{
 \dontrun{odata <- data.frame(x2 = runif(nn <- 1000))
-odata <- transform(odata, pobs1  = logitlink(-1 + 2*x2, inverse = TRUE),
-                          lambda =  loglink( 1 + 1*x2, inverse = TRUE))
-odata <- transform(odata, y1 = roapospois(nn, lambda = lambda, pobs1 = pobs1),
-                          y2 = roapospois(nn, lambda = lambda, pobs1 = pobs1))
+odata <- transform(odata, pobs1  = logitlink(-1 + 2*x2, inv = TRUE),
+                          lambda =   loglink( 1 + 1*x2, inv = TRUE))
+odata <- transform(odata, y1 = roapospois(nn, lambda, pobs1 = pobs1),
+                          y2 = roapospois(nn, lambda, pobs1 = pobs1))
 with(odata, table(y1))
 
-ofit <- vglm(cbind(y1, y2) ~ x2, oapospoisson, data = odata, trace = TRUE)
+ofit <- vglm(cbind(y1, y2) ~ x2, oapospoisson, odata, trace = TRUE)
 coef(ofit, matrix = TRUE)
 head(fitted(ofit))
 head(predict(ofit))

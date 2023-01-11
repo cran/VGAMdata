@@ -23,8 +23,9 @@ rotlog(n, shape)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x, q}{
-   Vector of quantiles. For the density, it should be a vector with
-   integer values \eqn{> 1} in order for the probabilities to be positive.
+   Vector of quantiles. For the density, it should be a vector
+   with integer values \eqn{> 1} in order for the probabilities
+   to be positive.
 
 
   }
@@ -52,9 +53,9 @@ rotlog(n, shape)
   }
 }
 \details{
-  The one-truncated logarithmic distribution is a logarithmic distribution but with
-  the probability of a one being zero. The other probabilities are scaled
-  to add to unity.
+  The one-truncated logarithmic distribution is a logarithmic
+  distribution but with the probability of a one being zero. The
+  other probabilities are scaled to add to unity.
   Some more details are given in \code{\link{logff}}.
 
 
@@ -97,8 +98,8 @@ rotlog(20, 0.5)
 \dontrun{ shape <- 0.8; x <- 1:10
 plot(x, dotlog(x, shape = shape), type = "h", ylim = 0:1,
      sub = "shape=0.8", las = 1, col = "blue", ylab = "Probability",
-     main = "1-truncated logarithmic distribution: blue=PMF; orange=CDF")
-lines(x + 0.1, potlog(x, shape = shape), col = "orange", lty = 3, type = "h") }
+     main = "1-truncated logarithmic distn: blue=PMF; orange=CDF")
+lines(x+0.1, potlog(x, shape), col = "orange", lty = 3, type = "h") }
 }
 \keyword{distribution}
 

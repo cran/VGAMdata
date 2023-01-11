@@ -58,7 +58,7 @@ Harvard University Numbers of Ladder Faculty by School and Ethnicity
 }
 \references{
   \emph{Harvard University Office of the Senior Vice Provost Faculty
-  Development \& Diversity: 2010 Annual Report}.
+  Development and Diversity: 2010 Annual Report}.
 
 
 %%  ~~ possibly secondary sources and usages ~~

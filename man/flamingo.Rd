@@ -88,7 +88,7 @@ The \code{flamingo} data frame has 4871 rows and 12 columns.
 
 %  Yee, T. W. and Luca, F. and Contu, G. (order to be decided on later).
 %  \emph{On heaped and seeped counts,
-%        with GAIT regression as a new technique
+%        with GAITD regression as a new technique
 %        applied to Sardinian hotel data}.
 
 

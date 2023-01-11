@@ -10,7 +10,8 @@
 \usage{
 oizeta(lpstr1 = "logitlink", lshape = "loglink",
   type.fitted = c("mean", "shape", "pobs1", "pstr1", "onempstr1"),
-  ishape = NULL, gpstr1 = ppoints(8), gshape = exp((-3:3) / 4), zero = NULL)
+  ishape = NULL, gpstr1 = ppoints(8), gshape = exp((-3:3) / 4),
+  zero = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -42,8 +43,8 @@ oizeta(lpstr1 = "logitlink", lshape = "loglink",
   This distribution is written here
   in a way that retains a similar notation to the
   zero-inflated Poisson, i.e., the
-  probability \eqn{P[Y=1]} involves another parameter \eqn{\phi}{phi}.
-  See \code{\link{zipoisson}}.
+  probability \eqn{P[Y=1]} involves another parameter
+  \eqn{\phi}{phi}.  See \code{\link{zipoisson}}.
 
 
   This family function can handle multiple responses.
@@ -59,8 +60,10 @@ oizeta(lpstr1 = "logitlink", lshape = "loglink",
 }
 
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
+  An object of class \code{"vglmff"}
+  (see \code{\link{vglmff-class}}).
+  The object is used by modelling functions
+  such as \code{\link{vglm}},
   \code{\link{rrvglm}} and \code{\link{vgam}}.
 
 
@@ -84,10 +87,11 @@ oizeta(lpstr1 = "logitlink", lshape = "loglink",
 }
 \examples{
 \dontrun{ odata <- data.frame(x2 = runif(nn <- 1000))  # Artificial data
-odata <- transform(odata, pstr1 = logitlink(-1 + x2, inverse = TRUE), shape = exp(-0.5))
+odata <- transform(odata, pstr1 = logitlink(-1 + x2, inv = TRUE),
+                          shape = exp(-0.5))
 odata <- transform(odata, y1 = roizeta(nn, shape, pstr1 = pstr1))
 with(odata, table(y1))
-fit1 <- vglm(y1 ~ x2, oizeta(zero = "shape"), data = odata, trace = TRUE)
+fit1 <- vglm(y1 ~ x2, oizeta(zero = "shape"), odata, trace = TRUE)
 coef(fit1, matrix = TRUE)
 }}
 \keyword{models}

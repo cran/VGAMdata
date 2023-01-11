@@ -7,8 +7,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ One-Altered Logarithmic Distribution }
 \description{
-  Density, distribution function, quantile function and random generation
-  for the one-altered positive-Poisson distribution with parameter \code{pobs1}.
+  Density, distribution function, quantile function and random
+  generation for the one-altered positive-Poisson distribution
+  with parameter \code{pobs1}.
 
 }
 \usage{

@@ -28,8 +28,9 @@ rotzeta(n, shape)
 
   }
   \item{shape}{
-   The positive shape parameter described in in \code{\link{zetaff}}.
-   Here it is called \code{shape} because it is positive.
+   The positive shape parameter described in in
+   \code{\link{zetaff}}.  Here it is called \code{shape} because
+   it is positive.
 
 
 %   For \code{rotzeta()} this pa%arameter must be of length 1.
@@ -43,9 +44,9 @@ rotzeta(n, shape)
   }
 }
 \details{
-  The one-truncated zeta distribution is a zeta distribution but with
-  the probability of a one being zero. The other probabilities are scaled
-  to add to unity.
+  The one-truncated zeta distribution is a zeta distribution but
+  with the probability of a one being zero. The other probabilities
+  are scaled to add to unity.
   Some more details are given in \code{\link{zetaff}}.
 
 
@@ -89,8 +90,8 @@ rotzeta(20, 0.5)
 \dontrun{ shape <- 0.8; x <- 1:10
 plot(x, dotzeta(x, shape = shape), type = "h", ylim = 0:1,
      sub = "shape=0.8", las = 1, col = "blue", ylab = "Probability",
-     main = "1-truncated zeta distribution: blue=PMF; orange=CDF")
-lines(x + 0.1, potzeta(x, shape = shape), col = "orange", lty = 3, type = "h") }
+     main = "1-truncated zeta distn: blue=PMF; orange=CDF")
+lines(x + 0.1, potzeta(x, shape), col = "orange", lty = 3, type = "h") }
 }
 \keyword{distribution}
 

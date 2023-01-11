@@ -6,6 +6,15 @@
 
 
 
+                CHANGES IN VGAM VERSION 1.1-8
+
+NEW FEATURES
+
+    o   Tested okay on R 4.2.2.
+    o   New data sets: rar.df, smqP.
+
+
+
                 CHANGES IN VGAM VERSION 1.1-6
 
 NEW FEATURES

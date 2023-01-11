@@ -7,8 +7,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Positive-Binomial Distribution }
 \description{
-  Density, distribution function, quantile function and random generation
-  for the positive-binomial distribution.
+  Density, distribution function, quantile function and random
+  generation for the positive-binomial distribution.
 
 }
 \usage{
@@ -58,17 +58,17 @@ rposbinom(n, size, prob)
 
 }
 \details{
-  The positive-binomial distribution is a binomial distribution but with
-  the probability of a zero being zero. The other probabilities are scaled
-  to add to unity.
+  The positive-binomial distribution is a binomial distribution
+  but with the probability of a zero being zero. The other
+  probabilities are scaled to add to unity.
   The mean therefore is
   \deqn{\mu / (1-(1-\mu)^N)}{%
          mu / (1-(1-mu)^N)}
   where \eqn{\mu}{mu} is the argument \code{prob} above.
   As \eqn{\mu}{mu} increases, the positive-binomial and binomial
-  distributions become more similar.
-  Unlike similar functions for the binomial distribution, a zero value
-  of \code{prob} is not permitted here.
+  distributions become more similar.  Unlike similar functions
+  for the binomial distribution, a zero value of \code{prob}
+  is not permitted here.
 
 
 
@@ -98,14 +98,14 @@ rposbinom(n, size, prob)
 
 
 % 20120405; no longer true to a superior method:
-% For \code{rposbinom()}, the arguments of the function are fed into
-% \code{\link[stats:Binomial]{rbinom}} until \eqn{n} positive values
-% are obtained. This may take a long time if \code{prob} has values
-% close to 0.
+% For \code{rposbinom()}, the arguments of the function are fed
+% into \code{\link[stats:Binomial]{rbinom}} until \eqn{n} positive
+% values are obtained. This may take a long time if \code{prob}
+% has values close to 0.
 
 
-  The family function \code{\link[VGAM]{posbinomial}} estimates the
-  parameters by maximum likelihood estimation.
+  The family function \code{\link[VGAM]{posbinomial}} estimates
+  the parameters by maximum likelihood estimation.
 
 
 }
@@ -144,17 +144,17 @@ round(dposbinom(1:10, size, prob) * 1000)  # Should be similar
 # Simulated data example
 nn <- 1000; sizeval1 <- 10; sizeval2 <- 20
 pdata <- data.frame(x2 = seq(0, 1, length = nn))
-pdata <- transform(pdata, prob1  = logitlink(-2 + 2 * x2, inverse = TRUE),
-                          prob2  = logitlink(-1 + 1 * x2, inverse = TRUE),
+pdata <- transform(pdata, prob1  = logitlink(-2 + 2 * x2, inv = TRUE),
+                          prob2  = logitlink(-1 + 1 * x2, inv = TRUE),
                           sizev1 = rep(sizeval1, len = nn),
                           sizev2 = rep(sizeval2, len = nn))
-pdata <- transform(pdata, y1 = rposbinom(nn, size = sizev1, prob = prob1),
-                          y2 = rposbinom(nn, size = sizev2, prob = prob2))
+pdata <- transform(pdata, y1 = rposbinom(nn, sizev1, prob = prob1),
+                          y2 = rposbinom(nn, sizev2, prob = prob2))
 with(pdata, table(y1))
 with(pdata, table(y2))
 # Multiple responses
-fit2 <- vglm(cbind(y1, y2) ~ x2, posbinomial(multiple.responses = TRUE),
-             trace  = TRUE, data = pdata, weight = cbind(sizev1, sizev2))
+fit2 <- vglm(cbind(y1, y2) ~ x2, posbinomial(multip = TRUE),
+             trace = TRUE, pdata, weight = cbind(sizev1, sizev2))
 coef(fit2, matrix = TRUE)
 }
 \keyword{distribution}

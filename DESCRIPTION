@@ -1,11 +1,12 @@
 Package: VGAMdata
-Version: 1.1-6
-Date: 2022-02-02
+Version: 1.1-8
+Date: 2023-01-12
 Title: Data Supporting the 'VGAM' Package
 Authors@R: c(person("Thomas", "Yee", role = c("aut", "cre", "cph"),
+                    comment = c(ORCID = "0000-0002-9970-3907"),
                     email = "t.yee@auckland.ac.nz"),
              person("James", "Gray", role = "dtc"))
-Author: Thomas Yee [aut, cre, cph],
+Author: Thomas Yee [aut, cre, cph] (<https://orcid.org/0000-0002-9970-3907>),
   James Gray [dtc]
 Maintainer: Thomas Yee <t.yee@auckland.ac.nz>
 Depends: R (>= 3.5.0), methods, stats, VGAM
@@ -26,5 +27,5 @@ Repository: CRAN
 LazyLoad: yes
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2022-02-02 02:50:25 UTC; tyee001
-Date/Publication: 2022-02-14 13:50:09 UTC
+Packaged: 2023-01-11 19:31:25 UTC; tyee001
+Date/Publication: 2023-01-11 20:20:02 UTC

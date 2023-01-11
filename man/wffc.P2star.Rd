@@ -28,7 +28,8 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 \arguments{
   \item{length}{ Length of the fish, in meters. Numeric vector. }
   \item{c1}{ Points added to each eligible fish. }
-  \item{min.eligible}{ The 2008 WFFC regulations stipulated that the
+  \item{min.eligible}{ The 2008 WFFC regulations stipulated
+    that the
   smallest eligible fish was 0.180 m, which is 180 mm. }
   \item{ppm}{ Points per meter of length of the fish. }
 
@@ -39,7 +40,8 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   The defaults
   mean that a fish twice the minimum legal size will award
   about 50 percent
-  more points compared to \code{wffc.P1()} and \code{wffc.P1star()}.
+  more points compared to \code{wffc.P1()}
+  and \code{wffc.P1star()}.
   See below for examples.
 
 
@@ -48,12 +50,17 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 }
 \details{
-  The official website contains a document with the official rules and
+  The official website contains a document with
+  the official rules and
   regulations of the competition.
-  The function \code{wffc.P1()} implements the current WFFC point system,
-  and is `discrete' in that fish lengths are rounded up to the nearest
-  centimeter (provided it is greater or equal to \code{min.eligible} m).
-  \code{wffc.P1star()} is a continuous version of it in that it is
+  The function \code{wffc.P1()} implements the
+  current WFFC point system,
+  and is `discrete' in that fish lengths are
+  rounded up to the nearest
+  centimeter (provided it is greater or equal
+  to \code{min.eligible} m).
+  \code{wffc.P1star()} is a continuous version
+  of it in that it is
   piecewise linear with two pieces and it is discontinuous at
   \code{min.eligible}.
 
@@ -69,12 +76,15 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   Named a \emph{cumulative linear proposal},
   its slope is \code{ppm} between \code{min.eligible} and
   \code{2 * min.eligible},
-  its slope is \code{2 * ppm} between \code{2 * min.eligible} and
+  its slope is \code{2 * ppm}
+  between \code{2 * min.eligible} and
   \code{3 * min.eligible},
-  its slope is \code{3 * ppm} between \code{3 * min.eligible} and
+  its slope is \code{3 * ppm}
+  between \code{3 * min.eligible} and
   \code{4 * min.eligible}, etc.
   One adds the usual \code{c1} to each eligible fish.
-  \code{wffc.P3star()} is a continuous version of \code{wffc.P3()}.
+  \code{wffc.P3star()} is a continuous
+  version of \code{wffc.P3()}.
 
 
 
@@ -83,12 +93,15 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
   Named a \emph{cumulative linear proposal},
   its slope is \code{ppm} between \code{min.eligible} and
   \code{2 * min.eligible},
-  its slope is \code{2 * ppm} between \code{2 * min.eligible} and
+  its slope is \code{2 * ppm}
+  between \code{2 * min.eligible} and
   \code{1.5 * min.eligible},
-  its slope is \code{3 * ppm} between \code{1.5 * min.eligible} and
+  its slope is \code{3 * ppm}
+  between \code{1.5 * min.eligible} and
   \code{2 * min.eligible}, etc.
   One adds the usual \code{c1} to each eligible fish.
-  \code{wffc.P4star()} is a continuous version of \code{wffc.P4()}.
+  \code{wffc.P4star()} is a continuous
+  version of \code{wffc.P4()}.
 
 
 
@@ -119,7 +132,8 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 
 \author{ T. W. Yee. }
 \note{
-  \code{wffc.P2} and \code{wffc.P2star} may change in the future,
+  \code{wffc.P2} and \code{wffc.P2star} may
+  change in the future,
   as well as possibly
   \code{wffc.P3} and \code{wffc.P3star}
   and
@@ -135,13 +149,13 @@ wffc.P3star(length, c1 = 100, min.eligible = 0.18, ppm = 2000)
 \examples{
 \dontrun{ fishlength <- seq(0.0, 0.72, by = 0.001)
 plot(fishlength, wffc.P2star(fishlength), type = "l", col = "blue",
-     las = 1, lty = "dashed", lwd = 2, las = 1, cex.main = 0.8,
-     xlab = "Fish length (m)", ylab = "Competition points",
-     main = "Current (red) and proposed (blue and green) WFFC point system")
-lines(fishlength, wffc.P1star(fishlength), type = "l", col = "red", lwd = 2)
-lines(fishlength, wffc.P3star(fishlength), type = "l", col = "darkgreen",
+  las = 1, lty = "dashed", lwd = 2, las = 1, cex.main = 0.8,
+  xlab = "Fish length (m)", ylab = "Competition points",
+  main = "Current (red) & proposed (blue&green) WFFC point system")
+lines(fishlength, wffc.P1star(fishlength), col = "red", lwd = 2)
+lines(fishlength, wffc.P3star(fishlength), col = "darkgreen",
       lwd = 2, lty = "dashed")
-lines(fishlength, wffc.P4star(fishlength), type = "l", col = "orange",
+lines(fishlength, wffc.P4star(fishlength), col = "orange",
       lwd = 2, lty = "dashed")
 abline(v = (1:4) * 0.18, lty = "dotted")
 abline(h = (1:13) * wffc.P1star(0.18), lty = "dotted") }
