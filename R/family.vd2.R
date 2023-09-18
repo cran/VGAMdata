@@ -14,7 +14,7 @@
 
 
 
-# ==================================================================
+# ==========================================================
 
 
 # 20060525 [dp]tikuv look fine.
@@ -428,31 +428,327 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
 
-# ==================================================================
+# ==========================================================
+
+
+# Works;
+# Notes:
+# 1. NR = Fisher scoring only if the scale parameter
+#    enters in the form exp(- a y2).
+# 2. Implemented has the scale parameter enters in
+#    in the form exp(- y2 / a).
+#    Then NR is not FS.
+
+# 20050806
+# Last modified: 20100107,
+
+
+
+ bigamma.mckay <-
+    function(lscale = "loglink",
+             lshape1 = "loglink",
+             lshape2 = "loglink",
+             iscale = NULL,
+             ishape1 = NULL,
+             ishape2 = NULL,
+             imethod = 1,
+             zero = "shape") {
+#            zero = 2:3
+  lscale <- as.list(substitute(lscale))
+  escale <- link2list(lscale)
+  lscale <- attr(escale, "function.name")
+
+  lshape1 <- as.list(substitute(lshape1))
+  eshape1 <- link2list(lshape1)
+  lshape1 <- attr(eshape1, "function.name")
+
+  lshape2 <- as.list(substitute(lshape2))
+  eshape2 <- link2list(lshape2)
+  lshape2 <- attr(eshape2, "function.name")
+
+
+  if (!is.null(iscale))
+    if (!is.Numeric(iscale, positive = TRUE))
+      stop("argument 'iscale' must be positive or NULL")
+  if (!is.null(ishape1))
+    if (!is.Numeric(ishape1, positive = TRUE))
+      stop("argument 'ishape1' must be positive or NULL")
+  if (!is.null(ishape2))
+    if (!is.Numeric(ishape2, positive = TRUE))
+      stop("argument 'ishape2' must be positive or NULL")
+
+  if (!is.Numeric(imethod, length.arg = 1,
+                  integer.valued = TRUE, positive = TRUE) ||
+     imethod > 2.5)
+    stop("argument 'imethod' must be 1 or 2")
+
+
+
+  new("vglmff",
+  blurb = c("Bivariate gamma: McKay's distribution\n",
+            "Links:    ",
+            namesof("scale",  lscale,  earg = escale ), ", ",
+            namesof("shape1", lshape1, earg = eshape1), ", ",
+            namesof("shape2", lshape2, earg = eshape2)),
+  constraints = eval(substitute(expression({
+    constraints <- cm.zero.VGAM(constraints, x = x,
+                                .zero , M = M,
+                      predictors.names = predictors.names,
+                                M1 = 3)
+#   dotzero <- .zero
+#   M1 <- 3
+#   Q1 <- 2
+#   eval(negzero.expression.VGAM)
+  }), list( .zero = zero ))),
+
+
+
+  infos = eval(substitute(function(...) {
+    list(M1 = 3,
+         Q1 = 2,
+#        dpqrfun = "zz",
+         expected = TRUE,
+         multipleResponses = FALSE,
+         parameters.names = c("scale", "shape1", "shape2"),
+         lscale  = .lscale  ,
+         lshape1 = .lshape1 ,
+         lshape2 = .lshape2 ,
+         zero = .zero )
+  },
+  list( .zero = zero,
+        .lscale  = lscale ,
+        .lshape1 = lshape1,
+        .lshape2 = lshape2 ))),
+
+
+  initialize = eval(substitute(expression({
+#   if (!is.matrix(y) || ncol(y) != 2)
+#     stop("the response must be a 2 column matrix")
+
+    temp5 <-
+    w.y.check(w = w, y = y,
+              Is.positive.y = TRUE,
+#             Is.nonnegative.y = TRUE,
+              ncol.w.max = 1,
+              ncol.y.max = 2,
+              ncol.y.min = 2,
+#             Is.integer.y = TRUE,
+              out.wy = TRUE,
+              colsyperw = 2,
+              maximize = TRUE)
+    w <- temp5$w
+    y <- temp5$y
+
+
+# For @linkinv
+    extra$colnames.y  <- colnames(y)
+
+    if (any(y[, 1] >= y[, 2]))
+      stop("the second column minus the first column must ",
+           "be a vector of positive values")
+
+
+    predictors.names <-
+      c(namesof("scale",  .lscale,  .escale,  short = TRUE),
+        namesof("shape1", .lshape1, .eshape1, short = TRUE),
+        namesof("shape2", .lshape2, .eshape2, short = TRUE))
+
+    if (!length(etastart)) {
+      momentsY <- if ( .imethod == 1) {
+        cbind(median(y[, 1]),  # This may not be monotonic
+              median(y[, 2])) + 0.01
+      } else {
+        cbind(weighted.mean(y[, 1], w),
+              weighted.mean(y[, 2], w))
+      }
+
+      mcg2.loglik <- function(thetaval, y, x, w, extraargs) {
+        ainit <- a <- thetaval
+        momentsY <- extraargs$momentsY
+          p <- (1/a) * abs(momentsY[1]) + 0.01
+          q <- (1/a) * abs(momentsY[2] - momentsY[1]) + 0.01
+          sum(c(w) * (-(p+q)*log(a) - lgamma(p) - lgamma(q) +
+               (p - 1)*log(y[, 1]) +
+               (q - 1)*log(y[, 2]-y[, 1]) - y[, 2] / a ))
+      }
+
+      a.grid <- if (length( .iscale )) c( .iscale ) else
+                c(0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5,
+                  10, 20, 50, 100)
+      extraargs <- list(momentsY = momentsY)
+      ainit <- grid.search(a.grid, objfun = mcg2.loglik,
+                           y = y, x = x, w = w,
+                           maximize = TRUE,
+                           extraargs = extraargs)
+      ainit <- rep_len(if (is.Numeric( .iscale ))
+                           .iscale else ainit, n)
+      pinit <- (1/ainit) * abs(momentsY[1]) + 0.01
+      qinit <- (1/ainit) *
+          abs(momentsY[2] - momentsY[1]) + 0.01
+
+      pinit <- rep_len(if (is.Numeric( .ishape1 ))
+                           .ishape1 else pinit, n)
+      qinit <- rep_len(if (is.Numeric( .ishape2 ))
+                           .ishape2 else qinit, n)
+
+#print("c(ainit[1], pinit[1], qinit[1])")
+#print( c(ainit[1], pinit[1], qinit[1]) )
+      etastart <-
+        cbind(theta2eta(ainit, .lscale),
+              theta2eta(pinit, .lshape1),
+              theta2eta(qinit, .lshape2))
+    }
+  }),
+  list(
+    .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+    .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2,
+    .iscale = iscale, .ishape1 = ishape1, .ishape2 = ishape2,
+    .imethod = imethod ))),
+  linkinv = eval(substitute(function(eta, extra = NULL) {
+    NOS <- NCOL(eta) / c(M1 = 3)
+    a <- eta2theta(eta[, 1], .lscale  ,  .escale )
+    p <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
+    q <- eta2theta(eta[, 3], .lshape2 , .eshape2 )
+    fv.mat <-  cbind("y1" = p*a,
+                     "y2" = (p+q)*a)  # Overwrite the colnames:
+    label.cols.y(fv.mat, colnames.y = extra$colnames.y,
+                 NOS = NOS)
+  },
+  list(
+      .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+      .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
+       ))),
+  last = eval(substitute(expression({
+    misc$link <-    c("scale"  = .lscale ,
+                      "shape1" = .lshape1 ,
+                      "shape2" = .lshape2 )
+
+    misc$earg <- list("scale"  = .escale ,
+                      "shape1" = .eshape1 ,
+                      "shape2" = .eshape2 )
+
+    misc$ishape1 <- .ishape1
+    misc$ishape2 <- .ishape2
+    misc$iscale <- .iscale
+    misc$expected <- TRUE
+    misc$multipleResponses <- FALSE
+  }),
+  list(
+      .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+      .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2,
+      .iscale = iscale, .ishape1 = ishape1, .ishape2 = ishape2,
+      .imethod = imethod ))),
+  loglikelihood = eval(substitute(
+    function(mu, y, w, residuals = FALSE, eta,
+             extra = NULL,
+             summation = TRUE) {
+    a <- eta2theta(eta[, 1], .lscale  ,  .escale )
+    p <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
+    q <- eta2theta(eta[, 3], .lshape2 , .eshape2 )
+
+    if (residuals) {
+      stop("loglikelihood residuals not implemented yet")
+    } else {
+      ll.elts <-
+        c(w) * (-(p+q)*log(a) - lgamma(p) - lgamma(q) +
+                (p - 1)*log(y[, 1]) +
+                (q - 1)*log(y[, 2]-y[, 1]) -
+               y[, 2] / a)
+      if (summation) {
+        sum(ll.elts)
+      } else {
+        ll.elts
+      }
+    }
+    },
+  list(
+      .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+      .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
+       ))),
+  vfamily = c("bigamma.mckay"),
+# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  validparams = eval(substitute(function(eta, y, extra = NULL) {
+# 20160618;
+    aparam <- eta2theta(eta[, 1], .lscale  ,  .escale )
+    shape1 <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
+    shape2 <- eta2theta(eta[, 3], .lshape2 , .eshape2 )
+#print("hi5a")
+    okay1 <- all(is.finite(aparam)) && all(0 < aparam) &&
+             all(is.finite(shape1)) && all(0 < shape1) &&
+             all(is.finite(shape2)) && all(0 < shape2)
+#print("okay1 in @validparams in bigamma.mckay()")
+#print( okay1 )
+    okay1
+  },
+  list(
+    .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+    .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
+       ))),
+# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  deriv = eval(substitute(expression({
+    aparam <- eta2theta(eta[, 1], .lscale  ,  .escale )
+    shape1 <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
+    shape2 <- eta2theta(eta[, 3], .lshape2 , .eshape2 )
+
+    dl.da <- (-(shape1+shape2) + y[, 2] / aparam) / aparam
+    dl.dshape1 <- -log(aparam) - digamma(shape1) + log(y[, 1])
+    dl.dshape2 <- -log(aparam) - digamma(shape2) + log(y[, 2] -
+                                                       y[, 1])
+
+    c(w) * cbind(dl.da      * dtheta.deta(aparam, .lscale),
+                 dl.dshape1 * dtheta.deta(shape1, .lshape1),
+                 dl.dshape2 * dtheta.deta(shape2, .lshape2))
+  }),
+  list(
+      .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
+      .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
+       ))),
+  weight = eval(substitute(expression({
+    d11 <- (shape1+shape2) / aparam^2
+    d22 <- trigamma(shape1)
+    d33 <- trigamma(shape2)
+    d12 <- 1 / aparam
+    d13 <- 1 / aparam
+    d23 <- 0
+
+    wz <- matrix(0, n, dimm(M))
+    wz[, iam(1, 1, M)] <- dtheta.deta(aparam, .lscale  )^2 * d11
+    wz[, iam(2, 2, M)] <- dtheta.deta(shape1, .lshape1 )^2 * d22
+    wz[, iam(3, 3, M)] <- dtheta.deta(shape2, .lshape2 )^2 * d33
+    wz[, iam(1, 2, M)] <- dtheta.deta(aparam, .lscale  ) *
+                          dtheta.deta(shape1, .lshape1 ) * d12
+    wz[, iam(1, 3, M)] <- dtheta.deta(aparam, .lscale  ) *
+                          dtheta.deta(shape2, .lshape2 ) * d13
+    wz[, iam(2, 3, M)] <- dtheta.deta(shape1, .lshape1 ) *
+                          dtheta.deta(shape2, .lshape2 ) * d23
+
+    c(w) * wz
+  }),
+  list( .lscale = lscale, .lshape1 = lshape1,
+                          .lshape2 = lshape2 ))))
+}  # bigamma.mckay
+
+
+
+# ==========================================================
+
+
+
+# ==========================================================
 
 
 
 
-
-# ==================================================================
-
-
-
-# ==================================================================
+# ==========================================================
 
 
 
 
-# ==================================================================
+# ==========================================================
 
 
 
-
-# ==================================================================
-
-
-
-# ==================================================================
+# ==========================================================
 
 
 

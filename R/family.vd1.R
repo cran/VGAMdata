@@ -433,9 +433,9 @@ doiposbinom <- function(x, size, prob, pstr1 = 0, log = FALSE) {
                               prob[!index1], log = TRUE)
   } else {
     ans[ index1] <-      pstr1[ index1] + (1 - pstr1[ index1]) *
-                        dposbinom(x[ index1], size[ index1], prob[ index1])
+                   dposbinom(x[ index1], size[ index1], prob[ index1])
     ans[!index1] <- (1 - pstr1[!index1]) *
-                        dposbinom(x[!index1], size[!index1], prob[!index1])
+                   dposbinom(x[!index1], size[!index1], prob[!index1])
   }
 
 
@@ -458,7 +458,7 @@ poiposbinom <- function(q, size, prob, pstr1 = 0) {
   if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
   ans <- rep_len(NA_real_, LLL)
 
-  ans <- pposbinom(q, size, prob)  # lower.tail=lower.tail, log.p=log.p
+  ans <- pposbinom(q, size, prob)  # lower.t=lower.tail, log.p=log.p
   ans <- ifelse(q < 1, 0, pstr1 + (1 - pstr1) * ans)
 
   deflat.limit <- size * prob / (1 + (size-1) * prob -
@@ -2593,7 +2593,8 @@ roazeta <- function(n, shape, pobs1 = 0) {
 
 
   linkinv = eval(substitute(function(eta, extra = NULL) {
-   type.fitted <- if (length(extra$type.fitted)) extra$type.fitted else {
+   type.fitted <- if (length(extra$type.fitted))
+                     extra$type.fitted else {
                      warning("cannot find 'type.fitted'. ",
                              "Returning the 'mean'.")
                      "mean"
@@ -2993,7 +2994,8 @@ roizeta <- function(n, shape, pstr1 = 0) {
             .type.fitted = type.fitted ))),
   linkinv = eval(substitute(function(eta, extra = NULL) {
     NOS <- ncol(eta) / c(M1 = 2)
-    type.fitted <- if (length(extra$type.fitted)) extra$type.fitted else {
+    type.fitted <- if (length(extra$type.fitted))
+                     extra$type.fitted else {
                      warning("cannot find 'type.fitted'. ",
                              "Returning the 'mean'.")
                      "mean"
@@ -3311,7 +3313,7 @@ roizipf <- function(n, N, shape, pstr1 = 0) {
 
 
   type.fitted <- match.arg(type.fitted,
-                   c("mean", "shape", "pobs1", "pstr1", "onempstr1"))[1]
+      c("mean", "shape", "pobs1", "pstr1", "onempstr1"))[1]
 
 
   if (length(ishape))
@@ -3433,14 +3435,15 @@ roizipf <- function(n, N, shape, pstr1 = 0) {
             .N = N ))),
   linkinv = eval(substitute(function(eta, extra = NULL) {
     NOS <- ncol(eta) / c(M1 = 2)
-    type.fitted <- if (length(extra$type.fitted)) extra$type.fitted else {
+    type.fitted <- if (length(extra$type.fitted))
+                   extra$type.fitted else {
                      warning("cannot find 'type.fitted'. ",
                              "Returning the 'mean'.")
                      "mean"
                    }
 
     type.fitted <- match.arg(type.fitted,
-                     c("mean", "shape", "pobs1", "pstr1", "onempstr1"))[1]
+         c("mean", "shape", "pobs1", "pstr1", "onempstr1"))[1]
 
     pstr1 <- eta2theta(eta[, c(TRUE, FALSE)], .lpstr1 , earg = .epstr1 )
     shape <- eta2theta(eta[, c(FALSE, TRUE)], .lshape , earg = .eshape )
@@ -3992,10 +3995,11 @@ doipospois <- function(x, lambda, pstr1 = 0, log = FALSE) {
     ans[ index1] <- log(pstr1[ index1] + (1 - pstr1[ index1]) *
                         dpospois(x[ index1], lambda[ index1]))
     ans[!index1] <- log1p(-pstr1[!index1]) +
-                    dpospois(x[!index1], lambda[!index1], log = TRUE)
+                      dpospois(x[!index1], lambda[!index1],
+                               log = TRUE)
   } else {
     ans[ index1] <-      pstr1[ index1] + (1 - pstr1[ index1]) *
-                       dpospois(x[ index1], lambda[ index1])
+                    dpospois(x[ index1], lambda[ index1])
     ans[!index1] <- (1 - pstr1[!index1]) *
                     dpospois(x[!index1], lambda[!index1])
   }

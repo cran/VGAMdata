@@ -91,11 +91,15 @@ Tobacco consumption:
       Ratio of family income to poverty (\code{INDFMPIR}).
 
     }
-    \item{diet, meals_fastfood_pizza, readytoeat_foods}{
-      For example, the number of meals from a
-      fast food or pizza place
-      (\code{DBD900}).
-      May be described later in more detail.
+    \item{meals_fastfood_pizza, diet, readytoeat_foods}{
+      For example,
+      for the first one, this is
+      the number of meals from a fast food or pizza place
+      (\code{DBD900}) during the last 7 days, where
+      the value 5555 means more than 21 meals per week,
+      the value 7777 means the person refused to answer, and
+      the value 9999 means the person didn't know.
+      The other variables may be described later in more detail.
 
 
 

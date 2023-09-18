@@ -14,6 +14,7 @@ otzeta(lshape = "loglink", ishape = NULL,
 \arguments{
   \item{lshape, ishape, gshape, zero}{
   Same as \code{\link{zetaff}}.
+  See \code{\link{CommonVGAMffArguments}} for information.
 
 
   }

@@ -6,7 +6,17 @@
 
 
 
-                CHANGES IN VGAM VERSION 1.1-8
+                CHANGES IN VGAMdata VERSION 1.1-9
+
+NEW FEATURES
+
+    o   Function moved from VGAM 1.1-8: bigamma.mckay.
+    o   New data sets: mbflood.
+    o   Tested okay on R 4.3.0.
+
+
+
+                CHANGES IN VGAMdata VERSION 1.1-8
 
 NEW FEATURES
 
@@ -15,7 +25,7 @@ NEW FEATURES
 
 
 
-                CHANGES IN VGAM VERSION 1.1-6
+                CHANGES IN VGAMdata VERSION 1.1-6
 
 NEW FEATURES
 
@@ -24,11 +34,11 @@ NEW FEATURES
 
 
 
-                CHANGES IN VGAM VERSION 1.1-5
+                CHANGES IN VGAMdata VERSION 1.1-5
 
 NEW FEATURES
 
-    o   Functions moved from VGAM 1.1-5: yip88, bellff, tikuv(dpqr).
+    o   Functions moved from VGAMdata 1.1-5: yip88, bellff, tikuv(dpqr).
     o   New data sets: airbnb.ac, flamingo.
 
 
@@ -41,7 +51,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 1.0-4
+                CHANGES IN VGAMdata VERSION 1.0-4
 
 NEW FEATURES
 
@@ -58,7 +68,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 1.0-3
+                CHANGES IN VGAMdata VERSION 1.0-3
 
 NEW FEATURES
 
@@ -71,7 +81,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 1.0-2
+                CHANGES IN VGAMdata VERSION 1.0-2
 
 NEW FEATURES
 
@@ -84,7 +94,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 1.0-0
+                CHANGES IN VGAMdata VERSION 1.0-0
 
 NEW FEATURES
 
@@ -110,7 +120,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-7
+                CHANGES IN VGAMdata VERSION 0.9-7
 
 NEW FEATURES
 
@@ -124,7 +134,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-5
+                CHANGES IN VGAMdata VERSION 0.9-5
 
 NEW FEATURES
 
@@ -141,7 +151,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-4
+                CHANGES IN VGAMdata VERSION 0.9-4
 
 NEW FEATURES
 
@@ -157,7 +167,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-3
+                CHANGES IN VGAMdata VERSION 0.9-3
 
 NEW FEATURES
 
@@ -171,7 +181,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-2
+                CHANGES IN VGAMdata VERSION 0.9-2
 
 NEW FEATURES
 
@@ -184,7 +194,7 @@ BUG FIXES and CHANGES
 
 
 
-                CHANGES IN VGAM VERSION 0.9-1
+                CHANGES IN VGAMdata VERSION 0.9-1
 
 NEW FEATURES
 

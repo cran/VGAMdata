@@ -68,7 +68,7 @@ genpoisson(llambda = "rhobitlink", ltheta = "loglink",
   \code{\link[VGAM]{genpoisson2}}.
   For underdispersion with respect to the Poisson
   try the GTE (generally-truncated expansion) method
-  described by Yee and Ma (2020).
+  described by Yee and Ma (2023).
 
 
 
@@ -123,6 +123,13 @@ and the variance is \eqn{\theta / (1 - \lambda)^3}.
 }
 \references{
 
+
+Consul, P. C. (1989).
+\emph{Generalized Poisson Distributions:
+      Properties and Applications}.
+New York, USA: Marcel Dekker.
+
+
 Consul, P. C. and Famoye, F. (2006).
 \emph{Lagrangian Probability Distributions},
 Boston, USA: Birkhauser.
@@ -133,16 +140,9 @@ Jorgensen, B. (1997).
 London: Chapman & Hall
 
 
-Consul, P. C. (1989).
-\emph{Generalized Poisson Distributions: Properties and Applications}.
-New York, USA: Marcel Dekker.
-
-
-
-Yee, T. W. and Ma, C. (2021).
-Generally--altered, --inflated and --truncated regression,
-with application to heaped and seeped counts.
-\emph{Under review}.
+Yee, T. W. and Ma, C. (2023)
+Generally altered, inflated, truncated and deflated regression.
+\emph{In preparation}.
 
 
 

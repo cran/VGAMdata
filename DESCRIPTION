@@ -1,6 +1,6 @@
 Package: VGAMdata
-Version: 1.1-8
-Date: 2023-01-12
+Version: 1.1-9
+Date: 2023-09-18
 Title: Data Supporting the 'VGAM' Package
 Authors@R: c(person("Thomas", "Yee", role = c("aut", "cre", "cph"),
                     comment = c(ORCID = "0000-0002-9970-3907"),
@@ -9,7 +9,7 @@ Authors@R: c(person("Thomas", "Yee", role = c("aut", "cre", "cph"),
 Author: Thomas Yee [aut, cre, cph] (<https://orcid.org/0000-0002-9970-3907>),
   James Gray [dtc]
 Maintainer: Thomas Yee <t.yee@auckland.ac.nz>
-Depends: R (>= 3.5.0), methods, stats, VGAM
+Depends: R (>= 4.0.0), methods, stats, VGAM
 Description: Mainly data sets to accompany the VGAM package and
 	the book "Vector Generalized Linear and
 	Additive Models: With an Implementation in R" (Yee, 2015)
@@ -27,5 +27,5 @@ Repository: CRAN
 LazyLoad: yes
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2023-01-11 19:31:25 UTC; tyee001
-Date/Publication: 2023-01-11 20:20:02 UTC
+Packaged: 2023-09-18 04:05:22 UTC; tyee001
+Date/Publication: 2023-09-18 07:40:02 UTC

@@ -6,6 +6,9 @@
 
 
 
+export("bigamma.mckay")
+
+
 
 importFrom("stats", "coef", "lm")
 

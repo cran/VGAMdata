@@ -15,6 +15,7 @@ otlog(lshape = "logitlink", gshape = ppoints(8), zero = NULL)
   \item{lshape, gshape, zero}{
   Same as
   \code{\link{logff}}.
+  See \code{\link{CommonVGAMffArguments}} for information.
 
 
   }

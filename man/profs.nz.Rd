@@ -100,11 +100,15 @@
 
 }
 \source{
-  The data is compiled from
-  \url{https://mathscinet.ams.org/mathscinet/}
+  The data was compiled from
+  the equivalent of
+  \url{https://mathscinet.ams.org/mathscinet/publications-search}
   by J. T. Gray in April 2014.
 
 
+
+% 20230918; this has been replaced:
+% \url{https://mathscinet.ams.org/mathscinet/}
 
 
 

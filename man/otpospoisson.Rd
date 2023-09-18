@@ -21,6 +21,7 @@
   }
   \item{imethod, zero}{
   Same as \code{\link{pospoisson}}.
+  See \code{\link{CommonVGAMffArguments}} for information.
 
 
   }
