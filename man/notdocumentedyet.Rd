@@ -3,6 +3,22 @@
 %
 %
 %
+% 202409
+\alias{adjust0.loglaplace1}
+\alias{adjust01.logitlaplace1}
+\alias{alaplace1.control}
+\alias{alaplace2.control}
+\alias{alaplace3.control}
+\alias{dlogitlap}
+\alias{dloglap}
+\alias{logitlaplace1.control}
+\alias{loglaplace1.control}
+\alias{plogitlap}
+\alias{ploglap}
+\alias{qlogitlap}
+\alias{qloglap}
+\alias{rlogitlap}
+\alias{rloglap}
 % 202011
 \alias{dgenpois}
 % 20200825
@@ -36,10 +52,10 @@
 %
 %
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Undocumented Data Sets }
+\title{ Undocumented Data Sets and Functions }
 \description{
-  Those currently undocumented and internally used functions are aliased
-  to this help file.
+  Those currently undocumented and internally used functions are
+  aliased to this help file.
   Ditto for some classes.
 
 }
@@ -50,7 +66,7 @@
 %\arguments{
 %  \item{lmean}{
 %  Link function applied to the mean.
-%  See \code{\link{Links}} for more choices.
+%  See \code{\link[VGAM}{Links}} for more choices.
 %
 %  }
 %}
@@ -76,7 +92,7 @@
 %}
 %\seealso{
 %  \code{gaussianff},
-%  \code{\link{posnormal1}}.
+%  \code{\link[VGAM}{posnormal1}}.
 %}
 %\examples{
 %}

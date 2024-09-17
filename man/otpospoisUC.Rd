@@ -23,12 +23,12 @@ rotpospois(n, lambda)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x, q, p, n}{
-   Same as \code{\link{Pospois}}.
+   Same as \code{\link[VGAMdata]{Pospois}}.
 
 
   }
   \item{lambda, log, log.p}{
-   Same as \code{\link{Pospois}}.
+   Same as \code{\link[VGAMdata]{Pospois}}.
 
 
 
@@ -39,7 +39,7 @@ rotpospois(n, lambda)
   but with the probability of a one and a zero being 0.
   That is, its support is 2, 3, \ldots.
   The other probabilities are scaled to add to unity.
-  Some more details are given in \code{\link{pospoisson}}.
+  Some more details are given in \code{\link[VGAM]{pospoisson}}.
 
 
 }
@@ -58,7 +58,7 @@ rotpospois(n, lambda)
 \author{ T. W. Yee }
 \note{
   Given some response data, the \pkg{VGAM} family function
-  \code{\link{otpospoisson}} estimates the
+  \code{\link[VGAMdata]{otpospoisson}} estimates the
   parameter \code{lambda}.
 
 
@@ -66,9 +66,9 @@ rotpospois(n, lambda)
 }
 
 \seealso{
-  \code{\link{otpospoisson}},
-  \code{\link{Pospois}},
-  \code{\link{Oipospois}}.
+  \code{\link[VGAMdata]{otpospoisson}},
+  \code{\link[VGAMdata]{Pospois}},
+  \code{\link[VGAMdata]{Oipospois}}.
 
 
 }

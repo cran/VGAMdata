@@ -16,24 +16,24 @@ oizipf(N = NULL, lpstr1 = "logitlink", lshape = "loglink",
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{N}{
-  Same as \code{\link{zipf}}.
+  Same as \code{\link[VGAM]{zipf}}.
 
 
   }
   \item{lpstr1, lshape}{
-    For \code{lpstr1}: the same idea as \code{\link{zipoisson}}
+    For \code{lpstr1}: the same idea as \code{\link[VGAM]{zipoisson}}
     except it applies to a structural 1.
 
 
   }
   \item{gpstr1, gshape, ishape}{
   For initial values.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
   \item{type.fitted, zero}{
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
   }
 
@@ -49,7 +49,7 @@ oizipf(N = NULL, lpstr1 = "logitlink", lshape = "loglink",
   in a way that retains a similar notation to the
   zero-inflated Poisson, i.e., the
   probability \eqn{P[Y=1]} involves another parameter
-  \eqn{\phi}{phi}.  See \code{\link{zipoisson}}.
+  \eqn{\phi}{phi}.  See \code{\link[VGAM]{zipoisson}}.
 
 
   This family function can handle multiple responses.
@@ -66,10 +66,10 @@ oizipf(N = NULL, lpstr1 = "logitlink", lshape = "loglink",
 
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  \code{\link{rrvglm}} and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  \code{\link[VGAM]{rrvglm}} and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -79,9 +79,9 @@ oizipf(N = NULL, lpstr1 = "logitlink", lshape = "loglink",
 %\note{
 %}
 \seealso{
-  \code{\link{Oizipf}}.
-  \code{\link{zipf}},
-  \code{\link{Oizeta}}.
+  \code{\link[VGAMdata]{Oizipf}}.
+  \code{\link[VGAM]{zipf}},
+  \code{\link[VGAMdata]{Oizeta}}.
 
 
 

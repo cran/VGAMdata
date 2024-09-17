@@ -80,10 +80,10 @@ roizeta(n, shape, pstr1 = 0)
 }
 
 \seealso{
-    \code{\link{Zeta}},
-    \code{\link{zetaff}}.
-    \code{\link{Otzeta}},
-%   \code{\link{zipf}}.
+    \code{\link[VGAM]{Zeta}},
+    \code{\link[VGAM]{zetaff}}.
+    \code{\link[VGAMdata]{Otzeta}},
+%   \code{\link[VGAM]{zipf}}.
 
 
 

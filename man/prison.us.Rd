@@ -93,3 +93,4 @@ plot(US.pop / 1e6 ~ Year, prison.us, main = "US population (millions)",
      las = 1, type = "b", col = "blue") }
 }
 \keyword{datasets}
+

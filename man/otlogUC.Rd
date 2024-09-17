@@ -36,7 +36,7 @@ rotlog(n, shape)
 
   }
   \item{shape}{
-   The parameter value \eqn{c} described in in \code{\link{logff}}.
+   The parameter value \eqn{c} described in in \code{\link[VGAM]{logff}}.
    Here it is called \code{shape} because \eqn{0<c<1} is the range.
 
 
@@ -56,7 +56,7 @@ rotlog(n, shape)
   The one-truncated logarithmic distribution is a logarithmic
   distribution but with the probability of a one being zero. The
   other probabilities are scaled to add to unity.
-  Some more details are given in \code{\link{logff}}.
+  Some more details are given in \code{\link[VGAM]{logff}}.
 
 
 }
@@ -75,19 +75,19 @@ rotlog(n, shape)
 \author{ T. W. Yee }
 \note{
   Given some response data, the \pkg{VGAM} family function
-  \code{\link{otlog}} estimates the parameter \code{shape}.
+  \code{\link[VGAMdata]{otlog}} estimates the parameter \code{shape}.
   Function \code{potlog()} suffers from the problems that
-  \code{\link{plog}} sometimes has.
+  \code{\link[VGAM]{plog}} sometimes has.
 
 
 
 }
 
 \seealso{
-  \code{\link{Gaitdlog}},
-  \code{\link{otlog}},
-  \code{\link{rlog}},
-  \code{\link{Oilog}}.
+  \code{\link[VGAM]{Gaitdlog}},
+  \code{\link[VGAMdata]{otlog}},
+  \code{\link[VGAM]{rlog}},
+  \code{\link[VGAMdata]{Oilog}}.
 
 
 }

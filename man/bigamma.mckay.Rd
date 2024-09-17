@@ -17,7 +17,7 @@ bigamma.mckay(lscale = "loglink", lshape1 = "loglink",
   \item{lscale, lshape1, lshape2}{
   Link functions applied to the (positive)
   parameters \eqn{a}, \eqn{p} and \eqn{q} respectively.
-  See \code{\link{Links}} for more choices.
+  See \code{\link[VGAM]{Links}} for more choices.
 
 
   }
@@ -28,7 +28,7 @@ bigamma.mckay(lscale = "loglink", lshape1 = "loglink",
 
   }
   \item{imethod, zero}{
-  See \code{\link{CommonVGAMffArguments}}.
+  See \code{\link[VGAM]{CommonVGAMffArguments}}.
 
 
   }
@@ -71,10 +71,10 @@ bigamma.mckay(lscale = "loglink", lshape1 = "loglink",
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}}
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}}
+  and \code{\link[VGAM]{vgam}}.
 
 }
 

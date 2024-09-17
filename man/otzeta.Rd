@@ -13,8 +13,8 @@ otzeta(lshape = "loglink", ishape = NULL,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lshape, ishape, gshape, zero}{
-  Same as \code{\link{zetaff}}.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  Same as \code{\link[VGAM]{zetaff}}.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
@@ -24,7 +24,7 @@ otzeta(lshape = "loglink", ishape = NULL,
   distribution but with the probability of one being 0.
   Thus the other probabilities are scaled up (i.e., divided by
   \eqn{1-P[Y=1]}).  The mean is returned by default as the fitted
-  values.  More details can be found at \code{\link{zetaff}}.
+  values.  More details can be found at \code{\link[VGAM]{zetaff}}.
   Multiple responses are handled.
 
 
@@ -33,10 +33,10 @@ otzeta(lshape = "loglink", ishape = NULL,
 
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  and \code{\link[VGAM]{vgam}}.
 
 
 
@@ -46,21 +46,21 @@ otzeta(lshape = "loglink", ishape = NULL,
 %}
 \author{ T. W. Yee }
 %\note{
-%  The \code{\link{zeta}} function may be used to
+%  The \code{\link[VGAM]{zeta}} function may be used to
 %  compute values of the zeta function.
 %
 %
 %}
 
 \seealso{
-  \code{\link{Otzeta}},
-  \code{\link{zetaff}},
-  \code{\link{oizeta}},
-  \code{\link{diffzeta}},
-  \code{\link{zeta}},
-  \code{\link{dzeta}},
-  \code{\link{hzeta}},
-  \code{\link{zipf}}.
+  \code{\link[VGAMdata]{Otzeta}},
+  \code{\link[VGAM]{zetaff}},
+  \code{\link[VGAMdata]{oizeta}},
+  \code{\link[VGAM]{diffzeta}},
+  \code{\link[VGAM]{zeta}},
+  \code{\link[VGAM]{dzeta}},
+  \code{\link[VGAM]{hzeta}},
+  \code{\link[VGAM]{zipf}}.
 
 
 }

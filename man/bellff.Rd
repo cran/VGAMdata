@@ -13,7 +13,7 @@ bellff(lshape = "loglink", zero = NULL, gshape = expm1(1.6 * ppoints(7)))
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lshape, zero, gshape}{
-  More information is at \code{\link{CommonVGAMffArguments}}.
+  More information is at \code{\link[VGAM]{CommonVGAMffArguments}}.
 
 
   }
@@ -44,10 +44,10 @@ bellff(lshape = "loglink", zero = NULL, gshape = expm1(1.6 * ppoints(7)))
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -72,11 +72,11 @@ bellff(lshape = "loglink", zero = NULL, gshape = expm1(1.6 * ppoints(7)))
 \seealso{
   \code{\link[VGAM]{bell}},
   \code{\link[VGAMdata]{dbell}},
-  \code{\link{poissonff}}.
+  \code{\link[VGAM]{poissonff}}.
 
 
-%  \code{\link{Bellff}},
-%  \code{\link{Triangle}}.
+%  \code{\link[VGAM]{Bellff}},
+%  \code{\link[VGAM]{Triangle}}.
 
 
 

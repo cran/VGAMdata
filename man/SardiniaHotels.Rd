@@ -294,7 +294,12 @@ Many of the variables fall into several natural groups, e.g.,
 \source{
 
   TripAdvisor,
-  \url{https://www.tripadvisor.it/}.
+  \code{https://www.tripadvisor.it/}.
+
+%  url{https://www.tripadvisor.it/}.
+
+
+
 
 }
 

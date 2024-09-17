@@ -42,7 +42,7 @@ roilog(n, shape, pstr1 = 0)
         P(Y=1) = phi + (1-phi) * P(W=1)}
       where \eqn{W} is distributed as a
       \eqn{Logarithmic(shape)} random variable.
-  The \pkg{VGAM} family function \code{\link{oilog}} estimates
+  The \pkg{VGAM} family function \code{\link[VGAMdata]{oilog}} estimates
   \eqn{\phi}{phi} by MLE.
 
 
@@ -83,12 +83,12 @@ roilog(n, shape, pstr1 = 0)
 }
 
 \seealso{
-  \code{\link{Gaitdlog}},
-    \code{\link{oilog}},
-    \code{\link{rlog}},
-    \code{\link{logff}},
-    \code{\link{Otlog}}.
-%   \code{\link{zipf}}.
+  \code{\link[VGAM]{Gaitdlog}},
+    \code{\link[VGAMdata]{oilog}},
+    \code{\link[VGAM]{rlog}},
+    \code{\link[VGAM]{logff}},
+    \code{\link[VGAMdata]{Otlog}}.
+%   \code{\link[VGAM]{zipf}}.
 
 
 

@@ -22,7 +22,7 @@ roipospois(n, lambda, pstr1 = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x, p, q, n}{Same as \code{\link{Pospois}}.}
+  \item{x, p, q, n}{Same as \code{\link[VGAMdata]{Pospois}}.}
   \item{lambda}{ Vector of positive means. }
   \item{pstr1}{
   Probability of a structural one
@@ -81,13 +81,13 @@ roipospois(n, lambda, pstr1 = 0)
 }
 
 \seealso{
-    \code{\link{Pospois}},
-    \code{\link{oapospoisson}},
-    \code{\link{oipospoisson}},
-    \code{\link{otpospoisson}},
-    \code{\link{pospoisson}},
+    \code{\link[VGAMdata]{Pospois}},
+    \code{\link[VGAMdata]{oapospoisson}},
+    \code{\link[VGAMdata]{oipospoisson}},
+    \code{\link[VGAMdata]{otpospoisson}},
+    \code{\link[VGAM]{pospoisson}},
     \code{\link[stats:Poisson]{dpois}},
-    \code{\link{poissonff}}.
+    \code{\link[VGAM]{poissonff}}.
 
 
 }

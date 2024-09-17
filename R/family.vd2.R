@@ -1,23 +1,18 @@
-# Copyright (C) 1998-2020. T. W. Yee    All rights reserved.
-# 20201207: family.vd2.R is for \pkg{VGAMdata}.
-#   This file contains any 'old' functions from \pkg{VGAM} such
-#   as ones made obsolete by new GAIT family functions.
-
-
-
-# Last modified:
-# 20201207: Trying to put [dpqr]tikuv(), etc. here.
-#   Thats because family.vd1.R is getting big.
+# These functions are
+# Copyright (C) 1998-2024 T.W. Yee, University of Auckland.
+# All rights reserved.
 
 
 
 
 
 
-# ==========================================================
 
 
-# 20060525 [dp]tikuv look fine.
+
+
+
+
 
 
 dtikuv <- function(x, d, mean = 0, sigma = 1, log = FALSE) {
@@ -79,7 +74,6 @@ ptikuv <- function(q, d, mean = 0, sigma = 1,
                              mean = mean[rhs], sigma = sigma[rhs])
   }
 
-# 20141231 KaiH
   if (lower.tail) {
     if (log.arg) log(ans) else ans
   } else {
@@ -94,18 +88,10 @@ qtikuv <- function(p, d, mean = 0, sigma = 1,
                    lower.tail = TRUE, log.p = FALSE, ...) {
   if (!is.logical(log.p) || length(log.p) != 1)
     stop("bad input for argument 'log.p'")
-# rm(log.p)   # 20150102 KaiH
 
-# if (!is.Numeric(p, positive = TRUE) || max(p) >= 1)
-#   stop("bad input for argument 'p'")
   if (!is.Numeric(d, length.arg = 1) || max(d) >= 2)
     stop("bad input for argument 'd'")
-# if (!is.Numeric(mean))
-#   stop("bad input for argument 'mean'")
-# if (!is.Numeric(sigma))
-#   stop("bad input for argument 'sigma'")
 
-### 20150102 KaiH
   orig.p <- p
   if (lower.tail) {
     if (log.p) p <- exp(p)
@@ -132,8 +118,6 @@ qtikuv <- function(p, d, mean = 0, sigma = 1,
     while (ptikuv(q = Upper, d = d, mean = mean[ii],
                   sigma = sigma[ii]) < p[ii])
       Upper <- Upper + sigma[ii]
-#print("c(Lower,Upper)")
-#print( c(Lower,Upper) )
     ans[ii] <- uniroot(f = myfun, lower = Lower, upper = Upper,
                        d = d, p = p[ii],
                        mean = mean[ii], sigma = sigma[ii], ...)$root
@@ -152,15 +136,11 @@ qtikuv <- function(p, d, mean = 0, sigma = 1,
 
 
 
-# 20060526; Uses the rejection method.
-# Note: mean and sigma (and d) must be of length 1.
 rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   use.n <- if ((length.n <- length(n)) > 1) length.n else
            if (!is.Numeric(n, integer.valued = TRUE,
                            length.arg = 1, positive = TRUE))
             stop("bad input for argument 'n'") else n
-# if (!is.Numeric(n, positive = TRUE, integer.valued = TRUE))
-#   stop("bad input for argument 'n'")
   if (!is.Numeric(d, length.arg = 1) || max(d) >= 2)
     stop("bad input for argument 'd'")
   if (!is.Numeric(mean, length.arg = 1))
@@ -176,7 +156,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   ptr1 <- 1; ptr2 <- 0
   hh <- 2 - d
   KK <- 1 / (1 + 1/hh + 0.75/hh^2)
-# if (4 - 2*hh > 0) cat("bimodal\n") else cat("unimodal\n")
   ymax <- ifelse(hh < 2,
                  dtikuv(x = mean + sigma*sqrt(4 - 2*hh),
                         d = d, mean = mean, sigma = sigma),
@@ -189,8 +168,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
     while (ptikuv(q = Upper, d = d,
                   mean = mean, sigma = sigma) < 1-Smallno)
       Upper <- Upper + sigma
-#print("c(Lower,Upper)")
-#print( c(Lower,Upper) )
     x <- runif(2*use.n, min = Lower, max = Upper)
     index <- runif(2*use.n, max = ymax) <
              dtikuv(x, d = d, mean = mean, sigma = sigma)
@@ -207,18 +184,8 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
 
-# 20060524
-# Reference: TEST Akkaya and Tiku, in press.
-# Works.
  tikuv <- function(d, lmean = "identitylink", lsigma = "loglink",
-#                  emean = list(), esigma = list(),
                    isigma = NULL, zero = "sigma") {
-# if (mode(lmean) != "character" && mode(lmean) != "name")
-#   lmean = as.character(substitute(lmean))
-# if (mode(lsigma) != "character" && mode(lsigma) != "name")
-#   lsigma = as.character(substitute(lsigma))
-# if (!is.list(emean)) emean = list()
-# if (!is.list(esigma)) esigma = list()
 
 
   lmean <- as.list(substitute(lmean))
@@ -231,10 +198,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
 
-# if (length(zero) &&
-#    (!is.Numeric(zero, integer.valued = TRUE, positive = TRUE) ||
-#    max(zero) > 2))
-#   stop("bad input for argument 'zero'")
   if (!is.Numeric(d, length.arg = 1) || max(d) >= 2)
       stop("bad input for argument 'd'")
 
@@ -252,15 +215,11 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
     constraints <- cm.zero.VGAM(constraints, x = x, .zero , M = M,
                                 predictors.names = predictors.names,
                                 M1 = 2)
-#   dotzero <- .zero
-#   M1 <- 2
-#   eval(negzero.expression.VGAM)
   }), list( .zero = zero ))),
 
   infos = eval(substitute(function(...) {
     list(M1 = 2,
          Q1 = 1,
-#        dpqrfun = "zz",
          expected = TRUE,
          multipleResponses = FALSE,
          parameters.names = c("mean", "sigma"),
@@ -268,26 +227,8 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   }, list( .zero = zero ))),
 
   initialize = eval(substitute(expression({
-#   if (NCOL(y) != 1)
-#     stop("the response must be a vector or one-column matrix")
 
-# 20120601:
-#   temp5 <-
     w.y.check(w = w, y = y)
-#             Is.positive.y = TRUE,
-#             Is.nonnegative.y = TRUE,
-#             ncol.w.max = Inf,
-#             ncol.y.max = Inf,
-#             Is.integer.y = TRUE,
-#             out.wy = TRUE,
-#             colsyperw = 1,
-#             maximize = TRUE,
-#   w <- temp5$w
-#   y <- temp5$y
-#print("head(w)")
-#print( head(w) )
-#print("head(y)")
-#print( head(y) )
 
 
     predictors.names <-
@@ -297,7 +238,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
     if (!length(etastart)) {
       sigma.init <- if (length( .isigma )) rep_len( .isigma , n) else {
-# Eqn (2.3)
         hh <- 2 - .d
         KK <- 1 / (1 + 1/hh + 0.75/hh^2)
         K2 <- 1 + 3/hh + 15/(4*hh^2)
@@ -344,42 +284,21 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   }, list( .lmean = lmean, .lsigma = lsigma, .d = d,
            .emean = emean, .esigma = esigma ))),
   vfamily = c("tikuv"),
-# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   validparams = eval(substitute(function(eta, y, extra = NULL) {
-# 20160618;
     mymu  <- eta2theta(eta[, 1], .lmean  , earg = .emean  )
     sigma <- eta2theta(eta[, 2], .lsigma , earg = .esigma )
     dee   <- .d
-#print("hi5a")
     okay1 <- all(is.finite(mymu )) &&
              all(is.finite(sigma)) && all(0 < sigma) &&
              all(is.finite(dee  )) && all(0 < dee & dee < 2)
-#print("okay1 in @validparams in tikuv()")
-#print( okay1 )
     okay1
   }, list( .lmean = lmean, .lsigma = lsigma, .d = d,
            .emean = emean, .esigma = esigma ))),
-# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 
 
 
 
 
-# simslot = eval(substitute(
-# function(object, nsim) {
-##20140102; does not work because 'mean' argument must be scalar
-#
-#   pwts <- if (length(pwts <- object@prior.weights) > 0)
-#             pwts else weights(object, type = "prior")
-#   if (any(pwts != 1))
-#     warning("ignoring prior weights")
-#   eta <- predict(object)
-#   mymu  <- eta2theta(eta[, 1], .lmean  , earg = .emean  )
-#   sigma <- eta2theta(eta[, 2], .lsigma , earg = .esigma )
-#   rtikuv(nsim * length(mymu), d = .d , mean = mymu,
-#          sigma = sigma)
-# }, list( .lmean = lmean, .lsigma = lsigma, .d = d,
-#          .emean = emean, .esigma = esigma ))),
 
 
 
@@ -403,14 +322,12 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
     dl.dmu <- zedd / sigma - 2 * gzedd / (hh*sigma)
     dl.dsigma <- (zedd^2 - 1 - 2 * zedd * gzedd / hh) / sigma
-#   dl.dsigma <- -1/sigma + zedd^2 / sigma - 2 * zedd * gzedd / (hh*sigma)
 
     c(w) * cbind(dl.dmu    * dmu.deta,
                  dl.dsigma * dsigma.deta)
   }), list( .lmean = lmean, .lsigma = lsigma, .d = d,
             .emean = emean, .esigma = esigma ))),
   weight = eval(substitute(expression({
-# Notation: ayy=a, Dnos=D, DDDD=D^*
     ayy <- 1 / (2*hh)
     Dnos <- 1 - (2/hh) * (1 - ayy) / (1 + 2*ayy + 3*ayy^2)
     Dstar <- -1 + 3 * (1 + 2*ayy + 11*ayy^2) / (1 + 2*ayy + 3*ayy^2)
@@ -428,19 +345,9 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
 
-# ==========================================================
 
 
-# Works;
-# Notes:
-# 1. NR = Fisher scoring only if the scale parameter
-#    enters in the form exp(- a y2).
-# 2. Implemented has the scale parameter enters in
-#    in the form exp(- y2 / a).
-#    Then NR is not FS.
 
-# 20050806
-# Last modified: 20100107,
 
 
 
@@ -453,7 +360,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
              ishape2 = NULL,
              imethod = 1,
              zero = "shape") {
-#            zero = 2:3
   lscale <- as.list(substitute(lscale))
   escale <- link2list(lscale)
   lscale <- attr(escale, "function.name")
@@ -495,10 +401,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
                                 .zero , M = M,
                       predictors.names = predictors.names,
                                 M1 = 3)
-#   dotzero <- .zero
-#   M1 <- 3
-#   Q1 <- 2
-#   eval(negzero.expression.VGAM)
   }), list( .zero = zero ))),
 
 
@@ -506,7 +408,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
   infos = eval(substitute(function(...) {
     list(M1 = 3,
          Q1 = 2,
-#        dpqrfun = "zz",
          expected = TRUE,
          multipleResponses = FALSE,
          parameters.names = c("scale", "shape1", "shape2"),
@@ -522,17 +423,13 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
   initialize = eval(substitute(expression({
-#   if (!is.matrix(y) || ncol(y) != 2)
-#     stop("the response must be a 2 column matrix")
 
     temp5 <-
     w.y.check(w = w, y = y,
               Is.positive.y = TRUE,
-#             Is.nonnegative.y = TRUE,
               ncol.w.max = 1,
               ncol.y.max = 2,
               ncol.y.min = 2,
-#             Is.integer.y = TRUE,
               out.wy = TRUE,
               colsyperw = 2,
               maximize = TRUE)
@@ -540,7 +437,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
     y <- temp5$y
 
 
-# For @linkinv
     extra$colnames.y  <- colnames(y)
 
     if (any(y[, 1] >= y[, 2]))
@@ -591,8 +487,6 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
       qinit <- rep_len(if (is.Numeric( .ishape2 ))
                            .ishape2 else qinit, n)
 
-#print("c(ainit[1], pinit[1], qinit[1])")
-#print( c(ainit[1], pinit[1], qinit[1]) )
       etastart <-
         cbind(theta2eta(ainit, .lscale),
               theta2eta(pinit, .lshape1),
@@ -666,25 +560,19 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
       .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
        ))),
   vfamily = c("bigamma.mckay"),
-# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   validparams = eval(substitute(function(eta, y, extra = NULL) {
-# 20160618;
     aparam <- eta2theta(eta[, 1], .lscale  ,  .escale )
     shape1 <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
     shape2 <- eta2theta(eta[, 3], .lshape2 , .eshape2 )
-#print("hi5a")
     okay1 <- all(is.finite(aparam)) && all(0 < aparam) &&
              all(is.finite(shape1)) && all(0 < shape1) &&
              all(is.finite(shape2)) && all(0 < shape2)
-#print("okay1 in @validparams in bigamma.mckay()")
-#print( okay1 )
     okay1
   },
   list(
     .lscale = lscale, .lshape1 = lshape1, .lshape2 = lshape2,
     .escale = escale, .eshape1 = eshape1, .eshape2 = eshape2
        ))),
-# ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   deriv = eval(substitute(expression({
     aparam <- eta2theta(eta[, 1], .lscale  ,  .escale )
     shape1 <- eta2theta(eta[, 2], .lshape1 , .eshape1 )
@@ -730,25 +618,20 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
 
 
 
-# ==========================================================
-
-
-
-# ==========================================================
 
 
 
 
-# ==========================================================
 
 
 
 
-# ==========================================================
 
 
 
-# ==========================================================
+
+
+
 
 
 

@@ -60,7 +60,7 @@ roazeta(n, shape, pobs1 = 0)
     \code{\link{oazeta}},
     \code{\link{Oizeta}},
     \code{\link{Otzeta}},
-    \code{\link{zeta}}.
+    \code{\link[VGAM]{zeta}}.
 
 
 }

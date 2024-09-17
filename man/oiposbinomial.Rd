@@ -19,8 +19,8 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
   \item{lpstr1, lprob}{
   Link functions for the parameter \eqn{\phi}{phi}
   and the positive binomial probability \eqn{\mu}{prob} parameter.
-  See \code{\link{Links}} for more choices.
-  See \code{\link{CommonVGAMffArguments}} also.
+  See \code{\link[VGAM]{Links}} for more choices.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} also.
   For the one-\emph{deflated} model see below.
 
   }
@@ -28,19 +28,19 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 % \item{epstr1, eprob}{
 %          epstr1 = list(),  eprob = list(),
 % List. Extra argument for the respective links.
-% See \code{earg} in \code{\link{Links}} for general information.
+% See \code{earg} in \code{\link[VGAM]{Links}} for general information.
 % }
 
   \item{type.fitted}{
-  See \code{\link{CommonVGAMffArguments}} and
-  \code{\link{fittedvlm}}.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} and
+  \code{\link[VGAM]{fittedvlm}}.
 
 
   }
 
   \item{iprob, gpstr1, gprob}{
   For initial values;
-  see \code{\link{CommonVGAMffArguments}}.
+  see \code{\link[VGAM]{CommonVGAMffArguments}}.
 
   }
 
@@ -58,25 +58,25 @@ oiposbinomial(lpstr1 = "logitlink", lprob = "logitlink",
 % and the default is the first. Setting \code{zero = NULL} enables both
 % \eqn{\phi}{phi} and \eqn{\mu}{prob} to be modelled as a function of
 % the explanatory variables.
-% See \code{\link{CommonVGAMffArguments}} for more information.
+% See \code{\link[VGAM]{CommonVGAMffArguments}} for more information.
 
 % }
   \item{multiple.responses}{
   Logical.
-  See \code{\link{binomialff}}
-  and \code{\link{posbinomial}}.
+  See \code{\link[VGAM]{binomialff}}
+  and \code{\link[VGAM]{posbinomial}}.
 
 
 
 % Currently it must be \code{FALSE} to mean the
 % function does not handle multiple responses. This
 % is to remain compatible with the same argument in
-% \code{\link{binomialff}}.
+% \code{\link[VGAM]{binomialff}}.
 
 
   }
   \item{zero}{
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
 
@@ -93,7 +93,7 @@ P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) *
 (1-prob)^(N*(1-y)) / (1-(1-prob)^N).}
   for \eqn{y=2/N,\ldots,1}. That is, the response is a sample
   proportion out of \eqn{N} trials, and the argument \code{size} in
-  \code{\link{roiposbinom}} is \eqn{N} here.
+  \code{\link[VGAMdata]{roiposbinom}} is \eqn{N} here.
   Ideally \eqn{N > 2} is needed.
   The parameter \eqn{\phi}{phi} is the probability of a structural one,
   and it satisfies \eqn{0 < \phi < 1}{0 < phi < 1} (usually).
@@ -127,10 +127,10 @@ P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) *
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}}
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}}
+  and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -142,7 +142,7 @@ P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) *
 \author{ T. W. Yee }
 \note{
   The response variable should have one of the formats described by
-  \code{\link{binomialff}}, e.g., a factor or two column matrix
+  \code{\link[VGAM]{binomialff}}, e.g., a factor or two column matrix
   or a vector of sample proportions with the \code{weights}
   argument specifying the values of \eqn{N}.
 
@@ -157,25 +157,25 @@ P(Y=y) = (1-phi) * choose(N,Ny) * prob^(N*y) *
 
 % 20130316; adding this:
   Estimated probabilities of a structural one and an
-  observed one are returned, as in \code{\link{zipoisson}}.
+  observed one are returned, as in \code{\link[VGAM]{zipoisson}}.
 
 
 
   The one-\emph{deflated} positive binomial distribution might
   be fitted by setting \code{lpstr1 = "identitylink"}, albeit,
-  not entirely reliably. See \code{\link{zipoisson}}
+  not entirely reliably. See \code{\link[VGAM]{zipoisson}}
   for information that can be applied here.
 % Else try the one-altered positive binomial distribution (see
-% \code{\link{oabinomial}}).
+% \code{\link[VGAM]{oabinomial}}).
 
 
 }
 
 
 \seealso{
-  \code{\link{roiposbinom}},
-  \code{\link{posbinomial}},
-  \code{\link{binomialff}},
+  \code{\link[VGAMdata]{roiposbinom}},
+  \code{\link[VGAM]{posbinomial}},
+  \code{\link[VGAM]{binomialff}},
   \code{\link[stats:Binomial]{rbinom}}.
 
 

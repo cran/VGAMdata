@@ -20,17 +20,17 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
     Link function for the parameter \eqn{p_1}{pobs1} or
     \eqn{\phi}{phi},
     called \code{pobs1} or \code{phi} here.
-    See \code{\link{Links}} for more choices.
+    See \code{\link[VGAM]{Links}} for more choices.
 
   }
   \item{lshape}{
-    See \code{\link{logff}} for details.
+    See \code{\link[VGAM]{logff}} for details.
 
   }
 
   \item{gshape, type.fitted}{
-  See \code{\link{CommonVGAMffArguments}}
-  and \code{\link{fittedvlm}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}}
+  and \code{\link[VGAM]{fittedvlm}} for information.
 
 
   }
@@ -38,12 +38,12 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 
 % \item{epobs1, eshape}{
 % List. Extra argument for the respective links.
-% See \code{earg} in \code{\link{Links}} for general information.
+% See \code{earg} in \code{\link[VGAM]{Links}} for general information.
 %           epobs1 = list(), eshape = list(),
 % }
 
   \item{ipobs1, zero}{
-  See \code{\link{CommonVGAMffArguments}}
+  See \code{\link[VGAM]{CommonVGAMffArguments}}
   for information.
 
   }
@@ -74,10 +74,10 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  and \code{\link[VGAM]{vgam}}.
 
 
 
@@ -105,7 +105,7 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 \note{
 
   This family function effectively combines
-  \code{\link{binomialff}} and
+  \code{\link[VGAM]{binomialff}} and
   \code{\link{otlog}} into
   one family function.
 
@@ -113,12 +113,12 @@ oalog(lpobs1 = "logitlink", lshape = "logitlink",
 }
 
 \seealso{
-  \code{\link{Gaitdlog}},
+  \code{\link[VGAM]{Gaitdlog}},
   \code{\link{Oalog}},
-  \code{\link{logff}},
+  \code{\link[VGAM]{logff}},
   \code{\link{oilog}},
-  \code{\link{CommonVGAMffArguments}},
-  \code{\link{simulate.vlm}}.
+  \code{\link[VGAM]{CommonVGAMffArguments}},
+  \code{\link[VGAM]{simulate.vlm}}.
 
 
 }

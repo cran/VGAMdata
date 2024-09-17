@@ -1,6 +1,27 @@
 # These functions are
-# Copyright (C) 1998-2023 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2024 T.W. Yee, University of Auckland.
 # All rights reserved.
+
+
+
+
+
+importFrom("stats", "integrate", "pnorm", "qnorm", "rlnorm")
+importFrom("VGAM", "logitlink", "probitlink", "clogloglink")
+importFrom("VGAM", "extlogitlink")
+export(triangle, 
+       dtriangle, ptriangle, qtriangle, rtriangle)
+export(adjust0.loglaplace1, adjust01.logitlaplace1)
+export(dlaplace, plaplace, qlaplace, rlaplace, laplace)
+export(dalap, palap, qalap, ralap,
+       alaplace1.control, alaplace2.control, alaplace3.control,
+       alaplace1, alaplace2, alaplace3)
+export(dloglap, ploglap, qloglap, rloglap)
+export(loglaplace1.control, loglaplace1)
+export(dlogitlap, plogitlap, qlogitlap, rlogitlap,
+       logitlaplace1.control, logitlaplace1)
+
+
 
 
 

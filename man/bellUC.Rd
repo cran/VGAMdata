@@ -78,7 +78,7 @@ rbell(n, shape)
 %}
 \seealso{
   \code{\link[VGAM]{bell}}.
-% \code{\link{Triangle}}.
+% \code{\link[VGAMdata]{Triangle}}.
 
 
 

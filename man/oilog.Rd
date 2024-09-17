@@ -17,19 +17,19 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
 \arguments{
   \item{lpstr1, lshape}{
     Link functions.
-    For \code{lpstr1}: the same idea as \code{\link{zipoisson}}
+    For \code{lpstr1}: the same idea as \code{\link[VGAM]{zipoisson}}
     except it applies to a structural 1.
 
 
   }
   \item{gpstr1, gshape, ishape}{
   For initial values.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
   \item{type.fitted, zero}{
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
   }
 
@@ -45,7 +45,7 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
   in a way that retains a similar notation to the
   one-inflated positive-Poisson, i.e., the
   probability \eqn{P[Y=1]} involves another parameter \eqn{\phi}{phi}.
-  See \code{\link{oipospoisson}}.
+  See \code{\link[VGAMdata]{oipospoisson}}.
 
 
   This family function can handle multiple responses.
@@ -62,10 +62,10 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
 
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  \code{\link{rrvglm}} and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  \code{\link[VGAM]{rrvglm}} and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -75,10 +75,10 @@ oilog(lpstr1 = "logitlink", lshape = "logitlink",
 %\note{
 %}
 \seealso{
-  \code{\link{Gaitdlog}},
-  \code{\link{Oilog}},
-  \code{\link{logff}},
-  \code{\link{Oizeta}}.
+  \code{\link[VGAM]{Gaitdlog}},
+  \code{\link[VGAMdata]{Oilog}},
+  \code{\link[VGAM]{logff}},
+  \code{\link[VGAMdata]{Oizeta}}.
 
 
 

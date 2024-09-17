@@ -14,8 +14,8 @@ otlog(lshape = "logitlink", gshape = ppoints(8), zero = NULL)
 \arguments{
   \item{lshape, gshape, zero}{
   Same as
-  \code{\link{logff}}.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  \code{\link[VGAM]{logff}}.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
@@ -24,17 +24,17 @@ otlog(lshape = "logitlink", gshape = ppoints(8), zero = NULL)
   The 1-truncated logarithmic distribution is a logarithmic
   distribution but with the probability of a one being zero. The
   other probabilities are scaled to add to unity.
-  Some more details can be found at \code{\link{logff}}.
+  Some more details can be found at \code{\link[VGAM]{logff}}.
   Multiple responses are permitted.
 
 
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -45,12 +45,12 @@ otlog(lshape = "logitlink", gshape = ppoints(8), zero = NULL)
 %}
 
 \seealso{
-  \code{\link{Gaitdlog}},
-  \code{\link{Otlog}},
-  \code{\link{logff}},
-  \code{\link{oalog}},
-  \code{\link{oilog}},
-  \code{\link{simulate.vlm}}.
+  \code{\link[VGAM]{Gaitdlog}},
+  \code{\link[VGAMdata]{Otlog}},
+  \code{\link[VGAM]{logff}},
+  \code{\link[VGAMdata]{oalog}},
+  \code{\link[VGAMdata]{oilog}},
+  \code{\link[VGAM]{simulate.vlm}}.
 
 
 }

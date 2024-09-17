@@ -29,7 +29,7 @@ rotzeta(n, shape)
   }
   \item{shape}{
    The positive shape parameter described in in
-   \code{\link{zetaff}}.  Here it is called \code{shape} because
+   \code{\link[VGAM]{zetaff}}.  Here it is called \code{shape} because
    it is positive.
 
 
@@ -47,7 +47,7 @@ rotzeta(n, shape)
   The one-truncated zeta distribution is a zeta distribution but
   with the probability of a one being zero. The other probabilities
   are scaled to add to unity.
-  Some more details are given in \code{\link{zetaff}}.
+  Some more details are given in \code{\link[VGAM]{zetaff}}.
 
 
 }
@@ -66,20 +66,20 @@ rotzeta(n, shape)
 \author{ T. W. Yee }
 \note{
   Given some response data, the \pkg{VGAM} family function
-  \code{\link{otzeta}} estimates the parameter \code{shape}.
+  \code{\link[VGAMdata]{otzeta}} estimates the parameter \code{shape}.
 
 
 % Function \code{potzeta()} suffers from the problems that
-% \code{\link{plog}} sometimes has.
+% \code{\link[VGAM]{plog}} sometimes has.
 
 
 
 }
 
 \seealso{
-  \code{\link{Otzeta}},
-  \code{\link{zetaff}},
-  \code{\link{Oizeta}}.
+  \code{\link[VGAMdata]{Otzeta}},
+  \code{\link[VGAM]{zetaff}},
+  \code{\link[VGAMdata]{Oizeta}}.
 
 
 }

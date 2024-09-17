@@ -77,3 +77,4 @@ round(matrix(-saved@post$raw.col.effects, ncol = 1,  # Rename for humans
 % coef(rfit, matrix = TRUE)
 
 
+

@@ -14,19 +14,19 @@ oipospoisson(lpstr1 = "logitlink", llambda = "loglink",
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lpstr1, llambda}{
-    For \code{lpstr1}: the same idea as \code{\link{zipoisson}}
+    For \code{lpstr1}: the same idea as \code{\link[VGAM]{zipoisson}}
     except it applies to a structural 1.
 
 
   }
   \item{ilambda, gpstr1, gprobs.y, imethod}{
   For initial values.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
   \item{type.fitted, zero}{
-  See \code{\link{CommonVGAMffArguments}} for information.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
   }
 
@@ -45,7 +45,7 @@ oipospoisson(lpstr1 = "logitlink", llambda = "loglink",
   in a way that retains a similar notation to the
   zero-inflated Poisson, i.e., the
   probability \eqn{P[Y=1]} involves another parameter \eqn{\phi}{phi}.
-  See \code{\link{zipoisson}}.
+  See \code{\link[VGAM]{zipoisson}}.
 
 
   This family function can handle multiple responses.
@@ -58,9 +58,9 @@ oipospoisson(lpstr1 = "logitlink", llambda = "loglink",
 }
 
 \value{
-  An object of class \code{"vglmff"} (see \code{\link{vglmff-class}}).
-  The object is used by modelling functions such as \code{\link{vglm}},
-  \code{\link{rrvglm}} and \code{\link{vgam}}.
+  An object of class \code{"vglmff"} (see \code{\link[VGAM]{vglmff-class}}).
+  The object is used by modelling functions such as \code{\link[VGAM]{vglm}},
+  \code{\link[VGAM]{rrvglm}} and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -70,13 +70,13 @@ oipospoisson(lpstr1 = "logitlink", llambda = "loglink",
 %\note{
 %}
 \seealso{
-  \code{\link{Oipospois}},
-  \code{\link{pospoisson}},
-  \code{\link{oapospoisson}},
-  \code{\link{otpospoisson}},
-  \code{\link{zipoisson}},
-  \code{\link{poissonff}},
-  \code{\link{simulate.vlm}}.
+  \code{\link[VGAMdata]{Oipospois}},
+  \code{\link[VGAM]{pospoisson}},
+  \code{\link[VGAMdata]{oapospoisson}},
+  \code{\link[VGAMdata]{otpospoisson}},
+  \code{\link[VGAM]{zipoisson}},
+  \code{\link[VGAM]{poissonff}},
+  \code{\link[VGAM]{simulate.vlm}}.
 
 
 }

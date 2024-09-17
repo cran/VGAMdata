@@ -22,8 +22,8 @@ roiposbinom(n, size, prob, pstr1 = 0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x, p, q, n}{Same as \code{\link{Posbinom}}. }
-  \item{size, prob}{Same as \code{\link{Posbinom}}. }
+  \item{x, p, q, n}{Same as \code{\link[VGAMdata]{Posbinom}}. }
+  \item{size, prob}{Same as \code{\link[VGAMdata]{Posbinom}}. }
   \item{pstr1}{
   Probability of a structural one
   (i.e., ignoring the positive binomial distribution),
@@ -86,12 +86,12 @@ roiposbinom(n, size, prob, pstr1 = 0)
 }
 
 \seealso{
-    \code{\link{posbinomial}},
+    \code{\link[VGAM]{posbinomial}},
     \code{\link[stats:binomial]{dbinom}},
-    \code{\link{binomialff}}.
+    \code{\link[VGAM]{binomialff}}.
 
 
-%    \code{\link{oiposbinomial}},
+%    \code{\link[VGAMdata]{oiposbinomial}},
 
 
 }

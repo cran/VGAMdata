@@ -15,13 +15,13 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{llambda, type.fitted, ilambda}{
-  Same as \code{\link{pospoisson}}.
+  Same as \code{\link[VGAM]{pospoisson}}.
 
 
   }
   \item{imethod, zero}{
-  Same as \code{\link{pospoisson}}.
-  See \code{\link{CommonVGAMffArguments}} for information.
+  Same as \code{\link[VGAM]{pospoisson}}.
+  See \code{\link[VGAM]{CommonVGAMffArguments}} for information.
 
 
   }
@@ -32,17 +32,17 @@
   It is a Poisson distribution but with
   the probability of a one  or zero being 0. The other
   probabilities are scaled to add to unity.
-  Some more details can be found at \code{\link{pospoisson}}.
+  Some more details can be found at \code{\link[VGAM]{pospoisson}}.
   Multiple responses are permitted.
 
 
 }
 \value{
   An object of class \code{"vglmff"}
-  (see \code{\link{vglmff-class}}).
+  (see \code{\link[VGAM]{vglmff-class}}).
   The object is used by modelling functions
-  such as \code{\link{vglm}},
-  and \code{\link{vgam}}.
+  such as \code{\link[VGAM]{vglm}},
+  and \code{\link[VGAM]{vgam}}.
 
 
 }
@@ -53,9 +53,9 @@
 %}
 
 \seealso{
-  \code{\link{Otpospois}},
-  \code{\link{oipospoisson}},
-  \code{\link{simulate.vlm}}.
+  \code{\link[VGAMdata]{Otpospois}},
+  \code{\link[VGAMdata]{oipospoisson}},
+  \code{\link[VGAM]{simulate.vlm}}.
 
 
 }

@@ -6,6 +6,19 @@
 
 
 
+                CHANGES IN VGAMdata VERSION 1.1-11
+
+NEW FEATURES
+
+    o   Functions moved from VGAM 1.1-9: all Laplace
+        stuff, including the triangle distribution.
+        Thats because the regularity conditions
+        are not satisfied for estimation by scoring.
+    o   New data sets: crim.nz.
+    o   Tested okay on R 4.4.1.
+
+
+
                 CHANGES IN VGAMdata VERSION 1.1-9
 
 NEW FEATURES

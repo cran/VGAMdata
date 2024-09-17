@@ -89,7 +89,7 @@ rposbinom(n, size, prob)
 \author{ T. W. Yee. }
 \note{
   These functions are or are likely to be deprecated.
-  Use \code{\link{Gaitdbinom}} instead.
+  Use \code{\link[VGAM]{Gaitdbinom}} instead.
 
 
 
@@ -113,7 +113,7 @@ rposbinom(n, size, prob)
 \seealso{
   \code{\link[VGAM]{posbinomial}},
   \code{\link[VGAM]{dposbern}},
-  \code{\link{Gaitdbinom}},
+  \code{\link[VGAM]{Gaitdbinom}},
   \code{\link[VGAM]{zabinomial}},
   \code{\link[VGAM]{zibinomial}},
   \code{\link[stats:Binomial]{Binomial}}.

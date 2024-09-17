@@ -22,7 +22,7 @@ roizipf(n, N, shape, pstr1 = 0)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x, q, p, n}{Same as \code{\link[stats]{Uniform}}.}
-  \item{N, shape}{ See \code{\link{Zipf}}. }
+  \item{N, shape}{ See \code{\link[VGAM]{Zipf}}. }
   \item{pstr1}{
   Probability of a structural one
   (i.e., ignoring the Zipf distribution),
@@ -42,7 +42,7 @@ roizipf(n, N, shape, pstr1 = 0)
         P(Y=1) = phi + (1-phi) * P(W=1)}
       where \eqn{W} is distributed as a
       \eqn{Zipf(N, s)} random variable.
-  The \pkg{VGAM} family function \code{\link{oizeta}} estimates
+  The \pkg{VGAM} family function \code{\link[VGAMdata]{oizeta}} estimates
   the two parameters of this model by Fisher scoring.
 
 
@@ -80,10 +80,10 @@ roizipf(n, N, shape, pstr1 = 0)
 }
 
 \seealso{
-    \code{\link{oizeta}}.
-    \code{\link{Zipf}},
-    \code{\link{zipf}},
-    \code{\link{Oizeta}}.
+    \code{\link[VGAMdata]{oizeta}}.
+    \code{\link[VGAM]{Zipf}},
+    \code{\link[VGAM]{zipf}},
+    \code{\link[VGAMdata]{Oizeta}}.
 
 
 

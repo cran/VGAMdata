@@ -41,7 +41,7 @@ data(smqP)
       Computing this involved variables
       \code{SMQ050Q}, \code{SMQ050U} and \code{age}.
       The variable \code{SMQ050Q} is for
-      \code{How long since quit smoking cigarettes?}
+      \code{How long since (you) quit smoking cigarettes?}
       and
       \code{SMQ050U} are the units
       (e.g., years, months, days).
@@ -66,7 +66,8 @@ Tobacco consumption:
     }
     \item{age, gender}{
       Age (\code{RIDAGEYR}) when surveyed;
-      the value 80 is right-censored.
+      the value 80 is right-censored,
+      i.e., subjects 80 years or older were recorded as 80.
       Gender is \code{RIAGENDR} .
 
       
