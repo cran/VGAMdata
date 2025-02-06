@@ -1,6 +1,6 @@
 Package: VGAMdata
-Version: 1.1-12
-Date: 2024-09-17
+Version: 1.1-13
+Date: 2025-02-06
 Title: Data Supporting the 'VGAM' Package
 Authors@R: c(person("Thomas", "Yee", role = c("aut", "cre", "cph"),
                     comment = c(ORCID = "0000-0002-9970-3907"),
@@ -27,5 +27,5 @@ Repository: CRAN
 LazyLoad: yes
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2024-09-17 01:47:40 UTC; tyee001
-Date/Publication: 2024-09-17 05:00:02 UTC
+Packaged: 2025-02-06 09:40:14 UTC; tyee001
+Date/Publication: 2025-02-06 11:20:03 UTC

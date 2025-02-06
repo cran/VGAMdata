@@ -6,7 +6,17 @@
 
 
 
-                CHANGES IN VGAMdata VERSION 1.1-11
+                CHANGES IN VGAMdata VERSION 1.1-13
+
+NEW FEATURES
+
+    o   New data sets: birds.df, tb101, T101.
+    o   Improved functions: dpospois() (Thanks to Spencer Graves).
+    o   Tested okay on R 4.4.1.
+
+
+
+                CHANGES IN VGAMdata VERSION 1.1-12
 
 NEW FEATURES
 
@@ -14,7 +24,7 @@ NEW FEATURES
         stuff, including the triangle distribution.
         Thats because the regularity conditions
         are not satisfied for estimation by scoring.
-    o   New data sets: crim.nz.
+    o   New data set: crim.nz.
     o   Tested okay on R 4.4.1.
 
 

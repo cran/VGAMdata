@@ -10,15 +10,15 @@
 \alias{alaplace2.control}
 \alias{alaplace3.control}
 \alias{dlogitlap}
-\alias{dloglap}
+%\alias{dloglap}
 \alias{logitlaplace1.control}
 \alias{loglaplace1.control}
 \alias{plogitlap}
-\alias{ploglap}
+%\alias{ploglap}
 \alias{qlogitlap}
-\alias{qloglap}
+%\alias{qloglap}
 \alias{rlogitlap}
-\alias{rloglap}
+%\alias{rloglap}
 % 202011
 \alias{dgenpois}
 % 20200825

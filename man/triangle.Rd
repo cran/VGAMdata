@@ -9,7 +9,7 @@
 }
 \usage{
 triangle(lower = 0, upper = 1,
-         link = extlogitlink(min = 0, max = 1), itheta = NULL)
+         link = "extlogitlink(min = 0, max = 1)", itheta = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -111,9 +111,9 @@ Arguments \code{lower} and \code{upper}
 and \code{link} must match.
   For example, setting
   \code{lower = 0.2} and \code{upper = 4} and
-  \code{link = extlogitlink(min = 0.2, max = 4.1)}
+  \code{link = "extlogitlink(min = 0.2, max = 4.1)"}
   will result in an error.
-  Ideally \code{link = extlogitlink(min = lower, max = upper)}
+  Ideally \code{link = "extlogitlink(min = lower, max = upper)"}
   ought to work but it does not (yet)!
   Minimal error checking is done for this deficiency.
 
@@ -121,7 +121,7 @@ and \code{link} must match.
 
 }
 \seealso{
-  \code{\link{Triangle}},
+  \code{\link[VGAM]{Triangle}},
   \code{\link[VGAM]{Topple}},
   \code{\link[VGAM]{simulate.vlm}}.
 
@@ -153,5 +153,5 @@ Coef(fit)  # The MLE is the 3rd order statistic, which is 0.3.
 
 
 % 20130603: yettodo: fix up so ideally
-%   link = extlogitlink(min = lower, max = upper), itheta = NULL)
+%   link = "extlogitlink(min = lower, max = upper)", itheta = NULL)
 % works.

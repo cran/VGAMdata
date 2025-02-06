@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2024 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2025 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -16,7 +16,7 @@
 
 
 dtikuv <- function(x, d, mean = 0, sigma = 1, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
@@ -26,9 +26,9 @@ dtikuv <- function(x, d, mean = 0, sigma = 1, log = FALSE) {
     stop("bad input for argument 'd'")
 
   L <- max(length(x), length(mean), length(sigma))
-  if (length(x)     != L) x     <- rep_len(x,     L)
-  if (length(mean)  != L) mean  <- rep_len(mean,  L)
-  if (length(sigma) != L) sigma <- rep_len(sigma, L)
+  if (length(x)     < L) x     <- rep_len(x,     L)
+  if (length(mean)  < L) mean  <- rep_len(mean,  L)
+  if (length(sigma) < L) sigma <- rep_len(sigma, L)
 
 
   hh <- 2 - d
@@ -47,17 +47,17 @@ ptikuv <- function(q, d, mean = 0, sigma = 1,
       max(d) >= 2)
     stop("bad input for argument 'd'")
 
-  if (!is.logical(lower.tail) || length(lower.tail ) != 1)
+  if (!isFALSE(lower.tail) && !isTRUE(lower.tail))
     stop("bad input for argument 'lower.tail'")
 
-  if (!is.logical(log.arg <- log.p) || length(log.p) != 1)
+  if (!isFALSE(log.arg <- log.p) && !isTRUE(log.p))
     stop("bad input for argument 'log.p'")
   rm(log.p)  # 20141231 KaiH
 
   L <- max(length(q), length(mean), length(sigma))
-  if (length(q)     != L) q     <- rep_len(q,     L)
-  if (length(mean)  != L) mean  <- rep_len(mean,  L)
-  if (length(sigma) != L) sigma <- rep_len(sigma, L)
+  if (length(q)     < L) q     <- rep_len(q,     L)
+  if (length(mean)  < L) mean  <- rep_len(mean,  L)
+  if (length(sigma) < L) sigma <- rep_len(sigma, L)
 
   zedd1 <- 0.5 * ((q - mean) / sigma)^2
   ans <- q*0 + 0.5
@@ -86,7 +86,7 @@ ptikuv <- function(q, d, mean = 0, sigma = 1,
 
 qtikuv <- function(p, d, mean = 0, sigma = 1,
                    lower.tail = TRUE, log.p = FALSE, ...) {
-  if (!is.logical(log.p) || length(log.p) != 1)
+  if (!isFALSE(log.p) && !isTRUE(log.p))
     stop("bad input for argument 'log.p'")
 
   if (!is.Numeric(d, length.arg = 1) || max(d) >= 2)
@@ -100,9 +100,9 @@ qtikuv <- function(p, d, mean = 0, sigma = 1,
   }
 
   L <- max(length(p), length(mean), length(sigma))
-  if (length(p)     != L) p     <- rep_len(p,     L)
-  if (length(mean)  != L) mean  <- rep_len(mean,  L)
-  if (length(sigma) != L) sigma <- rep_len(sigma, L)
+  if (length(p)     < L) p     <- rep_len(p,     L)
+  if (length(mean)  < L) mean  <- rep_len(mean,  L)
+  if (length(sigma) < L) sigma <- rep_len(sigma, L)
   ans <- rep_len(0.0, L)
 
 
@@ -188,10 +188,14 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
                    isigma = NULL, zero = "sigma") {
 
 
+  if (is.character(lmean))
+    lmean <- substitute(y9, list(y9 = lmean))
   lmean <- as.list(substitute(lmean))
   emean <- link2list(lmean)
   lmean <- attr(emean, "function.name")
 
+  if (is.character(lsigma))
+    lsigma <- substitute(y9, list(y9 = lsigma))
   lsigma <- as.list(substitute(lsigma))
   esigma <- link2list(lsigma)
   lsigma <- attr(esigma, "function.name")
@@ -360,14 +364,20 @@ rtikuv <- function(n, d, mean = 0, sigma = 1, Smallno = 1.0e-6) {
              ishape2 = NULL,
              imethod = 1,
              zero = "shape") {
+  if (is.character(lscale))
+    lscale <- substitute(y9, list(y9 = lscale))
   lscale <- as.list(substitute(lscale))
   escale <- link2list(lscale)
   lscale <- attr(escale, "function.name")
 
+  if (is.character(lshape1))
+    lshape1 <- substitute(y9, list(y9 = lshape1))
   lshape1 <- as.list(substitute(lshape1))
   eshape1 <- link2list(lshape1)
   lshape1 <- attr(eshape1, "function.name")
 
+  if (is.character(lshape2))
+    lshape2 <- substitute(y9, list(y9 = lshape2))
   lshape2 <- as.list(substitute(lshape2))
   eshape2 <- link2list(lshape2)
   lshape2 <- attr(eshape2, "function.name")

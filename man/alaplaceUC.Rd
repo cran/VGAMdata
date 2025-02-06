@@ -1,4 +1,5 @@
-\name{alaplaceUC}
+\name{Alap}
+% \name{alaplaceUC}  prior to 20240920
 \alias{dalap}
 \alias{palap}
 \alias{qalap}

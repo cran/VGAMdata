@@ -312,7 +312,7 @@ f(y;xi,sigma,kappa) =  (sqrt(2)/sigma) * (kappa/(1+ \kappa^2)) * exp( -
 
 
   
-  The functions \code{alaplace2()} and \code{\link[VGAMdata]{laplace}}
+  The functions \code{alaplace2()} and \code{\link[VGAM]{laplace}}
   differ slightly in terms of the parameterizations.
 
 
@@ -321,7 +321,7 @@ f(y;xi,sigma,kappa) =  (sqrt(2)/sigma) * (kappa/(1+ \kappa^2)) * exp( -
 
 \seealso{
   \code{\link[VGAMdata]{ralap}},
-  \code{\link[VGAMdata]{laplace}},
+  \code{\link[VGAM]{laplace}},
   \code{\link[VGAM]{extlogF1}},
   \code{\link[VGAM]{CommonVGAMffArguments}},
   \code{\link[VGAM]{lms.bcn}},

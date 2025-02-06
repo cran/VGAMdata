@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2024 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2025 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -17,14 +17,14 @@
 
 
 dgenpois <- function(x, lambda = 0, theta, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(lambda), length(theta))
-  if (length(x)      != LLL) x      <- rep_len(x,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(theta)  != LLL) theta  <- rep_len(theta,  LLL)
+  if (length(x)      < LLL) x      <- rep_len(x,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(theta)  < LLL) theta  <- rep_len(theta,  LLL)
 
   llans <- -x*lambda - theta + (x-1) * log(theta + x*lambda) +
            log(theta) - lgamma(x+1)
@@ -61,10 +61,14 @@ dgenpois <- function(x, lambda = 0, theta, log = FALSE) {
 
 
 
+  if (is.character(llambda))
+    llambda <- substitute(y9, list(y9 = llambda))
   llambda <- as.list(substitute(llambda))
   elambda <- link2list(llambda)
   llambda <- attr(elambda, "function.name")
 
+  if (is.character(ltheta))
+    ltheta <- substitute(y9, list(y9 = ltheta))
   ltheta <- as.list(substitute(ltheta))
   etheta <- link2list(ltheta)
   ltheta <- attr(etheta, "function.name")
@@ -276,6 +280,8 @@ dgenpois <- function(x, lambda = 0, theta, log = FALSE) {
 
 
 
+  if (is.character(link))
+    link <- substitute(y9, list(y9 = link))
   link <- as.list(substitute(link))
   earg <- link2list(link)
   link <- attr(earg, "function.name")
@@ -412,15 +418,15 @@ doiposbinom <- function(x, size, prob, pstr1 = 0, log = FALSE) {
 
 
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(size), length(prob), length(pstr1))
-  if (length(x)      != LLL) x      <- rep_len(x,      LLL)
-  if (length(size)   != LLL) size   <- rep_len(size,   LLL)
-  if (length(prob)   != LLL) prob   <- rep_len(prob,   LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(x)      < LLL) x      <- rep_len(x,      LLL)
+  if (length(size)   < LLL) size   <- rep_len(size,   LLL)
+  if (length(prob)   < LLL) prob   <- rep_len(prob,   LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
 
   ans <- x  # + prob + pstr1
   index1 <- (x == 1)
@@ -452,10 +458,10 @@ doiposbinom <- function(x, size, prob, pstr1 = 0, log = FALSE) {
 poiposbinom <- function(q, size, prob, pstr1 = 0) {
 
   LLL <- max(length(q), length(size), length(prob), length(pstr1))
-  if (length(q)      != LLL) q      <- rep_len(q,      LLL)
-  if (length(size)   != LLL) size   <- rep_len(size,   LLL)
-  if (length(prob)   != LLL) prob   <- rep_len(prob,   LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(q)      < LLL) q      <- rep_len(q,      LLL)
+  if (length(size)   < LLL) size   <- rep_len(size,   LLL)
+  if (length(prob)   < LLL) prob   <- rep_len(prob,   LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
   ans <- rep_len(NA_real_, LLL)
 
   ans <- pposbinom(q, size, prob)  # lower.t=lower.tail, log.p=log.p
@@ -475,10 +481,10 @@ poiposbinom <- function(q, size, prob, pstr1 = 0) {
 qoiposbinom <- function(p, size, prob, pstr1 = 0) {
 
   LLL <- max(length(p), length(size), length(prob), length(pstr1))
-  if (length(p)      != LLL) p      <- rep_len(p,      LLL)
-  if (length(size)   != LLL) size   <- rep_len(size,   LLL)
-  if (length(prob)   != LLL) prob   <- rep_len(prob,   LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(p)      < LLL) p      <- rep_len(p,      LLL)
+  if (length(size)   < LLL) size   <- rep_len(size,   LLL)
+  if (length(prob)   < LLL) prob   <- rep_len(prob,   LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- size * prob / (1 + (size-1) * prob -
                                  1 / (1-prob)^(size-1))
@@ -521,10 +527,14 @@ roiposbinom <- function(n, size, prob, pstr1 = 0) {
 
   gprobb <- gprob
 
+  if (is.character(lpstr1))
+    lpstr1 <- substitute(y9, list(y9 = lpstr1))
   lpstr1 <- as.list(substitute(lpstr1))
   epstr1 <- link2list(lpstr1)
   lpstr1 <- attr(epstr1, "function.name")
 
+  if (is.character(lprob))
+    lprob <- substitute(y9, list(y9 = lprob))
   lprobb <- as.list(substitute(lprob))
   eprobb <- link2list(lprobb)
   lprobb <- attr(eprobb, "function.name")
@@ -887,14 +897,14 @@ doilog <- function(x, shape, pstr1 = 0, log = FALSE) {
 
 
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(shape), length(pstr1))
-  if (length(x)     != LLL) x     <- rep_len(x,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(x)     < LLL) x     <- rep_len(x,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
 
   ans <- rep(NA_real_, LLL)
   index1 <- (x == 1)
@@ -922,9 +932,9 @@ doilog <- function(x, shape, pstr1 = 0, log = FALSE) {
 poilog <- function(q, shape, pstr1 = 0) {
 
   LLL <- max(length(q), length(shape), length(pstr1))
-  if (length(q)     != LLL) q     <- rep_len(q,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(q)     < LLL) q     <- rep_len(q,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oilog(shape)
 
@@ -946,9 +956,9 @@ poilog <- function(q, shape, pstr1 = 0) {
 qoilog <- function(p, shape, pstr1 = 0) {
 
   LLL <- max(length(p), length(shape), length(pstr1))
-  if (length(p)     != LLL) p     <- rep_len(p,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(p)     < LLL) p     <- rep_len(p,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oilog(shape)
 
@@ -987,10 +997,14 @@ roilog <- function(n, shape, pstr1 = 0) {
            gshape = ppoints(8),
            zero = NULL) {
 
+  if (is.character(lpstr1))
+    lpstr1 <- substitute(y9, list(y9 = lpstr1))
   lpstr1 <- as.list(substitute(lpstr1))
   epstr1 <- link2list(lpstr1)
   lpstr1 <- attr(epstr1, "function.name")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -1267,7 +1281,7 @@ roilog <- function(n, shape, pstr1 = 0) {
 
 
 dotlog <- function(x, shape, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
@@ -1319,6 +1333,8 @@ rotlog <- function(n, shape) {
  otlog <-
   function(lshape = "logitlink", gshape = ppoints(8), zero = NULL) {
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -1475,12 +1491,13 @@ rotlog <- function(n, shape) {
 
 
 dotpospois <- function(x, lambda, log = FALSE) {
-  if (!is.logical(larg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
-  if (larg) {
-    ans <- dpospois(x, lambda, log = larg) - log1p(-dpospois(1, lambda))
+  if (log.arg) {
+    ans <- dpospois(x, lambda, log = log.arg) -
+           log1p(-dpospois(1, lambda))
     ans[x == 1] <- log(0)
   } else {
     ans <- dpospois(x, lambda) / (1 - dpospois(1, lambda))
@@ -1525,6 +1542,8 @@ rotpospois <- function(n, lambda) {
              type.fitted = c("mean", "lambda", "prob0", "prob1"),
              ilambda = NULL, imethod = 1, zero = NULL) {
 
+  if (is.character(llambda))
+    llambda <- substitute(y9, list(y9 = llambda))
   llambda <- as.list(substitute(llambda))
   elambda <- link2list(llambda)
   llambda <- attr(elambda, "function.name")
@@ -1693,14 +1712,14 @@ rotpospois <- function(n, lambda) {
 
 
 doalog <- function(x, shape, pobs1 = 0, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(shape), length(pobs1))
-  if (length(x)      != LLL) x      <- rep_len(x,      LLL)
-  if (length(shape)  != LLL) shape  <- rep_len(shape,  LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(x)      < LLL) x      <- rep_len(x,      LLL)
+  if (length(shape)  < LLL) shape  <- rep_len(shape,  LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
   ans <- rep_len(0.0, LLL)
 
 
@@ -1723,9 +1742,9 @@ doalog <- function(x, shape, pobs1 = 0, log = FALSE) {
 
 poalog <- function(q, shape, pobs1 = 0) {
   LLL <- max(length(q), length(shape), length(pobs1))
-  if (length(q)      != LLL) q      <- rep_len(q,      LLL)
-  if (length(shape)  != LLL) shape  <- rep_len(shape,  LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(q)      < LLL) q      <- rep_len(q,      LLL)
+  if (length(shape)  < LLL) shape  <- rep_len(shape,  LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
   ans <- rep_len(0.0, LLL)
 
   ans[q >  1] <-    pobs1[q > 1] +
@@ -1744,9 +1763,9 @@ poalog <- function(q, shape, pobs1 = 0) {
 
 qoalog <- function(p, shape, pobs1 = 0) {
   LLL <- max(length(p), length(shape), length(pobs1))
-  if (length(p)      != LLL) p      <- rep_len(p,      LLL)
-  if (length(shape)  != LLL) shape  <- rep_len(shape,  LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(p)      < LLL) p      <- rep_len(p,      LLL)
+  if (length(shape)  < LLL) shape  <- rep_len(shape,  LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
 
   ans <- rep_len(NaN, LLL)
   ind4 <- pobs1 < p
@@ -1778,10 +1797,14 @@ roalog <- function(n, shape, pobs1 = 0) {
            zero = NULL) {
 
 
+  if (is.character(lpobs1))
+    lpobs1 <- substitute(y9, list(y9 = lpobs1))
   lpobs1 <- as.list(substitute(lpobs1))
   epobs1 <- link2list(lpobs1)
   lpobs1 <- attr(epobs1, "function.name")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -2059,14 +2082,14 @@ roalog <- function(n, shape, pobs1 = 0) {
 
 
 doapospois <- function(x, lambda, pobs1 = 0, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(lambda), length(pobs1))
-  if (length(x)      != LLL) x      <- rep_len(x,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(x)      < LLL) x      <- rep_len(x,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
   ans <- rep_len(0.0, LLL)
 
 
@@ -2090,9 +2113,9 @@ doapospois <- function(x, lambda, pobs1 = 0, log = FALSE) {
 
 poapospois <- function(q, lambda, pobs1 = 0) {
   LLL <- max(length(q), length(lambda), length(pobs1))
-  if (length(q)      != LLL) q      <- rep_len(q,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(q)      < LLL) q      <- rep_len(q,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
   ans <- rep_len(0.0, LLL)
 
   ans[q >  1] <-    pobs1[q > 1] +
@@ -2112,9 +2135,9 @@ poapospois <- function(q, lambda, pobs1 = 0) {
 
 qoapospois <- function(p, lambda, pobs1 = 0) {
   LLL <- max(length(p), length(lambda), length(pobs1))
-  if (length(p)      != LLL) p      <- rep_len(p,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pobs1)  != LLL) pobs1  <- rep_len(pobs1,  LLL)
+  if (length(p)      < LLL) p      <- rep_len(p,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pobs1)  < LLL) pobs1  <- rep_len(pobs1,  LLL)
 
   ans <- rep_len(NaN, LLL)
   ind4 <- pobs1 < p
@@ -2146,10 +2169,14 @@ roapospois <- function(n, lambda, pobs1 = 0) {
            zero = NULL) {
 
 
+  if (is.character(lpobs1))
+    lpobs1 <- substitute(y9, list(y9 = lpobs1))
   lpobs1 <- as.list(substitute(lpobs1))
   epobs1 <- link2list(lpobs1)
   lpobs1 <- attr(epobs1, "function.name")
 
+  if (is.character(llambda))
+    llambda <- substitute(y9, list(y9 = llambda))
   llambd <- as.list(substitute(llambda))
   elambd <- link2list(llambd)
   llambd <- attr(elambd, "function.name")
@@ -2403,14 +2430,14 @@ roapospois <- function(n, lambda, pobs1 = 0) {
 
 
 doazeta <- function(x, shape, pobs1 = 0, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(shape), length(pobs1))
-  if (length(x)     != LLL) x     <- rep_len(x,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pobs1) != LLL) pobs1 <- rep_len(pobs1, LLL)
+  if (length(x)     < LLL) x     <- rep_len(x,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pobs1) < LLL) pobs1 <- rep_len(pobs1, LLL)
   ans <- rep_len(0.0, LLL)
 
 
@@ -2434,9 +2461,9 @@ doazeta <- function(x, shape, pobs1 = 0, log = FALSE) {
 
 poazeta <- function(q, shape, pobs1 = 0) {
   LLL <- max(length(q), length(shape), length(pobs1))
-  if (length(q)     != LLL) q     <- rep_len(q,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pobs1) != LLL) pobs1 <- rep_len(pobs1, LLL)
+  if (length(q)     < LLL) q     <- rep_len(q,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pobs1) < LLL) pobs1 <- rep_len(pobs1, LLL)
   ans <- rep_len(0.0, LLL)
 
   ans[q >  1] <-    pobs1[q > 1] +
@@ -2456,9 +2483,9 @@ poazeta <- function(q, shape, pobs1 = 0) {
 
 qoazeta <- function(p, shape, pobs1 = 0) {
   LLL <- max(length(p), length(shape), length(pobs1))
-  if (length(p)     != LLL) p     <- rep_len(p,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pobs1) != LLL) pobs1 <- rep_len(pobs1, LLL)
+  if (length(p)     < LLL) p     <- rep_len(p,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pobs1) < LLL) pobs1 <- rep_len(pobs1, LLL)
 
   ans <- rep_len(NaN, LLL)
   ind4 <- pobs1 < p
@@ -2492,10 +2519,14 @@ roazeta <- function(n, shape, pobs1 = 0) {
            zero = NULL) {
 
 
+  if (is.character(lpobs1))
+    lpobs1 <- substitute(y9, list(y9 = lpobs1))
   lpobs1 <- as.list(substitute(lpobs1))
   epobs1 <- link2list(lpobs1)
   lpobs1 <- attr(epobs1, "function.name")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -2780,14 +2811,14 @@ doizeta <- function(x, shape, pstr1 = 0, log = FALSE) {
 
 
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(shape), length(pstr1))
-  if (length(x)     != LLL) x     <- rep_len(x,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(x)     < LLL) x     <- rep_len(x,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
 
   ans <- rep(NA_real_, LLL)
   index1 <- (x == 1)
@@ -2816,9 +2847,9 @@ doizeta <- function(x, shape, pstr1 = 0, log = FALSE) {
 poizeta <- function(q, shape, pstr1 = 0) {
 
   LLL <- max(length(q), length(shape), length(pstr1))
-  if (length(q)     != LLL) q     <- rep_len(q,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(q)     < LLL) q     <- rep_len(q,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oizeta(shape)
 
@@ -2839,9 +2870,9 @@ poizeta <- function(q, shape, pstr1 = 0) {
 qoizeta <- function(p, shape, pstr1 = 0) {
 
   LLL <- max(length(p), length(shape), length(pstr1))
-  if (length(p)     != LLL) p     <- rep_len(p,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(p)     < LLL) p     <- rep_len(p,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oizeta(shape)
 
@@ -2879,10 +2910,14 @@ roizeta <- function(n, shape, pstr1 = 0) {
            gshape = exp((-3:3) / 4), # grid for finding shape.init
            zero = NULL) {
 
+  if (is.character(lpstr1))
+    lpstr1 <- substitute(y9, list(y9 = lpstr1))
   lpstr1 <- as.list(substitute(lpstr1))
   epstr1 <- link2list(lpstr1)
   lpstr1 <- attr(epstr1, "function.name")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -3171,7 +3206,7 @@ deflat.limit.oizipf  <- function(N, shape) {
 
 doizipf <- function(x, N, shape, pstr1 = 0, log = FALSE) {
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
@@ -3183,10 +3218,10 @@ doizipf <- function(x, N, shape, pstr1 = 0, log = FALSE) {
   if (!is.Numeric(shape, positive = TRUE))
     stop("bad input for argument 'shape'")
   nn <- max(length(x), length(N), length(shape), length(pstr1))
-  if (length(x)    != nn) x     <- rep_len(x,     nn)
-  if (length(N)    != nn) N     <- rep_len(N,     nn)
-  if (length(shape)!= nn) shape <- rep_len(shape, nn)
-  if (length(pstr1)!= nn) pstr1 <- rep_len(pstr1, nn)
+  if (length(x)     < nn) x     <- rep_len(x,     nn)
+  if (length(N)     < nn) N     <- rep_len(N,     nn)
+  if (length(shape) < nn) shape <- rep_len(shape, nn)
+  if (length(pstr1) < nn) pstr1 <- rep_len(pstr1, nn)
 
   ans <- rep(NA_real_, nn)
   index1 <- (x == 1)
@@ -3218,10 +3253,10 @@ doizipf <- function(x, N, shape, pstr1 = 0, log = FALSE) {
 poizipf <- function(q, N, shape, pstr1 = 0) {
 
   LLL <- max(length(q), length(N), length(shape), length(pstr1))
-  if (length(q)     != LLL) q     <- rep_len(q,     LLL)
-  if (length(N)     != LLL) N     <- rep_len(N,     LLL)
-  if (length(shape) != LLL) shape <- rep_len(shape, LLL)
-  if (length(pstr1) != LLL) pstr1 <- rep_len(pstr1, LLL)
+  if (length(q)     < LLL) q     <- rep_len(q,     LLL)
+  if (length(N)     < LLL) N     <- rep_len(N,     LLL)
+  if (length(shape) < LLL) shape <- rep_len(shape, LLL)
+  if (length(pstr1) < LLL) pstr1 <- rep_len(pstr1, LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oizipf(N, shape)
 
@@ -3250,10 +3285,10 @@ qoizipf <- function(p, N, shape, pstr1 = 0) {
     stop("bad input for argument 'shape'")
 
   nn <- max(length(p), length(N), length(s), length(pstr1))
-  if (length(p)     != nn) p     <- rep_len(p,     nn)
-  if (length(N)     != nn) N     <- rep_len(N,     nn)
-  if (length(shape) != nn) shape <- rep_len(shape, nn)
-  if (length(pstr1) != nn) pstr1 <- rep_len(pstr1, nn)
+  if (length(p)     < nn) p     <- rep_len(p,     nn)
+  if (length(N)     < nn) N     <- rep_len(N,     nn)
+  if (length(shape) < nn) shape <- rep_len(shape, nn)
+  if (length(pstr1) < nn) pstr1 <- rep_len(pstr1, nn)
 
 
   ans    <- rep_len(NA_real_, nn)
@@ -3302,10 +3337,14 @@ roizipf <- function(n, N, shape, pstr1 = 0) {
     stop("bad input for argument 'N'")
   enteredN <- length(N)
 
+  if (is.character(lpstr1))
+    lpstr1 <- substitute(y9, list(y9 = lpstr1))
   lpstr1 <- as.list(substitute(lpstr1))
   epstr1 <- link2list(lpstr1)
   lpstr1 <- attr(epstr1, "function.name")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -3600,7 +3639,7 @@ roizipf <- function(n, N, shape, pstr1 = 0) {
 
 
 dotzeta <- function(x, shape, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
@@ -3654,6 +3693,8 @@ rotzeta <- function(n, shape) {
   if (length(ishape) && !is.Numeric(ishape, positive = TRUE))
     stop("argument 'ishape' must be > 0")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -3782,7 +3823,7 @@ rotzeta <- function(n, shape) {
 
 
 dotzeta <- function(x, shape, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
@@ -3837,6 +3878,8 @@ rotzeta <- function(n, shape) {
   if (length(ishape) && !is.Numeric(ishape, positive = TRUE))
     stop("argument 'ishape' must be > 0")
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")
@@ -3980,14 +4023,14 @@ doipospois <- function(x, lambda, pstr1 = 0, log = FALSE) {
 
 
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   LLL <- max(length(x), length(lambda), length(pstr1))
-  if (length(x)      != LLL) x      <- rep_len(x,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(x)      < LLL) x      <- rep_len(x,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
 
   ans <- rep(NA_real_, LLL)
   index1 <- (x == 1)
@@ -4020,9 +4063,9 @@ doipospois <- function(x, lambda, pstr1 = 0, log = FALSE) {
 poipospois <- function(q, lambda, pstr1 = 0) {
 
   LLL <- max(length(q), length(lambda), length(pstr1))
-  if (length(q)      != LLL) q      <- rep_len(q,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(q)      < LLL) q      <- rep_len(q,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oipospois(lambda)
 
@@ -4042,9 +4085,9 @@ poipospois <- function(q, lambda, pstr1 = 0) {
 qoipospois <- function(p, lambda, pstr1 = 0) {
 
   LLL <- max(length(p), length(lambda), length(pstr1))
-  if (length(p)      != LLL) p      <- rep_len(p,      LLL)
-  if (length(lambda) != LLL) lambda <- rep_len(lambda, LLL)
-  if (length(pstr1)  != LLL) pstr1  <- rep_len(pstr1,  LLL)
+  if (length(p)      < LLL) p      <- rep_len(p,      LLL)
+  if (length(lambda) < LLL) lambda <- rep_len(lambda, LLL)
+  if (length(pstr1)  < LLL) pstr1  <- rep_len(pstr1,  LLL)
   ans <- rep_len(NA_real_, LLL)
   deflat.limit <- deflat.limit.oipospois(lambda)
 
@@ -4095,10 +4138,14 @@ roipospois <- function(n, lambda, pstr1 = 0) {
   gpstr10 <- gpstr1
 
 
+  if (is.character(lpstr1))
+    lpstr1 <- substitute(y9, list(y9 = lpstr1))
   lpstr10 <- as.list(substitute(lpstr1))
   epstr10 <- link2list(lpstr10)
   lpstr10 <- attr(epstr10, "function.name")
 
+  if (is.character(llambda))
+    llambda <- substitute(y9, list(y9 = llambda))
   llambda <- as.list(substitute(llambda))
   elambda <- link2list(llambda)
   llambda <- attr(elambda, "function.name")
@@ -4394,15 +4441,15 @@ roipospois <- function(n, lambda, pstr1 = 0) {
 
 
 dposbinom <- function(x, size, prob, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
 
   L <- max(length(x), length(size), length(prob))
-  if (length(x)      != L) x    <- rep_len(x,    L)
-  if (length(size)   != L) size <- rep_len(size, L)
-  if (length(prob)   != L) prob <- rep_len(prob, L)
+  if (length(x)      < L) x    <- rep_len(x,    L)
+  if (length(size)   < L) size <- rep_len(size, L)
+  if (length(prob)   < L) prob <- rep_len(prob, L)
 
   answer <- NaN * x
   is0 <- (x == 0)
@@ -4430,9 +4477,9 @@ pposbinom <- function(q, size, prob
   if (!is.Numeric(prob, positive = TRUE))
     stop("no zero or non-numeric values allowed for argument 'prob'")
   L <- max(length(q), length(size), length(prob))
-  if (length(q)      != L) q      <- rep_len(q,      L)
-  if (length(size)   != L) size   <- rep_len(size,   L)
-  if (length(prob)   != L) prob   <- rep_len(prob,   L)
+  if (length(q)      < L) q      <- rep_len(q,      L)
+  if (length(size)   < L) size   <- rep_len(size,   L)
+  if (length(prob)   < L) prob   <- rep_len(prob,   L)
 
   ifelse(q < 1, 0,
         (pbinom(q = q, size, prob) - dbinom(x = 0, size, prob))
@@ -4477,31 +4524,29 @@ rposbinom <- function(n, size, prob) {
 
 
 dpospois <- function(x, lambda, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
 
   L <- max(length(x), length(lambda))
-  if (length(x)      != L) x      <- rep_len(x,      L)
-  if (length(lambda) != L) lambda <- rep_len(lambda, L)
+  if (length(x)      < L) x      <- rep_len(x,      L)
+  if (length(lambda) < L) lambda <- rep_len(lambda, L)
 
-  ans <- if (log.arg) {
-    ifelse(x == 0, log(0.0), dpois(x, lambda, log = TRUE) -
-           log1p(-exp(-lambda)))
-  } else {
-    ifelse(x == 0, 0, -dpois(x, lambda) / expm1(-lambda))
-  }
-  ans[lambda <= 0] <- NaN
-  ans
-}
+  ans <- dpois(x, lambda, log = TRUE) -
+         ppois(0, lambda, lower.tail = FALSE, log.p = TRUE)
+  ans[x == 0] <- log(0)
+  ans[lambda <= 0] <- NaN  # Handle lambda == 0
+  if (log.arg)
+    ans else exp(ans)
+}  # dpospois
 
 
 
 ppospois <- function(q, lambda) {
   L <- max(length(q), length(lambda))
-  if (length(q)      != L) q      <- rep_len(q,      L)
-  if (length(lambda) != L) lambda <- rep_len(lambda, L)
+  if (length(q)      < L) q      <- rep_len(q,      L)
+  if (length(lambda) < L) lambda <- rep_len(lambda, L)
 
   ans <- ifelse(q < 1, 0, (ppois(q, lambda) - dpois(0, lambda))
                          / ppois(0, lambda, lower.tail = FALSE))
@@ -4569,14 +4614,14 @@ dposnegbin <-
       stop("Only one of 'prob' or 'munb' must be specified")
   }
 
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
 
   LLL <- max(length(x), length(prob), length(munb), length(size))
-  if (length(x)    != LLL) x    <- rep_len(x,    LLL)
-  if (length(size) != LLL) size <- rep_len(size, LLL)
+  if (length(x)    < LLL) x    <- rep_len(x,    LLL)
+  if (length(size) < LLL) size <- rep_len(size, LLL)
   ans <- if (length(munb)) {
     if (length(munb) != LLL) munb <- rep_len(munb, LLL)
     dnbinom(x = x, size = size, mu   = munb, log = TRUE)
@@ -4619,8 +4664,8 @@ pposnegbin <- function(q, size, prob = NULL, munb = NULL,
   }
 
   LLL <- max(length(q), length(prob), length(munb), length(size))
-  if (length(q)    != LLL) q    <- rep_len(q,    LLL)
-  if (length(size) != LLL) size <- rep_len(size, LLL)
+  if (length(q)    < LLL) q    <- rep_len(q,    LLL)
+  if (length(size) < LLL) size <- rep_len(size, LLL)
   if (length(munb)) {
     if (length(munb) != LLL) munb <- rep_len(munb, LLL)
   } else {
@@ -4728,13 +4773,13 @@ rposnegbin <- function(n, size, prob = NULL, munb = NULL) {
 
 
 dbell <- function(x, shape = 1, log = FALSE) {
-  if (!is.logical(log.arg <- log) || length(log) != 1)
+  if (!isFALSE(log.arg <- log) && !isTRUE(log))
     stop("bad input for argument 'log'")
   rm(log)
 
   L <- max(length(x), length(shape))
-  if (length(x)     != L) x     <- rep_len(x,     L)
-  if (length(shape) != L) shape <- rep_len(shape, L)
+  if (length(x)     < L) x     <- rep_len(x,     L)
+  if (length(shape) < L) shape <- rep_len(shape, L)
 
   logdensity <- rep_len(log(0), L)
   xok <- (0 <= x) & is.finite(x) & (x == round(x))
@@ -4775,6 +4820,8 @@ rbell <- function(n, shape = 1) {
  bellff <- function(lshape = "loglink", zero = NULL,
                     gshape = expm1(1.6 * ppoints(7))) {
 
+  if (is.character(lshape))
+    lshape <- substitute(y9, list(y9 = lshape))
   lshape <- as.list(substitute(lshape))  # orig
   eshape <- link2list(lshape)
   lshape <- attr(eshape, "function.name")

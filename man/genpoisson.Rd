@@ -170,10 +170,10 @@ Generally altered, inflated, truncated and deflated regression.
   Convergence problems may occur when \code{lambda} is very close
   to 0 or 1.
   If a failure occurs then you might want to try something like
-  \code{llambda = extlogitlink(min = -0.9, max = 1)}
+  \code{llambda = "extlogitlink(min = -0.9, max = 1)"}
   to handle the LHS complicated constraint,
   and if that doesn't work, try
-  \code{llambda = extlogitlink(min = -0.8, max = 1)}, etc.
+  \code{llambda = "extlogitlink(min = -0.8, max = 1)"}, etc.
 
 
 }

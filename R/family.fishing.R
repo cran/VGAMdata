@@ -1,5 +1,5 @@
 # These functions are
-# Copyright (C) 1998-2024 T.W. Yee, University of Auckland.
+# Copyright (C) 1998-2025 T.W. Yee, University of Auckland.
 # All rights reserved.
 
 
@@ -13,9 +13,10 @@ DeLury <- function(catch, effort,
                    type = c("DeLury", "Leslie"),
                    ricker = FALSE) {
   type <- match.arg(type, c("DeLury", "Leslie"))[1]
-  if (!is.logical(ricker))
+  if (!isFALSE(ricker) && !isTRUE(ricker))
     stop("bad input for argument 'ricker'")
-  if ((LLL <- Lcatch <- length(catch)) != (Leffort <- length(effort)))
+  if ((LLL <- Lcatch <- length(catch)) !=
+      (Leffort <- length(effort)))
     stop("length(catch) != length(effort)")
 
   CPUE <- catch / effort
